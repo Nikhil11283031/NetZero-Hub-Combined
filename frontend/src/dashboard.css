@@ -136,7 +136,31 @@ body { overflow-x: hidden; }
   color: var(--muted);
   font-size: 0.9rem;
 }
+.dash .dash-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+}
 
+.dash .dash-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.dash .dash-actions {
+  margin-top: auto;
+}
+
+.dash .dash-icon--red {
+  background: #fde8e8;
+  color: #b42318;
+}
+
+@media (max-width: 700px) {
+  .dash .dash-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
 @media (max-width: 900px) {
   .dash-grid { grid-template-columns: 1fr; }
   .dash-main { padding-top: 48px; }

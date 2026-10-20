@@ -49,7 +49,7 @@ function Header() {
             </svg>
           </span>
           <span>
-            NetZero Hub <span className="brand-sub">Recycling collections</span>
+            NetZero Hub <span className="brand-sub">Cleaner living, made simple</span>
           </span>
         </NavLink>
         <nav className="nav">
@@ -61,7 +61,7 @@ function Header() {
   {user && (
     <>
       <NavLink to="/dashboard" end>Dashboard</NavLink>
-      <NavLink to="/bookings">My bookings</NavLink>
+      {/* <NavLink to="/bookings">My bookings</NavLink> */}
       {/* <NavLink to="/book">Book a collection</NavLink> */}
       {user.is_staff && <NavLink to="/provider">Provider console</NavLink>}
       <button className="link-button" onClick={signOut}>

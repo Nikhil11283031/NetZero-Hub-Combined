@@ -38,6 +38,8 @@ const services = [
     audience: 'Households',
     text: 'Book a free household recycling collection online and track your booking.',
     points: ['Choose a date and materials', 'Confirmed with your collection provider', 'Manage or cancel bookings'],
+    to: '/solar',
+    action: 'Open Recycling Collections',
   },
   {
     icon: 'licence',

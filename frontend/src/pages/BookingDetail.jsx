@@ -222,7 +222,7 @@ export default function BookingDetail() {
         </section>
       </div>
 
-      <section className="card">
+      {/* <section className="card">
         <h2>History and notifications</h2>
         <ol className="timeline">
           {booking.events.map((ev, i) => (
@@ -252,7 +252,7 @@ export default function BookingDetail() {
           The same WMS-002 output other services receive from <code>/api/v1/integration/bookings/</code>.
         </p>
         {mode === "json" && output && <pre className="json">{JSON.stringify(output, null, 2)}</pre>}
-      </section>
+      </section> */}
     </>
   );
 }

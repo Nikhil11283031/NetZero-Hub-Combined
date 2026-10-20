@@ -19,7 +19,13 @@ const icons = {
       <path d="M18.5 2v4h-4M5.5 22v-4h4" />
     </Icon>
   ),
-  environment: <EpaIcon name="leaf" size={25} />,
+  licence: <EpaIcon name="leaf" size={25} />,
+  incident: (
+    <Icon>
+      <path d="M12 3 2 20h20L12 3z" />
+      <path d="M12 10v4M12 17.5v.01" />
+    </Icon>
+  ),
   solar: (
     <Icon>
       <circle cx="12" cy="12" r="4" />
@@ -41,14 +47,24 @@ const cards = [
     newTo: '/book',
   },
   {
-    key: 'environment',
+    key: 'licence',
     color: 'leaf',
-    title: 'Environment Protection',
-    text: 'Track your licence applications and pollution reports, with status updates and reference numbers.',
-    viewLabel: 'View Requests',
+    title: 'Environment Protection Licence',
+    text: 'Track your licence applications, with status updates and reference numbers.',
+    viewLabel: 'View Licences',
+    viewTo: '/epa/licences',
+    newLabel: 'New Application',
+    newTo: '/epa/licensing/applications/new',
+  },
+  {
+    key: 'incident',
+    color: 'red',
+    title: 'Pollution Incident Reports',
+    text: 'Follow your pollution incident reports through investigation, with status updates.',
+    viewLabel: 'View Reports',
     viewTo: '/epa/cases',
-    newLabel: 'New Request',
-    newTo: '/epa',
+    newLabel: 'Report Incident',
+    newTo: '/epa/incidents/new',
   },
   {
     key: 'solar',
@@ -61,6 +77,13 @@ const cards = [
     newTo: '/solar/new',
   },
 ];
+
+// Decide whether an EPA case is a pollution incident (everything else counts as a licence).
+// If your counts look wrong, this is the one line to adjust.
+const isIncident = (item) =>
+  /incident|pollution/i.test(
+    String(item.type ?? item.kind ?? item.case_type ?? item.category ?? item.service ?? item.reference ?? '')
+  );
 
 // Recycling and solar counts come from Django; EPA counts come from both EPA APIs.
 export default function Dashboard() {
@@ -81,9 +104,12 @@ export default function Dashboard() {
       .catch(() => {});
     createApi({ token: getToken(), authScheme: 'Token' }).allCases(controller.signal)
       .then((cases) => {
-        if (active) setCounts((previous) => ({
+        if (!active) return;
+        const open = cases.filter((item) => !FINAL_STATES.has(item.state));
+        setCounts((previous) => ({
           ...previous,
-          environment: cases.filter((item) => !FINAL_STATES.has(item.state)).length,
+          incident: open.filter(isIncident).length,
+          licence: open.filter((item) => !isIncident(item)).length,
         }));
       })
       .catch(() => {});

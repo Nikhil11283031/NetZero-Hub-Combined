@@ -67,7 +67,7 @@ const faqs = [
 
 // These describe the service itself. Swap in live numbers from your backend later if you like.
 const stats = [
-  { value: '3', label: 'Services in one account' },
+  { value: '4', label: 'Services in one account' },
   { value: '24/7', label: 'Online access' },
   { value: 'Free', label: 'Standard recycling collections' },
 ];
