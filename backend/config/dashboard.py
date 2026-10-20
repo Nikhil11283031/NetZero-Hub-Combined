@@ -22,11 +22,7 @@ class DashboardView(APIView):
             from recycling.models import Booking
             counts["recycling_count"] = Booking.objects.filter(user=user, status__in=Booking.ACTIVE_STATUSES).count()
 
-        if apps.is_installed("solar"):
-            from solar.models import SolarRequest
-            counts["solar_count"] = SolarRequest.objects.filter(
-                user=user, status__in=SolarRequest.ACTIVE_STATUSES).count()
-
-        # The React dashboard reads EPA counts from the two independent EPA APIs.
+        # The React dashboard reads solar and EPA counts from their own services (solar-service and the two
+        # EPA APIs), each with its own database. solar_count stays here only for compatibility.
         # This legacy placeholder is retained for compatibility, not used by that card.
         return Response(counts)

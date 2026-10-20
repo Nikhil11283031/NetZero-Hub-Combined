@@ -16,6 +16,7 @@ Bootstrap is generated under the `.epa-app` selector by `scripts/build-epa-css.m
 | --- | --- | --- |
 | `/api/v1/epa/licensing/` | `epa-licensing:8001` | `/cases` |
 | `/api/v1/epa/incidents/` | `epa-incidents:8002` | `/cases` |
+| `/api/v1/solar/` | `solar-service:8000` | Original path (`/api/v1/solar/requests/`) |
 | Other `/api/`, `/admin/`, `/static/` | `backend:8000` | Original path |
 | Application pages | Frontend nginx | React `index.html` fallback |
 
@@ -45,6 +46,21 @@ The EPA services now depend on the group authentication API. During a Django out
 
 ## Group development
 
-EPA UI changes belong under `frontend/src/features/epa/`; EPA business logic belongs under `epa/services/`. Recycling and solar retain their existing folders. Shared route, authentication, navigation and Compose changes should be reviewed together before merging.
+EPA UI changes belong under `frontend/src/features/epa/`; EPA business logic belongs under `epa/services/`. Solar business logic belongs under `solar-service/solar/` and its pages under `frontend/src/pages/solar/`. Recycling retains its existing folders. Shared route, authentication, navigation and Compose changes should be reviewed together before merging.
 
-The Vite configuration expects API processes directly on ports 8000, 8001 and 8002 for development outside Docker. Those EPA host ports are not exposed by Compose. For the Docker workflow, rebuild from the project root as described in README.md.
+The Vite configuration expects API processes directly on ports 8000 (Django), 8001 and 8002 (EPA) and 8003 (solar) for development outside Docker. Those EPA host ports are not exposed by Compose. For the Docker workflow, rebuild from the project root as described in README.md.
+
+## Solar microservice
+
+Solar runs as its own service, `solar-service/` (Django REST Framework), with its own MySQL database
+`solar-db` and volume `solar-mysql-data`. It shares no tables with the group database.
+
+- Identity: like EPA, solar sends the caller's `Authorization: Token` header to `NZ_AUTH_URL`
+  (`backend:8000/api/v1/auth/me/`), does not follow redirects and does not cache tokens by default, so signing
+  out takes effect immediately. If Django is unavailable it returns 503.
+- Ownership: each solar request stores the Django `user_id` and `username`, not a foreign key.
+- Staff actions use `is_staff` from the identity response.
+- Dashboard: the solar count comes from `GET /api/v1/solar/summary/`.
+- Records created by the earlier in-Django solar app are not migrated; the new solar database starts empty.
+
+See `solar-service/README.md` for the API and local development.

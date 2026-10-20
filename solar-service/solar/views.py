@@ -10,7 +10,7 @@ from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from recycling.services.exceptions import ChangeNotAllowed, NotEligible, ServiceError, SlotUnavailable
+from .errors import ChangeNotAllowed, NotEligible, ServiceError, SlotUnavailable
 
 from . import services
 from .catalogue import ADD_ONS, PROPERTY_TYPES, ROOF_TYPES, STOREYS, SUBURBS, SYSTEM_SIZES, TIME_SLOTS, by_id, find_installer
@@ -29,9 +29,37 @@ class PreconditionFailed(ServiceError):
     code = "precondition_failed"
 
 
+# The process activity recorded when staff move a request to each status
+STAFF_ACTIVITY = {
+    SolarRequest.Status.ASSESSED: SolarRequestEvent.Activity.ASSESS,
+    SolarRequest.Status.COMPLETED: SolarRequestEvent.Activity.INSTALL,
+    SolarRequest.Status.CANCELLED: SolarRequestEvent.Activity.CANCEL,
+}
+
+
 class PaymentDeclined(ServiceError):
     status_code = 402
     code = "payment_declined"
+
+
+class HealthView(APIView):
+    """Liveness check for Docker and the gateway."""
+
+    permission_classes = [AllowAny]
+    authentication_classes = []
+
+    @extend_schema(responses=OpenApiTypes.OBJECT)
+    def get(self, request):
+        return Response({"status": "ok", "service": "solar", "service_id": "ORG-001"})
+
+
+class MySummaryView(APIView):
+    """The signed-in user's active solar requests, for the shared dashboard (API composition)."""
+
+    @extend_schema(responses=OpenApiTypes.OBJECT)
+    def get(self, request):
+        active = SolarRequest.objects.filter(user_id=request.user.id, status__in=SolarRequest.ACTIVE_STATUSES)
+        return Response({"active_count": active.count()})
 
 
 class OptionsView(APIView):
@@ -100,7 +128,7 @@ class SolarRequestViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixi
     lookup_field = "reference"
 
     def get_queryset(self):
-        qs = SolarRequest.objects.filter(user=self.request.user)
+        qs = SolarRequest.objects.filter(user_id=self.request.user.id)
         scope = self.request.query_params.get("scope")
         if scope == "upcoming":
             qs = qs.filter(status__in=SolarRequest.ACTIVE_STATUSES, assessment_date__gte=services.today())
@@ -135,7 +163,8 @@ class SolarRequestViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixi
             lines = services.price_breakdown(data["system_size"], data["roof_type"], data["storeys"], data["add_ons"])
             obj = SolarRequest.objects.create(
                 reference=services.new_reference(),
-                user=request.user,
+                user_id=request.user.id,
+                username=request.user.username,
                 customer_name=data["customer_name"].strip(),
                 customer_email=data["customer_email"],
                 customer_phone=data["customer_phone"].strip(),
@@ -155,7 +184,7 @@ class SolarRequestViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixi
                 notes=data.get("notes", "").strip(),
             )
             SolarRequestEvent.objects.create(
-                request=obj, status=obj.status, actor="NetZero Hub",
+                request=obj, activity=SolarRequestEvent.Activity.BOOK, status=obj.status, actor="NetZero Hub",
                 note=f"Site assessment booked with {obj.installer}.",
             )
         return Response(SolarRequestSerializer(obj).data, status=status.HTTP_201_CREATED)
@@ -167,11 +196,12 @@ class SolarRequestViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixi
             obj = self.get_queryset().select_for_update().get(pk=self.get_object().pk)
             if not obj.is_active:
                 raise ChangeNotAllowed(f"This request is already {obj.get_status_display().lower()}.")
-            refund_note = services.refund_all(obj)
             obj.status = SolarRequest.Status.CANCELLED
-            obj.save(update_fields=["status", "amount_paid", "payment_status", "updated_at"])
-            SolarRequestEvent.objects.create(request=obj, status=obj.status, actor=obj.customer_name,
-                                             note="Cancelled by the customer." + refund_note)
+            obj.save(update_fields=["status", "updated_at"])
+            SolarRequestEvent.objects.create(request=obj, activity=SolarRequestEvent.Activity.CANCEL,
+                                             status=obj.status, actor=obj.customer_name,
+                                             note="Cancelled by the customer.")
+            services.refund_all(obj)
         return Response(SolarRequestSerializer(obj).data)
 
     @extend_schema(request=PaymentSerializer, responses=SolarRequestSerializer)
@@ -250,7 +280,7 @@ class AdminRequestListView(APIView):
         responses=SolarAdminRequestSerializer(many=True),
     )
     def get(self, request):
-        qs = SolarRequest.objects.select_related("user").prefetch_related("events")
+        qs = SolarRequest.objects.prefetch_related("events", "payments")
         status_filter = request.query_params.get("status")
         if status_filter == "ACTIVE":
             qs = qs.filter(status__in=SolarRequest.ACTIVE_STATUSES)
@@ -267,7 +297,7 @@ class AdminRequestListView(APIView):
             qs = qs.filter(
                 Q(reference__icontains=q) | Q(customer_name__icontains=q) | Q(customer_email__icontains=q)
                 | Q(address_line__icontains=q) | Q(suburb__icontains=q) | Q(postcode__icontains=q)
-                | Q(user__username__icontains=q)
+                | Q(username__icontains=q)
             )
         return Response(SolarAdminRequestSerializer(qs.order_by("assessment_date", "time_slot"), many=True).data)
 
@@ -293,15 +323,14 @@ class AdminStatusUpdateView(APIView):
             )
         with transaction.atomic():
             obj = SolarRequest.objects.select_for_update().get(pk=obj.pk)
-            event_note = note
-            if new_status == SolarRequest.Status.CANCELLED:
-                event_note = (note + services.refund_all(obj)).strip()
             obj.status = new_status
             if note:
                 obj.staff_note = note
-            obj.save(update_fields=["status", "staff_note", "amount_paid", "payment_status", "updated_at"])
+            obj.save(update_fields=["status", "staff_note", "updated_at"])
             SolarRequestEvent.objects.create(
-                request=obj, status=new_status, note=event_note,
+                request=obj, activity=STAFF_ACTIVITY[new_status], status=new_status, note=note,
                 actor=request.user.get_full_name() or request.user.username,
             )
+            if new_status == SolarRequest.Status.CANCELLED:
+                services.refund_all(obj)
         return Response(SolarAdminRequestSerializer(obj).data)

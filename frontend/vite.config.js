@@ -15,6 +15,8 @@ export default defineConfig({
     proxy: {
       "/api/v1/epa/licensing": epaProxy(process.env.EPA_LICENSING_TARGET || "http://127.0.0.1:8001", "/api/v1/epa/licensing"),
       "/api/v1/epa/incidents": epaProxy(process.env.EPA_INCIDENTS_TARGET || "http://127.0.0.1:8002", "/api/v1/epa/incidents"),
+      // Solar microservice: keeps the full /api/v1/solar/ path.
+      "/api/v1/solar": process.env.SOLAR_TARGET || "http://127.0.0.1:8003",
       "/api": process.env.VITE_PROXY_TARGET || "http://127.0.0.1:8000",
     },
   },

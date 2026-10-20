@@ -8,6 +8,8 @@ router.register("requests", views.SolarRequestViewSet, basename="solar-request")
 
 # Mounted at /api/v1/solar/
 urlpatterns = [
+    path("health/", views.HealthView.as_view(), name="solar-health"),
+    path("summary/", views.MySummaryView.as_view(), name="solar-summary"),
     path("options/", views.OptionsView.as_view(), name="solar-options"),
     path("postcode/", views.PostcodeCheckView.as_view(), name="solar-postcode"),
     path("recommend/", views.RecommendView.as_view(), name="solar-recommend"),

@@ -70,7 +70,7 @@ docker compose up --build -d
 
 # See status or recent errors.
 docker compose ps
-docker compose logs --tail=100 backend epa-licensing epa-incidents frontend
+docker compose logs --tail=100 backend solar-service epa-licensing epa-incidents frontend
 
 # Stop without deleting saved data.
 docker compose stop
@@ -85,15 +85,17 @@ If only frontend files changed, use `docker compose up -d --build --no-deps fron
 | Folder / service | Responsibility | Technology / data |
 | --- | --- | --- |
 | `frontend/` → `frontend` | Shared header, login, dashboard and all provider pages; nginx routes API requests | React 18, React Router 6, Vite 5 |
-| `backend/` → `backend` | Group accounts, recycling and solar APIs | Django REST Framework, MySQL |
+| `backend/` → `backend` | Group accounts and recycling API | Django REST Framework, MySQL |
 | `backend/` → `scheduler` | Existing recycling reminders and timetable maintenance | Django commands |
+| `solar-service/` → `solar-service` | Solar installation requests, quotes, payments and staff workflow | Django REST Framework, its own MySQL database (`solar-db`) |
 | `epa/` → `epa-licensing` | Licence applications and variations, events and exports | FastAPI, persistent SQLite volume |
 | `epa/` → `epa-incidents` | Pollution reports and investigations, licence context lookup, events and exports | FastAPI, separate persistent SQLite volume |
-| `db` | Group database | MySQL 8.4, existing persistent volume |
+| `db` | Group database (accounts and recycling) | MySQL 8.4, existing persistent volume |
+| `solar-db` | Solar database | MySQL 8.4, separate `solar-mysql-data` volume |
 
 All source is in this folder. The services retain their own runtimes and data stores. The EPA databases do not move into MySQL. No separate host installation of Django, FastAPI, npm packages or MySQL is needed to run Docker; the setup helper uses your installed Python.
 
-EPA requests use the same opaque login token as the group API. Each EPA service asks Django to verify it. EPA officer access requires a superuser or membership in the **EPA Officers** Django group; ordinary provider staff are not automatically EPA officers.
+EPA and solar requests use the same opaque login token as the group API. Each EPA service and the solar service ask Django to verify it. EPA officer access requires a superuser or membership in the **EPA Officers** Django group; ordinary provider staff are not automatically EPA officers.
 
 To add an EPA officer, sign into `/admin/` as `provider_admin`, open the user, add **EPA Officers** under Groups and save. The user should sign out and back in so the frontend refreshes their role. They do not need `is_staff` merely to use the EPA workspace.
 
@@ -110,6 +112,6 @@ Old standalone EPA records are not automatically imported. They belong to standa
 - `docs/RECYCLING_REFERENCE.md`: original group recycling documentation, retained as a historical reference.
 - `epa/README.md`: EPA processes and retained standalone materials.
 
-Current API documentation is served at `/api/docs/` for Django, `/api/v1/epa/licensing/docs` for licensing, and `/api/v1/epa/incidents/docs` for incidents.
+Current API documentation is served at `/api/docs/` for Django, `/api/v1/solar/docs/` for solar, `/api/v1/epa/licensing/docs` for licensing, and `/api/v1/epa/incidents/docs` for incidents.
 
 Do not commit `.env`, local databases, dependencies or generated browser test output. `.gitignore` excludes them. Share source through the group's repository; each member creates their own `.env`.

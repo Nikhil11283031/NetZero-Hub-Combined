@@ -41,7 +41,7 @@ Confirm the backend and both EPA APIs are healthy, then sign in at http://localh
 
 ## Repeating tests
 
-With the appropriate Python requirements installed, run `python manage.py test recycling solar` from `backend/`, and `python -m unittest tests.test_api tests.test_frontend_api tests.test_portal -v` from `epa/`. Run `python -m unittest discover -s tests -p test_setup_env.py -v` from the project root.
+With the appropriate Python requirements installed, run `python manage.py test recycling` from `backend/`, `python manage.py test` from `solar-service/`, and `python -m unittest tests.test_api tests.test_frontend_api tests.test_portal -v` from `epa/`. Run `python -m unittest discover -s tests -p test_setup_env.py -v` from the project root.
 
 Frontend helper tests and the production build run from `frontend/`:
 

@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "corsheaders",
     "drf_spectacular",
     "recycling",
-    "solar",
 ]
 
 MIDDLEWARE = [

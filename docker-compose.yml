@@ -91,6 +91,8 @@ services:
         condition: service_healthy
       epa-incidents:
         condition: service_healthy
+      solar-service:
+        condition: service_healthy
     ports:
       - "${FRONTEND_PORT:-3000}:80"
 
@@ -136,7 +138,54 @@ services:
       timeout: 3s
       retries: 15
 
+  # Solar panel installation microservice (ORG-001): its own Django API and its own MySQL database.
+  solar-db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${SOLAR_MYSQL_DATABASE:-solar}
+      MYSQL_USER: ${SOLAR_MYSQL_USER:-solar}
+      MYSQL_PASSWORD: ${SOLAR_MYSQL_PASSWORD:?Run python scripts/setup_env.py}
+      MYSQL_ROOT_PASSWORD: ${SOLAR_MYSQL_ROOT_PASSWORD:?Run python scripts/setup_env.py}
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    volumes:
+      - solar-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+  solar-service:
+    build: ./solar-service
+    restart: unless-stopped
+    environment:
+      SOLAR_MYSQL_HOST: solar-db
+      SOLAR_MYSQL_PORT: "3306"
+      SOLAR_MYSQL_DATABASE: ${SOLAR_MYSQL_DATABASE:-solar}
+      SOLAR_MYSQL_USER: ${SOLAR_MYSQL_USER:-solar}
+      SOLAR_MYSQL_PASSWORD: ${SOLAR_MYSQL_PASSWORD:?Run python scripts/setup_env.py}
+      DJANGO_SECRET_KEY: ${SOLAR_DJANGO_SECRET_KEY:?Run python scripts/setup_env.py}
+      DJANGO_DEBUG: ${DJANGO_DEBUG:-false}
+      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,solar-service
+      TIME_ZONE: ${TIME_ZONE:-Australia/Sydney}
+      # Identity is verified by the group Django backend, like the EPA services.
+      NZ_AUTH_URL: http://backend:8000/api/v1/auth/me/
+    depends_on:
+      solar-db:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/solar/health/', timeout=2)"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
 volumes:
   mysql-data:
   epa-licence-data:
   epa-incident-data:
+  solar-mysql-data:

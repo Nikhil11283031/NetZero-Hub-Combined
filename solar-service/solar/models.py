@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.db import models
 
 
@@ -32,7 +31,10 @@ class SolarRequest(models.Model):
     }
 
     reference = models.CharField(max_length=32, unique=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="solar_requests")
+    # The customer's account lives in the accounts (recycling) service, so we keep its id and username
+    # rather than a database link to another service's table.
+    user_id = models.PositiveBigIntegerField(db_index=True)
+    username = models.CharField(max_length=150)
     status = models.CharField(max_length=12, choices=Status.choices, default=Status.CONFIRMED, db_index=True)
 
     # Contact
@@ -88,9 +90,20 @@ class SolarRequest(models.Model):
 
 
 class SolarRequestEvent(models.Model):
-    """Audit trail: every status change on a solar request, shown as a timeline."""
+    """Audit trail: every step on a solar request, shown to the customer as a timeline."""
+
+    class Activity(models.TextChoices):
+        BOOK = "Book site assessment"
+        PAY_DEPOSIT = "Pay deposit"
+        PAY_FULL = "Pay in full"
+        PAY_BALANCE = "Pay balance"
+        ASSESS = "Complete site assessment"
+        INSTALL = "Install system"
+        CANCEL = "Cancel request"
+        REFUND = "Issue refund"
 
     request = models.ForeignKey(SolarRequest, on_delete=models.CASCADE, related_name="events")
+    activity = models.CharField(max_length=40, choices=Activity.choices, blank=True)
     status = models.CharField(max_length=12, choices=SolarRequest.Status.choices)
     note = models.TextField(blank=True)
     actor = models.CharField(max_length=150)

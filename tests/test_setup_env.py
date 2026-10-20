@@ -22,5 +22,7 @@ class SetupEnvironmentTests(unittest.TestCase):
             self.assertIn('DEMO_RESIDENT_PASSWORD=my-existing-password\n', first)
             self.assertNotIn('=CHANGE-ME-', first)
             self.assertRegex(first, r'NZ_INTERNAL_TOKEN=[a-f0-9]{64}')
+            self.assertRegex(first, r'SOLAR_MYSQL_PASSWORD=[a-f0-9]{64}')
+            self.assertRegex(first, r'SOLAR_DJANGO_SECRET_KEY=[a-f0-9]{64}')
             setup_env.configure(root)
             self.assertEqual((root / '.env').read_text(), first)

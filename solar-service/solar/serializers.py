@@ -48,7 +48,7 @@ class SolarRequestEventSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SolarRequestEvent
-        fields = ["status", "status_label", "note", "actor", "created_at"]
+        fields = ["activity", "status", "status_label", "note", "actor", "created_at"]
 
 
 class SolarPaymentSerializer(serializers.ModelSerializer):
@@ -135,7 +135,7 @@ class SolarAdminRequestSerializer(SolarRequestSerializer):
         fields = SolarRequestSerializer.Meta.fields + ["customer_account", "allowed_transitions"]
 
     def get_customer_account(self, obj) -> dict:
-        return {"user_id": obj.user_id, "username": obj.user.username}
+        return {"user_id": obj.user_id, "username": obj.username}
 
     def get_allowed_transitions(self, obj) -> list:
         return [{"status": s, "label": SolarRequest.Status(s).label} for s in obj.allowed_transitions()]

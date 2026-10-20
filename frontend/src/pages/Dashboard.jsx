@@ -85,7 +85,7 @@ const isIncident = (item) =>
     String(item.type ?? item.kind ?? item.case_type ?? item.category ?? item.service ?? item.reference ?? '')
   );
 
-// Recycling and solar counts come from Django; EPA counts come from both EPA APIs.
+// Each count comes from its own service: recycling from Django, solar from solar-service, EPA from both EPA APIs.
 export default function Dashboard() {
   const [counts, setCounts] = useState(null);
 
@@ -98,8 +98,13 @@ export default function Dashboard() {
         setCounts((previous) => ({
           ...previous,
           recycling: data.recycling_count ?? 0,
-          solar: data.solar_count ?? 0,
         }));
+      })
+      .catch(() => {});
+    api('/solar/summary/')
+      .then((data) => {
+        if (!active) return;
+        setCounts((previous) => ({ ...previous, solar: data.active_count ?? 0 }));
       })
       .catch(() => {});
     createApi({ token: getToken(), authScheme: 'Token' }).allCases(controller.signal)

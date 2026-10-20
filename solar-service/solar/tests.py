@@ -1,6 +1,16 @@
-from django.contrib.auth import get_user_model
-from django.test import TestCase
+from unittest import mock
+
+from django.core.cache import cache
+from django.test import TestCase, override_settings
 from rest_framework.test import APIClient
+
+from .auth import RemoteUser
+
+
+def make_user(user_id, username, email="", is_staff=False, first_name="", last_name=""):
+    """A user as the accounts (recycling) service would describe it."""
+    return RemoteUser({"id": user_id, "username": username, "email": email, "is_staff": is_staff,
+                       "first_name": first_name, "last_name": last_name})
 
 from .models import SolarRequest
 from .services import availability
@@ -8,8 +18,8 @@ from .services import availability
 
 class SolarApiTests(TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user("priya", "priya@example.com", "S3cure-pass-123")
-        self.other = get_user_model().objects.create_user("sam", "sam@example.com", "S3cure-pass-123")
+        self.user = make_user(1, "priya", "priya@example.com")
+        self.other = make_user(2, "sam", "sam@example.com")
         self.client = APIClient()
         self.client.force_authenticate(self.user)
 
@@ -104,21 +114,20 @@ class SolarApiTests(TestCase):
         self.assertEqual(again.status_code, 409)
         self.assertEqual(self.client.get("/api/v1/solar/requests/", {"scope": "upcoming"}).data, [])
 
-    def test_dashboard_counts(self):
+    def test_summary_for_dashboard(self):
         self.client.post("/api/v1/solar/requests/", self.payload(), format="json")
-        res = self.client.get("/api/v1/dashboard/")
+        res = self.client.get("/api/v1/solar/summary/")
         self.assertEqual(res.status_code, 200)
-        self.assertEqual(res.data["solar_count"], 1)
-        self.assertEqual(res.data["recycling_count"], 0)
-        self.assertEqual(SolarRequest.objects.count(), 1)
+        self.assertEqual(res.data["active_count"], 1)
+        obj = SolarRequest.objects.get()
+        self.assertEqual((obj.user_id, obj.username), (1, "priya"))
 
 
 class SolarAdminTests(TestCase):
     def setUp(self):
-        User = get_user_model()
-        self.customer = User.objects.create_user("priya", "priya@example.com", "S3cure-pass-123", first_name="Priya")
-        self.staff = User.objects.create_user("installer", "staff@example.com", "S3cure-pass-123", is_staff=True,
-                                              first_name="Sam", last_name="Installer")
+        self.customer = make_user(1, "priya", "priya@example.com", first_name="Priya")
+        self.staff = make_user(9, "installer", "staff@example.com", is_staff=True, first_name="Sam",
+                               last_name="Installer")
         self.client = APIClient()
         self.client.force_authenticate(self.customer)
         self.ref = self.client.post("/api/v1/solar/requests/", SolarApiTests.payload(self), format="json").data["reference"]
@@ -168,7 +177,7 @@ class SolarPaymentTests(TestCase):
     CARD = {"cardholder_name": "Priya Shah", "card_number": "4242 4242 4242 4242", "expiry": "12/30", "cvc": "123"}
 
     def setUp(self):
-        self.user = get_user_model().objects.create_user("priya", "priya@example.com", "S3cure-pass-123")
+        self.user = make_user(1, "priya", "priya@example.com")
         self.client = APIClient()
         self.client.force_authenticate(self.user)
         self.ref = self.client.post("/api/v1/solar/requests/", SolarApiTests.payload(self), format="json").data["reference"]
@@ -231,7 +240,7 @@ class SolarPaymentTests(TestCase):
         self.assertEqual(self.pay("balance").status_code, 409)
 
     def test_staff_cancel_refunds_and_summary(self):
-        staff = get_user_model().objects.create_user("installer", "s@example.com", "S3cure-pass-123", is_staff=True)
+        staff = make_user(9, "installer", "s@example.com", is_staff=True)
         admin = APIClient()
         admin.force_authenticate(staff)
         self.pay("full")
@@ -242,6 +251,48 @@ class SolarPaymentTests(TestCase):
 
     def test_other_users_cannot_pay(self):
         other = APIClient()
-        other.force_authenticate(get_user_model().objects.create_user("sam", "sam@example.com", "S3cure-pass-123"))
+        other.force_authenticate(make_user(2, "sam", "sam@example.com"))
         res = other.post(self.url, {"option": "full", **self.CARD}, format="json")
         self.assertEqual(res.status_code, 404)
+
+
+class RemoteAuthTests(TestCase):
+    """Sign-in is checked with the accounts (recycling) service; solar has no user table of its own."""
+
+    ME = {"id": 7, "username": "priya", "email": "priya@example.com", "first_name": "Priya", "last_name": "Shah",
+          "is_staff": False}
+
+    def setUp(self):
+        cache.clear()
+        self.client = APIClient()
+
+    def test_valid_token_is_checked_on_every_request(self):
+        with mock.patch("solar.auth.fetch_user", return_value=self.ME) as fetch:
+            self.client.credentials(HTTP_AUTHORIZATION="Token abc123")
+            self.assertEqual(self.client.get("/api/v1/solar/summary/").status_code, 200)
+            self.assertEqual(self.client.get("/api/v1/solar/requests/").status_code, 200)
+            self.assertEqual(fetch.call_count, 2)  # no cache: a signed-out token stops working at once
+
+    @override_settings(AUTH_CACHE_SECONDS=60)
+    def test_optional_cache(self):
+        with mock.patch("solar.auth.fetch_user", return_value=self.ME) as fetch:
+            self.client.credentials(HTTP_AUTHORIZATION="Token abc123")
+            self.client.get("/api/v1/solar/summary/")
+            self.client.get("/api/v1/solar/requests/")
+            fetch.assert_called_once_with("abc123")
+
+    def test_invalid_token_is_refused(self):
+        with mock.patch("solar.auth.fetch_user", return_value=None):
+            self.client.credentials(HTTP_AUTHORIZATION="Token wrong")
+            self.assertEqual(self.client.get("/api/v1/solar/requests/").status_code, 401)
+
+    def test_no_token_is_refused_but_public_data_is_open(self):
+        self.assertEqual(self.client.get("/api/v1/solar/requests/").status_code, 401)
+        self.assertEqual(self.client.get("/api/v1/solar/options/").status_code, 200)
+        self.assertEqual(self.client.get("/api/v1/solar/health/").status_code, 200)
+
+    def test_accounts_service_down_gives_503(self):
+        import urllib.error
+        with mock.patch("solar.auth._NO_REDIRECTS.open", side_effect=urllib.error.URLError("down")):
+            self.client.credentials(HTTP_AUTHORIZATION="Token abc123")
+            self.assertEqual(self.client.get("/api/v1/solar/requests/").status_code, 503)
