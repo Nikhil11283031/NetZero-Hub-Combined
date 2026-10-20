@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="P2_reference" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>P2_reference</text>
+    </name>
+    <page id="n0">
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="assessed">
+        <name>
+          <text>assessed</text>
+        </name>
+      </place>
+      <place id="decision">
+        <name>
+          <text>decision</text>
+        </name>
+      </place>
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <place id="result">
+        <name>
+          <text>result</text>
+        </name>
+      </place>
+      <place id="checked">
+        <name>
+          <text>checked</text>
+        </name>
+      </place>
+      <place id="received">
+        <name>
+          <text>received</text>
+        </name>
+      </place>
+      <transition id="V6">
+        <name>
+          <text>V6</text>
+        </name>
+      </transition>
+      <transition id="V8">
+        <name>
+          <text>V8</text>
+        </name>
+      </transition>
+      <transition id="V1">
+        <name>
+          <text>V1</text>
+        </name>
+      </transition>
+      <transition id="V2">
+        <name>
+          <text>V2</text>
+        </name>
+      </transition>
+      <transition id="V4">
+        <name>
+          <text>V4</text>
+        </name>
+      </transition>
+      <transition id="V3">
+        <name>
+          <text>V3</text>
+        </name>
+      </transition>
+      <transition id="V5">
+        <name>
+          <text>V5</text>
+        </name>
+      </transition>
+      <transition id="V7">
+        <name>
+          <text>V7</text>
+        </name>
+      </transition>
+      <arc id="140340119699040" source="start" target="V1"/>
+      <arc id="140340118028608" source="received" target="V2"/>
+      <arc id="140340118549088" source="V2" target="checked"/>
+      <arc id="140340118576864" source="checked" target="V4"/>
+      <arc id="140340120013664" source="V5" target="decision"/>
+      <arc id="140340118743680" source="decision" target="V6"/>
+      <arc id="140340119693472" source="V6" target="result"/>
+      <arc id="140340118747040" source="decision" target="V7"/>
+      <arc id="140340118738880" source="V7" target="result"/>
+      <arc id="140340118028848" source="V1" target="received"/>
+      <arc id="140340119471024" source="checked" target="V3"/>
+      <arc id="140340118571248" source="V3" target="result"/>
+      <arc id="140340119587824" source="V4" target="assessed"/>
+      <arc id="140340118344464" source="assessed" target="V5"/>
+      <arc id="140340118744496" source="result" target="V8"/>
+      <arc id="140340119858800" source="V8" target="end"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="end">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

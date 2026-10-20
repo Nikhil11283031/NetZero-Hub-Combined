@@ -1,0 +1,364 @@
+{
+  "tool": "PM4Py",
+  "pm4py_version": "2.7.23.8",
+  "data_kind": "simulated",
+  "discovery_split": "First 80% of sorted case IDs train; remaining 20% test within each process",
+  "processes": {
+    "P1": {
+      "cases": 100,
+      "events": 809,
+      "variants": 11,
+      "cycle_hours_mean": 132.7663137281222,
+      "cycle_hours_median": 92.44391388180554,
+      "cycle_hours_p90": 185.49489696175002,
+      "outcomes": {
+        "APPROVED": 70,
+        "REFUSED": 26,
+        "INCOMPLETE_CLOSED": 4
+      },
+      "train_cases": 80,
+      "test_cases": 20,
+      "discovery": {
+        "alpha": {
+          "places": 10,
+          "transitions": 11,
+          "held_out_token_fitness": {
+            "perc_fit_traces": 100.0,
+            "average_trace_fitness": 1.0,
+            "log_fitness": 1.0,
+            "percentage_of_fitting_traces": 100.0
+          },
+          "place_labels": [
+            "({'A2'}, {'A6', 'A3'})",
+            "({'A2'}, {'A7', 'A3'})",
+            "({'A3'}, {'A5', 'A4'})",
+            "({'A4', 'A1'}, {'A2'})",
+            "({'A5', 'A10', 'A9'}, {'A11'})",
+            "({'A6'}, {'A8'})",
+            "({'A7'}, {'A8'})",
+            "({'A8'}, {'A10', 'A9'})",
+            "end",
+            "start"
+          ]
+        },
+        "inductive": {
+          "places": 15,
+          "transitions": 17,
+          "held_out_token_fitness": {
+            "perc_fit_traces": 100.0,
+            "average_trace_fitness": 1.0,
+            "log_fitness": 1.0,
+            "percentage_of_fitting_traces": 100.0
+          },
+          "place_labels": [
+            "p_12",
+            "p_13",
+            "p_15",
+            "p_17",
+            "p_18",
+            "p_19",
+            "p_20",
+            "p_21",
+            "p_4",
+            "p_5",
+            "p_6",
+            "p_7",
+            "p_8",
+            "sink",
+            "source"
+          ]
+        }
+      },
+      "reference_control_flow_fitness": {
+        "perc_fit_traces": 100.0,
+        "average_trace_fitness": 1.0,
+        "log_fitness": 1.0,
+        "percentage_of_fitting_traces": 100.0
+      },
+      "negative_control": {
+        "removed_task": "A7",
+        "fitness": {
+          "perc_fit_traces": 0.0,
+          "average_trace_fitness": 0.8888888888888888,
+          "log_fitness": 0.8888888888888888,
+          "percentage_of_fitting_traces": 0.0
+        }
+      },
+      "alpha_sets": {
+        "T": [
+          "A1",
+          "A10",
+          "A11",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6",
+          "A7",
+          "A8",
+          "A9"
+        ],
+        "TI": [
+          "A1"
+        ],
+        "TO": [
+          "A11"
+        ],
+        "directly_follows": {
+          "A1>A2": 100,
+          "A10>A11": 26,
+          "A2>A3": 43,
+          "A2>A6": 30,
+          "A2>A7": 66,
+          "A3>A4": 39,
+          "A3>A5": 4,
+          "A4>A2": 39,
+          "A5>A11": 4,
+          "A6>A7": 30,
+          "A6>A8": 66,
+          "A7>A6": 66,
+          "A7>A8": 30,
+          "A8>A10": 26,
+          "A8>A9": 70,
+          "A9>A11": 70
+        },
+        "concurrency_pairs": [
+          [
+            "A6",
+            "A7"
+          ]
+        ]
+      },
+      "information_request_cases": 36,
+      "mean_cycle_with_information_request": 216.43769943366513,
+      "mean_cycle_without_information_request": 85.70115926875434,
+      "repeat_information_round_cases": 7
+    },
+    "P2": {
+      "cases": 100,
+      "events": 572,
+      "variants": 3,
+      "cycle_hours_mean": 38.072400334950004,
+      "cycle_hours_median": 41.84227500708333,
+      "cycle_hours_p90": 49.672121049472224,
+      "outcomes": {
+        "APPROVED": 60,
+        "REFUSED": 26,
+        "INVALID": 14
+      },
+      "train_cases": 80,
+      "test_cases": 20,
+      "discovery": {
+        "alpha": {
+          "places": 7,
+          "transitions": 8,
+          "held_out_token_fitness": {
+            "perc_fit_traces": 100.0,
+            "average_trace_fitness": 1.0,
+            "log_fitness": 1.0,
+            "percentage_of_fitting_traces": 100.0
+          },
+          "place_labels": [
+            "({'V1'}, {'V2'})",
+            "({'V2'}, {'V3', 'V4'})",
+            "({'V4'}, {'V5'})",
+            "({'V5'}, {'V6', 'V7'})",
+            "({'V6', 'V7', 'V3'}, {'V8'})",
+            "end",
+            "start"
+          ]
+        },
+        "inductive": {
+          "places": 7,
+          "transitions": 8,
+          "held_out_token_fitness": {
+            "perc_fit_traces": 100.0,
+            "average_trace_fitness": 1.0,
+            "log_fitness": 1.0,
+            "percentage_of_fitting_traces": 100.0
+          },
+          "place_labels": [
+            "p_3",
+            "p_4",
+            "p_5",
+            "p_6",
+            "p_7",
+            "sink",
+            "source"
+          ]
+        }
+      },
+      "reference_control_flow_fitness": {
+        "perc_fit_traces": 100.0,
+        "average_trace_fitness": 1.0,
+        "log_fitness": 1.0,
+        "percentage_of_fitting_traces": 100.0
+      },
+      "negative_control": {
+        "removed_task": "V4",
+        "fitness": {
+          "perc_fit_traces": 0.0,
+          "average_trace_fitness": 0.8333333333333334,
+          "log_fitness": 0.8333333333333334,
+          "percentage_of_fitting_traces": 0.0
+        }
+      },
+      "alpha_sets": {
+        "T": [
+          "V1",
+          "V2",
+          "V3",
+          "V4",
+          "V5",
+          "V6",
+          "V7",
+          "V8"
+        ],
+        "TI": [
+          "V1"
+        ],
+        "TO": [
+          "V8"
+        ],
+        "directly_follows": {
+          "V1>V2": 100,
+          "V2>V3": 14,
+          "V2>V4": 86,
+          "V3>V8": 14,
+          "V4>V5": 86,
+          "V5>V6": 60,
+          "V5>V7": 26,
+          "V6>V8": 60,
+          "V7>V8": 26
+        },
+        "concurrency_pairs": []
+      }
+    },
+    "P3": {
+      "cases": 100,
+      "events": 735,
+      "variants": 6,
+      "cycle_hours_mean": 37.12976193328333,
+      "cycle_hours_median": 51.52524074152778,
+      "cycle_hours_p90": 59.20291334402778,
+      "outcomes": {
+        "ACTION_RECORDED": 48,
+        "REFERRED": 21,
+        "NO_FURTHER_ACTION": 19,
+        "EMERGENCY_GUIDANCE": 12
+      },
+      "train_cases": 80,
+      "test_cases": 20,
+      "discovery": {
+        "alpha": {
+          "places": 11,
+          "transitions": 12,
+          "held_out_token_fitness": {
+            "perc_fit_traces": 100.0,
+            "average_trace_fitness": 1.0,
+            "log_fitness": 1.0,
+            "percentage_of_fitting_traces": 100.0
+          },
+          "place_labels": [
+            "({'I1'}, {'I2'})",
+            "({'I10', 'I9'}, {'I11'})",
+            "({'I11', 'I3', 'I4'}, {'I12'})",
+            "({'I2'}, {'I5', 'I3', 'I4'})",
+            "({'I5'}, {'I6'})",
+            "({'I5'}, {'I7'})",
+            "({'I6'}, {'I8'})",
+            "({'I7'}, {'I8'})",
+            "({'I8'}, {'I10', 'I9'})",
+            "end",
+            "start"
+          ]
+        },
+        "inductive": {
+          "places": 11,
+          "transitions": 12,
+          "held_out_token_fitness": {
+            "perc_fit_traces": 100.0,
+            "average_trace_fitness": 1.0,
+            "log_fitness": 1.0,
+            "percentage_of_fitting_traces": 100.0
+          },
+          "place_labels": [
+            "p_10",
+            "p_11",
+            "p_12",
+            "p_13",
+            "p_3",
+            "p_4",
+            "p_5",
+            "p_8",
+            "p_9",
+            "sink",
+            "source"
+          ]
+        }
+      },
+      "reference_control_flow_fitness": {
+        "perc_fit_traces": 100.0,
+        "average_trace_fitness": 1.0,
+        "log_fitness": 1.0,
+        "percentage_of_fitting_traces": 100.0
+      },
+      "negative_control": {
+        "removed_task": "I7",
+        "fitness": {
+          "perc_fit_traces": 0.0,
+          "average_trace_fitness": 0.9,
+          "log_fitness": 0.9,
+          "percentage_of_fitting_traces": 0.0
+        }
+      },
+      "alpha_sets": {
+        "T": [
+          "I1",
+          "I10",
+          "I11",
+          "I12",
+          "I2",
+          "I3",
+          "I4",
+          "I5",
+          "I6",
+          "I7",
+          "I8",
+          "I9"
+        ],
+        "TI": [
+          "I1"
+        ],
+        "TO": [
+          "I12"
+        ],
+        "directly_follows": {
+          "I1>I2": 100,
+          "I10>I11": 19,
+          "I11>I12": 67,
+          "I2>I3": 12,
+          "I2>I4": 21,
+          "I2>I5": 67,
+          "I3>I12": 12,
+          "I4>I12": 21,
+          "I5>I6": 14,
+          "I5>I7": 53,
+          "I6>I7": 14,
+          "I6>I8": 53,
+          "I7>I6": 53,
+          "I7>I8": 14,
+          "I8>I10": 19,
+          "I8>I9": 48,
+          "I9>I11": 48
+        },
+        "concurrency_pairs": [
+          [
+            "I6",
+            "I7"
+          ]
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1644 @@
+{
+  "seed": 927,
+  "cases_per_process": 100,
+  "total_cases": 300,
+  "total_events": 2116,
+  "source": "seeded business-transition simulation; no observed EPA data",
+  "time_unit": "hours",
+  "duration_assumptions": {
+    "A1": [
+      0.1,
+      0
+    ],
+    "A2": [
+      1,
+      6
+    ],
+    "A3": [
+      0.3,
+      0
+    ],
+    "A4": [
+      0.5,
+      48
+    ],
+    "A5": [
+      0.1,
+      720
+    ],
+    "A6": [
+      10,
+      48
+    ],
+    "A7": [
+      4,
+      48
+    ],
+    "A8": [
+      1,
+      16
+    ],
+    "A9": [
+      0.2,
+      0
+    ],
+    "A10": [
+      0.2,
+      0
+    ],
+    "A11": [
+      0.1,
+      0
+    ],
+    "V1": [
+      0.1,
+      0
+    ],
+    "V2": [
+      0.5,
+      4
+    ],
+    "V3": [
+      0.1,
+      0
+    ],
+    "V4": [
+      6,
+      24
+    ],
+    "V5": [
+      0.5,
+      8
+    ],
+    "V6": [
+      0.2,
+      0
+    ],
+    "V7": [
+      0.2,
+      0
+    ],
+    "V8": [
+      0.1,
+      0
+    ],
+    "I1": [
+      0.1,
+      0
+    ],
+    "I2": [
+      0.5,
+      1
+    ],
+    "I3": [
+      0.05,
+      0
+    ],
+    "I4": [
+      0.2,
+      0
+    ],
+    "I5": [
+      0.2,
+      4
+    ],
+    "I6": [
+      12,
+      18
+    ],
+    "I7": [
+      1,
+      24
+    ],
+    "I8": [
+      4,
+      12
+    ],
+    "I9": [
+      1,
+      2
+    ],
+    "I10": [
+      0.2,
+      0
+    ],
+    "I11": [
+      0.2,
+      0
+    ],
+    "I12": [
+      0.1,
+      0
+    ]
+  },
+  "branch_assumptions": {
+    "P1_incomplete": 0.35,
+    "P1_timeout_given_incomplete": 0.15,
+    "P1_second_information_round_given_response": 0.2,
+    "P2_ineligible": 0.12,
+    "P3_emergency": 0.1,
+    "P3_referral": 0.2
+  },
+  "cases": [
+    {
+      "case_id": "P1-0001",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0002",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0003",
+      "process": "P1",
+      "outcome": "INCOMPLETE_CLOSED"
+    },
+    {
+      "case_id": "P1-0004",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0005",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0006",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0007",
+      "process": "P1",
+      "outcome": "INCOMPLETE_CLOSED"
+    },
+    {
+      "case_id": "P1-0008",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0009",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0010",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0011",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0012",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0013",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0014",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0015",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0016",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0017",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0018",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0019",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0020",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0021",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0022",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0023",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0024",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0025",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0026",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0027",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0028",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0029",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0030",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0031",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0032",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0033",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0034",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0035",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0036",
+      "process": "P1",
+      "outcome": "INCOMPLETE_CLOSED"
+    },
+    {
+      "case_id": "P1-0037",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0038",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0039",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0040",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0041",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0042",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0043",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0044",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0045",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0046",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0047",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0048",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0049",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0050",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0051",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0052",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0053",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0054",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0055",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0056",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0057",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0058",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0059",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0060",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0061",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0062",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0063",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0064",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0065",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0066",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0067",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0068",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0069",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0070",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0071",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0072",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0073",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0074",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0075",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0076",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0077",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0078",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0079",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0080",
+      "process": "P1",
+      "outcome": "INCOMPLETE_CLOSED"
+    },
+    {
+      "case_id": "P1-0081",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0082",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0083",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0084",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0085",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0086",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0087",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0088",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0089",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0090",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0091",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0092",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0093",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0094",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0095",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0096",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P1-0097",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0098",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0099",
+      "process": "P1",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P1-0100",
+      "process": "P1",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0001",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0002",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0003",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0004",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0005",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0006",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0007",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0008",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0009",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0010",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0011",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0012",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0013",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0014",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0015",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0016",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0017",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0018",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0019",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0020",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0021",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0022",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0023",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0024",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0025",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0026",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0027",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0028",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0029",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0030",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0031",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0032",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0033",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0034",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0035",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0036",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0037",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0038",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0039",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0040",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0041",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0042",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0043",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0044",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0045",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0046",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0047",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0048",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0049",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0050",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0051",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0052",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0053",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0054",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0055",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0056",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0057",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0058",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0059",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0060",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0061",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0062",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0063",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0064",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0065",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0066",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0067",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0068",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0069",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0070",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0071",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0072",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0073",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0074",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0075",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0076",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0077",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0078",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0079",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0080",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0081",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0082",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0083",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0084",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0085",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0086",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0087",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0088",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0089",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0090",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0091",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0092",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0093",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0094",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0095",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0096",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0097",
+      "process": "P2",
+      "outcome": "APPROVED"
+    },
+    {
+      "case_id": "P2-0098",
+      "process": "P2",
+      "outcome": "INVALID"
+    },
+    {
+      "case_id": "P2-0099",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P2-0100",
+      "process": "P2",
+      "outcome": "REFUSED"
+    },
+    {
+      "case_id": "P3-0001",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0002",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0003",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0004",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0005",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0006",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0007",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0008",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0009",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0010",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0011",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0012",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0013",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0014",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0015",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0016",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0017",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0018",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0019",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0020",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0021",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0022",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0023",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0024",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0025",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0026",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0027",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0028",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0029",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0030",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0031",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0032",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0033",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0034",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0035",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0036",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0037",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0038",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0039",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0040",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0041",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0042",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0043",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0044",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0045",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0046",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0047",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0048",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0049",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0050",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0051",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0052",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0053",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0054",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0055",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0056",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0057",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0058",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0059",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0060",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0061",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0062",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0063",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0064",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0065",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0066",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0067",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0068",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0069",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0070",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0071",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0072",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0073",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0074",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0075",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0076",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0077",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0078",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0079",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0080",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0081",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0082",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0083",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0084",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0085",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0086",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0087",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0088",
+      "process": "P3",
+      "outcome": "NO_FURTHER_ACTION"
+    },
+    {
+      "case_id": "P3-0089",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0090",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0091",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0092",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0093",
+      "process": "P3",
+      "outcome": "REFERRED"
+    },
+    {
+      "case_id": "P3-0094",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0095",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0096",
+      "process": "P3",
+      "outcome": "EMERGENCY_GUIDANCE"
+    },
+    {
+      "case_id": "P3-0097",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0098",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0099",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    },
+    {
+      "case_id": "P3-0100",
+      "process": "P3",
+      "outcome": "ACTION_RECORDED"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "netzero-hub-combined-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predev": "node scripts/build-epa-css.mjs",
+    "prebuild": "node scripts/build-epa-css.mjs",
+    "test:epa": "node --test tests/epa/*.test.js",
+    "test:browser": "playwright test"
+  },
+  "dependencies": {
+    "bootstrap": "5.3.8",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.28.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "postcss": "8.5.29",
+    "vite": "5.4.11"
+  }
+}

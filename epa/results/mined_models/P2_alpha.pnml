@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="alpha_classic_net_1791343243.3378894" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>alpha_classic_net_1791343243.3378894</text>
+    </name>
+    <page id="n0">
+      <place id="({'V1'}, {'V2'})">
+        <name>
+          <text>({'V1'}, {'V2'})</text>
+        </name>
+      </place>
+      <place id="({'V5'}, {'V6', 'V7'})">
+        <name>
+          <text>({'V5'}, {'V6', 'V7'})</text>
+        </name>
+      </place>
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <place id="({'V4'}, {'V5'})">
+        <name>
+          <text>({'V4'}, {'V5'})</text>
+        </name>
+      </place>
+      <place id="({'V2'}, {'V3', 'V4'})">
+        <name>
+          <text>({'V2'}, {'V3', 'V4'})</text>
+        </name>
+      </place>
+      <place id="({'V6', 'V7', 'V3'}, {'V8'})">
+        <name>
+          <text>({'V6', 'V7', 'V3'}, {'V8'})</text>
+        </name>
+      </place>
+      <transition id="V1">
+        <name>
+          <text>V1</text>
+        </name>
+      </transition>
+      <transition id="V8">
+        <name>
+          <text>V8</text>
+        </name>
+      </transition>
+      <transition id="V5">
+        <name>
+          <text>V5</text>
+        </name>
+      </transition>
+      <transition id="V3">
+        <name>
+          <text>V3</text>
+        </name>
+      </transition>
+      <transition id="V7">
+        <name>
+          <text>V7</text>
+        </name>
+      </transition>
+      <transition id="V2">
+        <name>
+          <text>V2</text>
+        </name>
+      </transition>
+      <transition id="V4">
+        <name>
+          <text>V4</text>
+        </name>
+      </transition>
+      <transition id="V6">
+        <name>
+          <text>V6</text>
+        </name>
+      </transition>
+      <arc id="140340119472320" source="start" target="V1"/>
+      <arc id="140340119472416" source="V8" target="end"/>
+      <arc id="140340119470400" source="V1" target="({'V1'}, {'V2'})"/>
+      <arc id="140340119470880" source="({'V1'}, {'V2'})" target="V2"/>
+      <arc id="140340119477408" source="V2" target="({'V2'}, {'V3', 'V4'})"/>
+      <arc id="140340119473856" source="({'V2'}, {'V3', 'V4'})" target="V3"/>
+      <arc id="140340119473472" source="({'V2'}, {'V3', 'V4'})" target="V4"/>
+      <arc id="140340119473088" source="({'V5'}, {'V6', 'V7'})" target="V6"/>
+      <arc id="140340119474912" source="V6" target="({'V6', 'V7', 'V3'}, {'V8'})"/>
+      <arc id="140340119474432" source="V7" target="({'V6', 'V7', 'V3'}, {'V8'})"/>
+      <arc id="140340119470544" source="V4" target="({'V4'}, {'V5'})"/>
+      <arc id="140340119477072" source="({'V4'}, {'V5'})" target="V5"/>
+      <arc id="140340119473616" source="V5" target="({'V5'}, {'V6', 'V7'})"/>
+      <arc id="140340119473904" source="({'V5'}, {'V6', 'V7'})" target="V7"/>
+      <arc id="140340119472608" source="V3" target="({'V6', 'V7', 'V3'}, {'V8'})"/>
+      <arc id="140340119471792" source="({'V6', 'V7', 'V3'}, {'V8'})" target="V8"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="end">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

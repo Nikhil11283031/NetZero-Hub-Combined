@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="alpha_classic_net_1791343242.6814263" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>alpha_classic_net_1791343242.6814263</text>
+    </name>
+    <page id="n0">
+      <place id="({'A7'}, {'A8'})">
+        <name>
+          <text>({'A7'}, {'A8'})</text>
+        </name>
+      </place>
+      <place id="({'A2'}, {'A7', 'A3'})">
+        <name>
+          <text>({'A2'}, {'A7', 'A3'})</text>
+        </name>
+      </place>
+      <place id="({'A3'}, {'A5', 'A4'})">
+        <name>
+          <text>({'A3'}, {'A5', 'A4'})</text>
+        </name>
+      </place>
+      <place id="({'A5', 'A10', 'A9'}, {'A11'})">
+        <name>
+          <text>({'A5', 'A10', 'A9'}, {'A11'})</text>
+        </name>
+      </place>
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="({'A4', 'A1'}, {'A2'})">
+        <name>
+          <text>({'A4', 'A1'}, {'A2'})</text>
+        </name>
+      </place>
+      <place id="({'A6'}, {'A8'})">
+        <name>
+          <text>({'A6'}, {'A8'})</text>
+        </name>
+      </place>
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <place id="({'A8'}, {'A10', 'A9'})">
+        <name>
+          <text>({'A8'}, {'A10', 'A9'})</text>
+        </name>
+      </place>
+      <place id="({'A2'}, {'A6', 'A3'})">
+        <name>
+          <text>({'A2'}, {'A6', 'A3'})</text>
+        </name>
+      </place>
+      <transition id="A7">
+        <name>
+          <text>A7</text>
+        </name>
+      </transition>
+      <transition id="A8">
+        <name>
+          <text>A8</text>
+        </name>
+      </transition>
+      <transition id="A10">
+        <name>
+          <text>A10</text>
+        </name>
+      </transition>
+      <transition id="A6">
+        <name>
+          <text>A6</text>
+        </name>
+      </transition>
+      <transition id="A4">
+        <name>
+          <text>A4</text>
+        </name>
+      </transition>
+      <transition id="A11">
+        <name>
+          <text>A11</text>
+        </name>
+      </transition>
+      <transition id="A3">
+        <name>
+          <text>A3</text>
+        </name>
+      </transition>
+      <transition id="A5">
+        <name>
+          <text>A5</text>
+        </name>
+      </transition>
+      <transition id="A1">
+        <name>
+          <text>A1</text>
+        </name>
+      </transition>
+      <transition id="A9">
+        <name>
+          <text>A9</text>
+        </name>
+      </transition>
+      <transition id="A2">
+        <name>
+          <text>A2</text>
+        </name>
+      </transition>
+      <arc id="140340119222272" source="A6" target="({'A6'}, {'A8'})"/>
+      <arc id="140340118030720" source="A2" target="({'A2'}, {'A7', 'A3'})"/>
+      <arc id="140340118031872" source="({'A8'}, {'A10', 'A9'})" target="A10"/>
+      <arc id="140340118031632" source="({'A2'}, {'A7', 'A3'})" target="A3"/>
+      <arc id="140340119223328" source="start" target="A1"/>
+      <arc id="140340118030624" source="A4" target="({'A4', 'A1'}, {'A2'})"/>
+      <arc id="140340118032160" source="({'A2'}, {'A6', 'A3'})" target="A3"/>
+      <arc id="140340118031392" source="({'A3'}, {'A5', 'A4'})" target="A4"/>
+      <arc id="140340118032544" source="A9" target="({'A5', 'A10', 'A9'}, {'A11'})"/>
+      <arc id="140340118029616" source="({'A6'}, {'A8'})" target="A8"/>
+      <arc id="140340118030528" source="A1" target="({'A4', 'A1'}, {'A2'})"/>
+      <arc id="140340118030912" source="({'A4', 'A1'}, {'A2'})" target="A2"/>
+      <arc id="140340118032448" source="A5" target="({'A5', 'A10', 'A9'}, {'A11'})"/>
+      <arc id="140340119222992" source="A11" target="end"/>
+      <arc id="140340118031440" source="({'A2'}, {'A7', 'A3'})" target="A7"/>
+      <arc id="140340118031056" source="A2" target="({'A2'}, {'A6', 'A3'})"/>
+      <arc id="140340118032208" source="A3" target="({'A3'}, {'A5', 'A4'})"/>
+      <arc id="140340118030672" source="({'A3'}, {'A5', 'A4'})" target="A5"/>
+      <arc id="140340118032592" source="({'A5', 'A10', 'A9'}, {'A11'})" target="A11"/>
+      <arc id="140340118030048" source="A7" target="({'A7'}, {'A8'})"/>
+      <arc id="140340118031584" source="A8" target="({'A8'}, {'A10', 'A9'})"/>
+      <arc id="140340118030816" source="({'A8'}, {'A10', 'A9'})" target="A9"/>
+      <arc id="140340118029808" source="({'A7'}, {'A8'})" target="A8"/>
+      <arc id="140340118032112" source="({'A2'}, {'A6', 'A3'})" target="A6"/>
+      <arc id="140340118032496" source="A10" target="({'A5', 'A10', 'A9'}, {'A11'})"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="end">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

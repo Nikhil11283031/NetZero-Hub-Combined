@@ -1,0 +1,159 @@
+from datetime import date
+
+from rest_framework import serializers
+
+from .catalogue import ADD_ONS, PROPERTY_TYPES, ROOF_TYPES, SERVICE_ID, STOREYS, SYSTEM_SIZES, TIME_SLOTS, by_id
+from .models import SolarPayment, SolarRequest, SolarRequestEvent
+from .services import balance_due, deposit_amount, payment_options, price_breakdown
+
+
+def _ids(items):
+    return [i["id"] for i in items]
+
+
+class SolarRequestCreateSerializer(serializers.Serializer):
+    """Inputs for a new solar installation request (ORG-001)."""
+
+    customer_name = serializers.CharField(min_length=2, max_length=100)
+    customer_email = serializers.EmailField()
+    customer_phone = serializers.RegexField(r"^\+?[\d\s()-]{8,20}$", error_messages={"invalid": "Enter a valid phone number."})
+    address_line = serializers.CharField(min_length=3, max_length=255)
+    suburb = serializers.CharField(min_length=2, max_length=100)
+    postcode = serializers.RegexField(r"^\d{4}$", error_messages={"invalid": "Enter a 4-digit postcode."})
+    property_type = serializers.ChoiceField(choices=_ids(PROPERTY_TYPES))
+    storeys = serializers.ChoiceField(choices=_ids(STOREYS))
+    roof_type = serializers.ChoiceField(choices=_ids(ROOF_TYPES))
+    quarterly_usage_kwh = serializers.IntegerField(help_text="Average quarterly electricity usage in kWh")
+    system_size = serializers.ChoiceField(choices=_ids(SYSTEM_SIZES))
+    add_ons = serializers.ListField(child=serializers.ChoiceField(choices=_ids(ADD_ONS)), required=False, default=list)
+    slot_id = serializers.CharField(help_text='Site assessment slot from /solar/availability/, e.g. "2026-10-21|am"')
+    notes = serializers.CharField(max_length=500, required=False, allow_blank=True, default="")
+
+    def validate_slot_id(self, value):
+        try:
+            day, slot = value.split("|")
+            day = date.fromisoformat(day)
+        except ValueError:
+            raise serializers.ValidationError("Choose a site assessment date and time.")
+        if not by_id(TIME_SLOTS, slot):
+            raise serializers.ValidationError("Choose a site assessment date and time.")
+        return value
+
+    def validate_add_ons(self, value):
+        return list(dict.fromkeys(value))  # remove duplicates, keep order
+
+
+class SolarRequestEventSerializer(serializers.ModelSerializer):
+    status_label = serializers.CharField(source="get_status_display", read_only=True)
+
+    class Meta:
+        model = SolarRequestEvent
+        fields = ["status", "status_label", "note", "actor", "created_at"]
+
+
+class SolarPaymentSerializer(serializers.ModelSerializer):
+    kind_label = serializers.CharField(source="get_kind_display", read_only=True)
+
+    class Meta:
+        model = SolarPayment
+        fields = ["receipt_number", "kind", "kind_label", "amount", "card_brand", "card_last4", "created_at"]
+
+
+class SolarRequestSerializer(serializers.ModelSerializer):
+    """The ORG-001 service output."""
+
+    service_id = serializers.SerializerMethodField()
+    status_label = serializers.CharField(source="get_status_display", read_only=True)
+    system = serializers.SerializerMethodField()
+    property = serializers.SerializerMethodField()
+    add_on_names = serializers.SerializerMethodField()
+    assessment = serializers.SerializerMethodField()
+    address = serializers.SerializerMethodField()
+    price_lines = serializers.SerializerMethodField()
+    can_cancel = serializers.SerializerMethodField()
+    payment = serializers.SerializerMethodField()
+    history = SolarRequestEventSerializer(source="events", many=True, read_only=True)
+
+    class Meta:
+        model = SolarRequest
+        fields = [
+            "service_id", "reference", "status", "status_label", "created_at", "updated_at",
+            "customer_name", "customer_email", "customer_phone", "address", "installer",
+            "property", "quarterly_usage_kwh", "system", "add_ons", "add_on_names",
+            "assessment", "notes", "staff_note", "price_lines", "total_price", "payment", "can_cancel", "history",
+        ]
+
+    def get_service_id(self, obj) -> str:
+        return SERVICE_ID
+
+    def get_system(self, obj) -> dict:
+        s = by_id(SYSTEM_SIZES, obj.system_size) or {}
+        return {"id": obj.system_size, "name": s.get("name", obj.system_size), "panels": s.get("panels")}
+
+    def get_property(self, obj) -> dict:
+        return {
+            "type": (by_id(PROPERTY_TYPES, obj.property_type) or {}).get("name", obj.property_type),
+            "storeys": (by_id(STOREYS, obj.storeys) or {}).get("name", obj.storeys),
+            "roof": (by_id(ROOF_TYPES, obj.roof_type) or {}).get("name", obj.roof_type),
+        }
+
+    def get_add_on_names(self, obj) -> list:
+        return [(by_id(ADD_ONS, a) or {}).get("name", a) for a in obj.add_ons]
+
+    def get_assessment(self, obj) -> dict:
+        slot = by_id(TIME_SLOTS, obj.time_slot) or {}
+        return {"date": obj.assessment_date.isoformat(), "start_time": slot.get("start"), "end_time": slot.get("end")}
+
+    def get_address(self, obj) -> dict:
+        return {"address_line": obj.address_line, "suburb": obj.suburb, "postcode": obj.postcode}
+
+    def get_price_lines(self, obj) -> list:
+        return price_breakdown(obj.system_size, obj.roof_type, obj.storeys, obj.add_ons)
+
+    def get_can_cancel(self, obj) -> bool:
+        return obj.is_active
+
+    def get_payment(self, obj) -> dict:
+        return {
+            "status": obj.payment_status,
+            "status_label": obj.get_payment_status_display(),
+            "amount_paid": f"{obj.amount_paid:.2f}",
+            "balance_due": f"{balance_due(obj):.2f}",
+            "deposit_amount": f"{deposit_amount(obj):.2f}",
+            "options": [{**o, "amount": f"{o['amount']:.2f}"} for o in payment_options(obj)],
+            "receipts": SolarPaymentSerializer(obj.payments.all(), many=True).data,
+        }
+
+
+class SolarAdminRequestSerializer(SolarRequestSerializer):
+    """Staff view of a request: adds the customer account and the actions staff can take."""
+
+    customer_account = serializers.SerializerMethodField()
+    allowed_transitions = serializers.SerializerMethodField()
+
+    class Meta(SolarRequestSerializer.Meta):
+        fields = SolarRequestSerializer.Meta.fields + ["customer_account", "allowed_transitions"]
+
+    def get_customer_account(self, obj) -> dict:
+        return {"user_id": obj.user_id, "username": obj.user.username}
+
+    def get_allowed_transitions(self, obj) -> list:
+        return [{"status": s, "label": SolarRequest.Status(s).label} for s in obj.allowed_transitions()]
+
+
+class StatusUpdateSerializer(serializers.Serializer):
+    status = serializers.ChoiceField(choices=[c[0] for c in SolarRequest.Status.choices])
+    note = serializers.CharField(max_length=1000, required=False, allow_blank=True, default="")
+
+
+class PaymentSerializer(serializers.Serializer):
+    """Demo card payment. The card number and security code are checked, then thrown away."""
+
+    option = serializers.ChoiceField(choices=["deposit", "full", "balance"])
+    cardholder_name = serializers.CharField(min_length=2, max_length=100)
+    card_number = serializers.CharField(max_length=30, help_text="Test card: 4242 4242 4242 4242")
+    expiry = serializers.CharField(max_length=7, help_text="MM/YY")
+    cvc = serializers.CharField(max_length=4, write_only=True)
+
+    def validate_card_number(self, value):
+        return value.replace(" ", "").replace("-", "")

@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2250" height="1410" viewBox="0 0 2250 1410">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#253b50"/></marker><marker id="open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto-start-reverse"><path d="M0,0 L10,4 L0,8" fill="none" stroke="#253b50"/></marker><marker id="triangle" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 Z" fill="white" stroke="#253b50"/></marker><marker id="circle" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><circle cx="4" cy="4" r="3" fill="#253b50"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="40" y="36.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="28" fill="#132f44" text-anchor="start">P2  Licence variation  |  EPA-001</text>
+<rect x="40" y="70" width="2170" height="70" rx="0" fill="#e9f0f5" stroke="#253b50" stroke-width="2"/>
+<text x="1125.0" y="105.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" fill="#132f44" text-anchor="middle">Applicant or reporter through NetZero Hub</text>
+<rect x="40" y="170" width="2170" height="980" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<text x="65" y="200.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">NSW EPA reference workflow and proposed NetZero Hub support</text>
+<polyline points="40,780 2210,780" fill="none" stroke="#253b50" stroke-width="2.5"/>
+<text x="60" y="768.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">Intake and assessment lane</text>
+<text x="60" y="1133.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">Registry and outcome lane</text>
+<circle cx="121.0" cy="279.0" r="20" fill="white" stroke="#253b50" stroke-width="2"/>
+<rect x="110" y="272" width="22" height="14" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<polyline points="110,272 121,281 132,272" fill="none" stroke="#253b50" stroke-width="2.5"/>
+<rect x="180" y="230" width="190" height="100" rx="12" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="275.0" y="253.96" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">V1 Receive</text>
+<text x="275.0" y="280.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">variation</text>
+<text x="275.0" y="306.04" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">request</text>
+<text x="188" y="252.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">⚙</text>
+<rect x="450" y="230" width="190" height="100" rx="12" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="545.0" y="253.96" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">V2 Verify</text>
+<text x="545.0" y="280.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">licence</text>
+<text x="545.0" y="306.04" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">eligibility</text>
+<circle cx="465" cy="240" r="4" fill="none" stroke="#253b50"/><path d="M459,253 L459,248 Q465,241 471,248 L471,253" fill="none" stroke="#253b50"/>
+<polygon points="754.0,256 778,280.0 754.0,304 730,280.0" fill="white" stroke="#253b50" stroke-width="2"/>
+<text x="754.0" y="288.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="32" fill="#132f44" text-anchor="middle">×</text>
+<text x="754.0" y="238.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">Eligible?</text>
+<rect x="450" y="520" width="190" height="100" rx="12" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="545.0" y="543.96" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">V3 Record</text>
+<text x="545.0" y="570.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">invalid</text>
+<text x="545.0" y="596.0400000000001" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">variation</text>
+<circle cx="465" cy="530" r="4" fill="none" stroke="#253b50"/><path d="M459,543 L459,538 Q465,531 471,538 L471,543" fill="none" stroke="#253b50"/>
+<rect x="850" y="230" width="190" height="100" rx="12" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="945.0" y="266.98" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">V4 Assess</text>
+<text x="945.0" y="293.02000000000004" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">proposed change</text>
+<circle cx="865" cy="240" r="4" fill="none" stroke="#253b50"/><path d="M859,253 L859,248 Q865,241 871,248 L871,253" fill="none" stroke="#253b50"/>
+<rect x="1120" y="230" width="190" height="100" rx="12" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="1215.0" y="266.98" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">V5 Decide</text>
+<text x="1215.0" y="293.02000000000004" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">variation</text>
+<circle cx="1135" cy="240" r="4" fill="none" stroke="#253b50"/><path d="M1129,253 L1129,248 Q1135,241 1141,248 L1141,253" fill="none" stroke="#253b50"/>
+<polygon points="1424.0,256 1448,280.0 1424.0,304 1400,280.0" fill="white" stroke="#253b50" stroke-width="2"/>
+<text x="1424.0" y="288.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="32" fill="#132f44" text-anchor="middle">×</text>
+<text x="1424.0" y="238.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">Approved?</text>
+<rect x="1530" y="850" width="190" height="100" rx="12" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="1625.0" y="873.96" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">V6 Update</text>
+<text x="1625.0" y="900.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">licence</text>
+<text x="1625.0" y="926.0400000000001" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">conditions</text>
+<text x="1538" y="872.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">⚙</text>
+<rect x="1530" y="520" width="190" height="100" rx="12" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="1625.0" y="543.96" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">V7 Record</text>
+<text x="1625.0" y="570.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">variation</text>
+<text x="1625.0" y="596.0400000000001" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">refusal</text>
+<circle cx="1545" cy="530" r="4" fill="none" stroke="#253b50"/><path d="M1539,543 L1539,538 Q1545,531 1551,538 L1551,543" fill="none" stroke="#253b50"/>
+<polygon points="1834.0,876 1858,900.0 1834.0,924 1810,900.0" fill="white" stroke="#253b50" stroke-width="2"/>
+<text x="1834.0" y="908.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="32" fill="#132f44" text-anchor="middle">×</text>
+<rect x="1900" y="850" width="190" height="100" rx="12" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="1995.0" y="873.96" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">V8 Publish</text>
+<text x="1995.0" y="900.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">variation</text>
+<text x="1995.0" y="926.0400000000001" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">outcome</text>
+<text x="1908" y="872.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">⚙</text>
+<circle cx="2181.0" cy="900.0" r="20" fill="white" stroke="#253b50" stroke-width="5"/>
+<polyline points="142,279.0 180,280.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline points="370,280.0 450,280.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline points="640,280.0 730,280.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline points="754.0,304 754.0,570.0 640,570.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="763.0" y="342.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">no</text>
+<polyline points="778,280.0 850,280.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="787" y="266.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">yes</text>
+<polyline points="1040,280.0 1120,280.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline points="1310,280.0 1400,280.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline points="1424.0,304 1424.0,900.0 1530,900.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="1432.0" y="346.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">yes</text>
+<polyline points="1448,280.0 1489.0,280.0 1489.0,570.0 1530,570.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="1457" y="318.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">no</text>
+<polyline points="1720,900.0 1810,900.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline points="1720,570.0 1765.0,570.0 1765.0,900.0 1810,900.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline points="450,570.0 405,570.0 405,1110 2135,1110 2135,925 2090,925" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="1275.0" y="1081.0" width="85" height="25" fill="white"/>
+<text x="1278.0" y="1100.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">invalid</text>
+<polyline points="1858,900.0 1900,900.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline points="2090,900.0 2160,900.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="180" y="360.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">received(v) ∧ refersTo(v,l)</text>
+<text x="180" y="430.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">A variation request referencing</text>
+<text x="180" y="448.6" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">an existing licence is recorded.</text>
+<text x="450" y="360.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">eligibilityChecked(v) ∧</text>
+<text x="450" y="382.32" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">eligibleResult(v,q)</text>
+<text x="450" y="430.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">Eligibility and licence version</text>
+<text x="450" y="448.6" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">are checked; q is the result.</text>
+<text x="450" y="650.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">state(v,invalid) ∧</text>
+<text x="450" y="672.32" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">unchanged(l,v)</text>
+<text x="450" y="720.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">The request is marked invalid;</text>
+<text x="450" y="738.6" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">licence conditions stay</text>
+<text x="450" y="757.2" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">unchanged.</text>
+<text x="850" y="360.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">changeAssessed(v) ∧</text>
+<text x="850" y="382.32" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">changeResult(v,e)</text>
+<text x="850" y="430.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">The proposed change is assessed</text>
+<text x="850" y="448.6" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">with result e.</text>
+<text x="1120" y="360.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">decided(v,d) ∧</text>
+<text x="1120" y="382.32" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">reasonRecorded(v)</text>
+<text x="1120" y="430.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">An authorised officer records a</text>
+<text x="1120" y="448.6" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">reasoned variation decision d.</text>
+<text x="1530" y="980.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">state(v,approved) ∧</text>
+<text x="1530" y="1002.32" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">varied(l,v) ∧</text>
+<text x="1530" y="1024.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">version(l,k+1)</text>
+<text x="1530" y="1050.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">The approved conditions replace</text>
+<text x="1530" y="1068.6" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">the previous version.</text>
+<text x="1530" y="650.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">state(v,refused) ∧</text>
+<text x="1530" y="672.32" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">unchanged(l,v)</text>
+<text x="1530" y="720.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">The variation is refused and the</text>
+<text x="1530" y="738.6" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">licence is unchanged.</text>
+<text x="1900" y="980.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#315c42" text-anchor="start">outcomeAvailable(v)</text>
+<text x="1900" y="1050.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">The variation outcome is</text>
+<text x="1900" y="1068.6" font-family="DejaVu Sans,Arial,sans-serif" font-size="15" fill="#486252" text-anchor="start">available to its owner.</text>
+<rect x="50.0" y="1200" width="690.0" height="190" rx="0" fill="#f0f7f0" stroke="#253b50" stroke-width="2"/>
+<text x="62.0" y="1226.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">C4 Change assessed</text>
+<text x="62.0" y="1248.32" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">BaseV(v,l) ∧ changeAssessed(v) ∧ changeResult(v,e)</text>
+<text x="62.0" y="1270.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">L = U</text>
+<text x="62.0" y="1292.96" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">X = {V1 · V2[false]}</text>
+<rect x="760.0" y="1200" width="690.0" height="190" rx="0" fill="#f0f7f0" stroke="#253b50" stroke-width="2"/>
+<text x="772.0" y="1226.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">C5 New licence version recorded</text>
+<text x="772.0" y="1248.32" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">C4(v,l) ∧ decided(v,approve) ∧ reasonRecorded(v) ∧</text>
+<text x="772.0" y="1270.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">state(v,approved) ∧ varied(l,v) ∧ version(l,k+1)</text>
+<text x="772.0" y="1292.96" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">L = U · V5[approve] · V6</text>
+<text x="772.0" y="1315.28" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">X = {V1 · V2[false], U · V5[refuse]}</text>
+<rect x="1470.0" y="1200" width="690.0" height="190" rx="0" fill="#f0f7f0" stroke="#253b50" stroke-width="2"/>
+<text x="1482.0" y="1226.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">C6 Refusal preserves the licence</text>
+<text x="1482.0" y="1248.32" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">C4(v,l) ∧ decided(v,refuse) ∧ reasonRecorded(v) ∧ state(v,refused)</text>
+<text x="1482.0" y="1270.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">∧ unchanged(l,v)</text>
+<text x="1482.0" y="1292.96" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">L = U · V5[refuse] · V7</text>
+<text x="1482.0" y="1315.28" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">X = {V1 · V2[false], U · V5[approve]}</text>
+<polyline points="121.0,140 121.0,258" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+<polyline points="2090,862 2190,862 2190,140" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+<rect x="2020" y="175" width="90" height="65" rx="0" fill="#fff8e2" stroke="#253b50" stroke-width="2"/>
+<text x="2065.0" y="195.72" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="middle">Case</text>
+<text x="2065.0" y="219.28" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="middle">data</text>
+<polyline points="2020,207 2002,207 2002,212 545.0,212 545.0,230" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6"/>
+</svg>

@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="alpha_classic_net_1791343243.8164809" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>alpha_classic_net_1791343243.8164809</text>
+    </name>
+    <page id="n0">
+      <place id="({'I7'}, {'I8'})">
+        <name>
+          <text>({'I7'}, {'I8'})</text>
+        </name>
+      </place>
+      <place id="({'I8'}, {'I10', 'I9'})">
+        <name>
+          <text>({'I8'}, {'I10', 'I9'})</text>
+        </name>
+      </place>
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="({'I1'}, {'I2'})">
+        <name>
+          <text>({'I1'}, {'I2'})</text>
+        </name>
+      </place>
+      <place id="({'I5'}, {'I7'})">
+        <name>
+          <text>({'I5'}, {'I7'})</text>
+        </name>
+      </place>
+      <place id="({'I6'}, {'I8'})">
+        <name>
+          <text>({'I6'}, {'I8'})</text>
+        </name>
+      </place>
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <place id="({'I5'}, {'I6'})">
+        <name>
+          <text>({'I5'}, {'I6'})</text>
+        </name>
+      </place>
+      <place id="({'I10', 'I9'}, {'I11'})">
+        <name>
+          <text>({'I10', 'I9'}, {'I11'})</text>
+        </name>
+      </place>
+      <place id="({'I2'}, {'I5', 'I3', 'I4'})">
+        <name>
+          <text>({'I2'}, {'I5', 'I3', 'I4'})</text>
+        </name>
+      </place>
+      <place id="({'I11', 'I3', 'I4'}, {'I12'})">
+        <name>
+          <text>({'I11', 'I3', 'I4'}, {'I12'})</text>
+        </name>
+      </place>
+      <transition id="I2">
+        <name>
+          <text>I2</text>
+        </name>
+      </transition>
+      <transition id="I6">
+        <name>
+          <text>I6</text>
+        </name>
+      </transition>
+      <transition id="I3">
+        <name>
+          <text>I3</text>
+        </name>
+      </transition>
+      <transition id="I7">
+        <name>
+          <text>I7</text>
+        </name>
+      </transition>
+      <transition id="I1">
+        <name>
+          <text>I1</text>
+        </name>
+      </transition>
+      <transition id="I12">
+        <name>
+          <text>I12</text>
+        </name>
+      </transition>
+      <transition id="I10">
+        <name>
+          <text>I10</text>
+        </name>
+      </transition>
+      <transition id="I11">
+        <name>
+          <text>I11</text>
+        </name>
+      </transition>
+      <transition id="I5">
+        <name>
+          <text>I5</text>
+        </name>
+      </transition>
+      <transition id="I9">
+        <name>
+          <text>I9</text>
+        </name>
+      </transition>
+      <transition id="I4">
+        <name>
+          <text>I4</text>
+        </name>
+      </transition>
+      <transition id="I8">
+        <name>
+          <text>I8</text>
+        </name>
+      </transition>
+      <arc id="140340119416192" source="({'I1'}, {'I2'})" target="I2"/>
+      <arc id="140340119408896" source="I5" target="({'I5'}, {'I7'})"/>
+      <arc id="140340119411200" source="I8" target="({'I8'}, {'I10', 'I9'})"/>
+      <arc id="140340119418880" source="I2" target="({'I2'}, {'I5', 'I3', 'I4'})"/>
+      <arc id="140340119414272" source="I3" target="({'I11', 'I3', 'I4'}, {'I12'})"/>
+      <arc id="140340119420800" source="I4" target="({'I11', 'I3', 'I4'}, {'I12'})"/>
+      <arc id="140340119404816" source="I1" target="({'I1'}, {'I2'})"/>
+      <arc id="140340119411344" source="I5" target="({'I5'}, {'I6'})"/>
+      <arc id="140340119419408" source="({'I10', 'I9'}, {'I11'})" target="I11"/>
+      <arc id="140340119407648" source="I12" target="end"/>
+      <arc id="140340119406880" source="({'I6'}, {'I8'})" target="I8"/>
+      <arc id="140340119409952" source="({'I8'}, {'I10', 'I9'})" target="I9"/>
+      <arc id="140340119406496" source="I9" target="({'I10', 'I9'}, {'I11'})"/>
+      <arc id="140340119411104" source="({'I11', 'I3', 'I4'}, {'I12'})" target="I12"/>
+      <arc id="140340119408944" source="start" target="I1"/>
+      <arc id="140340119414704" source="({'I5'}, {'I7'})" target="I7"/>
+      <arc id="140340119408560" source="({'I8'}, {'I10', 'I9'})" target="I10"/>
+      <arc id="140340119413696" source="({'I2'}, {'I5', 'I3', 'I4'})" target="I5"/>
+      <arc id="140340119411008" source="({'I2'}, {'I5', 'I3', 'I4'})" target="I3"/>
+      <arc id="140340119416000" source="I11" target="({'I11', 'I3', 'I4'}, {'I12'})"/>
+      <arc id="140340119409616" source="I6" target="({'I6'}, {'I8'})"/>
+      <arc id="140340119405392" source="({'I5'}, {'I6'})" target="I6"/>
+      <arc id="140340119416672" source="({'I7'}, {'I8'})" target="I8"/>
+      <arc id="140340119412448" source="I10" target="({'I10', 'I9'}, {'I11'})"/>
+      <arc id="140340119410144" source="({'I2'}, {'I5', 'I3', 'I4'})" target="I4"/>
+      <arc id="140340119416048" source="I7" target="({'I7'}, {'I8'})"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="end">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

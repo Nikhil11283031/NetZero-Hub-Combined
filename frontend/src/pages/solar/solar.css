@@ -1,0 +1,40 @@
+/* Solar pages (ORG-001): status badge and progress timeline. Uses the shared colour variables from styles.css. */
+
+.badge-cancelled {
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+/* Customer progress timeline: wider badge column for "Assessment booked" */
+.timeline.solar-timeline li {
+  grid-template-columns: 170px 1fr auto;
+}
+
+@media (max-width: 720px) {
+  .timeline.solar-timeline li {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Payment section */
+.pay-form {
+  margin-top: 16px;
+}
+
+.pay-form .choice-grid {
+  margin-bottom: 16px;
+}
+
+.demo-note {
+  margin: 0 0 16px;
+}
+
+.receipts td:last-child {
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.pay-form + h3,
+.card > .alert + h3 {
+  margin-top: 24px;
+}

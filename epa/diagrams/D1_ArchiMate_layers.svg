@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2010" height="1530" viewBox="0 0 2010 1530">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#253b50"/></marker><marker id="open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto-start-reverse"><path d="M0,0 L10,4 L0,8" fill="none" stroke="#253b50"/></marker><marker id="triangle" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 Z" fill="white" stroke="#253b50"/></marker><marker id="circle" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><circle cx="4" cy="4" r="3" fill="#253b50"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="35" y="38.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="29" fill="#132f44" text-anchor="start">D1 Enterprise architecture in ArchiMate</text>
+<rect x="35" y="65" width="1940" height="390" rx="0" fill="#fffae9" stroke="#253b50" stroke-width="2"/>
+<text x="50" y="91.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">BUSINESS</text>
+<rect x="35" y="475" width="1940" height="585" rx="0" fill="#edf7fc" stroke="#253b50" stroke-width="2"/>
+<text x="50" y="501.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">APPLICATION</text>
+<rect x="35" y="1080" width="1940" height="380" rx="0" fill="#f0f8ed" stroke="#253b50" stroke-width="2"/>
+<text x="50" y="1106.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">TECHNOLOGY</text>
+<polyline points="320,155.0 410,155.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#circle)"/>
+<polyline points="320,125 350,125 350,95 1350,95 1350,110" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#circle)"/>
+<polyline points="550.0,200 550.0,285" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#circle)"/>
+<polyline points="1370.0,200 1370.0,285" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#circle)"/>
+<polyline points="690,342.5 790,257.5" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#triangle)"/>
+<polyline points="1510,342.5 1620,257.5" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#triangle)"/>
+<polyline points="550.0,535 550.0,400" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#open)"/>
+<polyline points="1370.0,535 1370.0,400" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#open)"/>
+<polyline points="550.0,730 550.0,635" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#triangle)"/>
+<polyline points="1370.0,730 1370.0,635" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#triangle)"/>
+<polyline points="550.0,930 550.0,850" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#circle)"/>
+<polyline points="1370.0,930 1370.0,850" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#circle)"/>
+<polyline points="410,790.0 320,785.0" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#open)" marker-start="url(#open)"/>
+<polyline points="1510,790.0 1640,785.0" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#open)" marker-start="url(#open)"/>
+<polyline points="550.0,1130 550.0,1030" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#open)"/>
+<polyline points="1370.0,1130 1370.0,1030" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#open)"/>
+<polyline points="990.0,1315 550.0,1245" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#triangle)"/>
+<polyline points="990.0,1315 1370.0,1245" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#triangle)"/>
+<polyline points="190.0,1135 190.0,845" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#triangle)"/>
+<polyline points="1770.0,1135 1770.0,845" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#triangle)"/>
+<polyline points="690,585.0 755,585.0 755,980.0 810,980.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#open)"/>
+<polyline points="1230,585.0 1195,585.0 1195,980.0 1170,980.0" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#open)"/>
+<polyline points="990.0,1130 990.0,1030" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#open)"/>
+<polyline points="990.0,1315 990.0,1245" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#triangle)"/>
+<rect x="70" y="110" width="250" height="90" rx="0" fill="#fff6d5" stroke="#253b50" stroke-width="2"/>
+<text x="195.0" y="133.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">BusinessActor</text>
+<text x="195.0" y="176.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">NSW EPA</text>
+<rect x="410" y="110" width="280" height="90" rx="0" fill="#fff6d5" stroke="#253b50" stroke-width="2"/>
+<text x="550.0" y="133.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">BusinessRole</text>
+<text x="550.0" y="176.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Licensing officer</text>
+<rect x="1230" y="110" width="280" height="90" rx="0" fill="#fff6d5" stroke="#253b50" stroke-width="2"/>
+<text x="1370.0" y="133.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">BusinessRole</text>
+<text x="1370.0" y="176.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Investigator</text>
+<rect x="410" y="285" width="280" height="115" rx="0" fill="#fff6d5" stroke="#253b50" stroke-width="2"/>
+<text x="550.0" y="308.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">BusinessProcess</text>
+<text x="550.0" y="349.86" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Licence lifecycle P1</text>
+<text x="550.0" y="377.14" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">and P2</text>
+<rect x="1230" y="285" width="280" height="115" rx="0" fill="#fff6d5" stroke="#253b50" stroke-width="2"/>
+<text x="1370.0" y="308.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">BusinessProcess</text>
+<text x="1370.0" y="349.86" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Pollution investigation</text>
+<text x="1370.0" y="377.14" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">P3</text>
+<rect x="790" y="200" width="300" height="115" rx="12" fill="#fff6d5" stroke="#253b50" stroke-width="2"/>
+<text x="940.0" y="223.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">BusinessService</text>
+<text x="940.0" y="264.86" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">EPA-001 Licence</text>
+<text x="940.0" y="292.14" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">management</text>
+<rect x="1620" y="200" width="300" height="115" rx="12" fill="#fff6d5" stroke="#253b50" stroke-width="2"/>
+<text x="1770.0" y="223.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">BusinessService</text>
+<text x="1770.0" y="264.86" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">EPA-002 Pollution</text>
+<text x="1770.0" y="292.14" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">management</text>
+<rect x="410" y="535" width="280" height="100" rx="12" fill="#dceff9" stroke="#253b50" stroke-width="2"/>
+<text x="550.0" y="558.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">ApplicationService</text>
+<text x="550.0" y="606.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Licence workflow API</text>
+<rect x="1230" y="535" width="280" height="100" rx="12" fill="#dceff9" stroke="#253b50" stroke-width="2"/>
+<text x="1370.0" y="558.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">ApplicationService</text>
+<text x="1370.0" y="606.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Incident workflow API</text>
+<rect x="410" y="730" width="280" height="120" rx="0" fill="#dceff9" stroke="#253b50" stroke-width="2"/>
+<text x="550.0" y="753.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">ApplicationFunction</text>
+<text x="550.0" y="797.36" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Validate assess decide</text>
+<text x="550.0" y="824.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">and version</text>
+<rect x="1230" y="730" width="280" height="120" rx="0" fill="#dceff9" stroke="#253b50" stroke-width="2"/>
+<text x="1370.0" y="753.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">ApplicationFunction</text>
+<text x="1370.0" y="797.36" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Triage collect review</text>
+<text x="1370.0" y="824.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">and conclude</text>
+<rect x="410" y="930" width="280" height="100" rx="0" fill="#dceff9" stroke="#253b50" stroke-width="2"/>
+<text x="550.0" y="953.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">ApplicationComponent</text>
+<text x="550.0" y="1001.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">LicenceService</text>
+<rect x="1230" y="930" width="280" height="100" rx="0" fill="#dceff9" stroke="#253b50" stroke-width="2"/>
+<text x="1370.0" y="953.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">ApplicationComponent</text>
+<text x="1370.0" y="1001.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">IncidentService</text>
+<rect x="810" y="930" width="360" height="100" rx="0" fill="#dceff9" stroke="#253b50" stroke-width="2"/>
+<text x="990.0" y="953.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">ApplicationComponent</text>
+<text x="990.0" y="1001.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">React EPA feature module</text>
+<rect x="60" y="725" width="260" height="120" rx="0" fill="#dceff9" stroke="#253b50" stroke-width="2"/>
+<text x="190.0" y="748.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">DataObject</text>
+<text x="190.0" y="792.36" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Licence case and</text>
+<text x="190.0" y="819.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">conditions</text>
+<rect x="1640" y="725" width="260" height="120" rx="0" fill="#dceff9" stroke="#253b50" stroke-width="2"/>
+<text x="1770.0" y="748.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">DataObject</text>
+<text x="1770.0" y="792.36" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Incident case and</text>
+<text x="1770.0" y="819.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">evidence</text>
+<rect x="410" y="1130" width="280" height="115" rx="12" fill="#e1efd9" stroke="#253b50" stroke-width="2"/>
+<text x="550.0" y="1153.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">TechnologyService</text>
+<text x="550.0" y="1194.86" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">HTTP execution and</text>
+<text x="550.0" y="1222.1399999999999" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">persistence</text>
+<rect x="1230" y="1130" width="280" height="115" rx="12" fill="#e1efd9" stroke="#253b50" stroke-width="2"/>
+<text x="1370.0" y="1153.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">TechnologyService</text>
+<text x="1370.0" y="1194.86" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">HTTP execution and</text>
+<text x="1370.0" y="1222.1399999999999" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">persistence</text>
+<rect x="810" y="1130" width="360" height="115" rx="12" fill="#e1efd9" stroke="#253b50" stroke-width="2"/>
+<text x="990.0" y="1153.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">TechnologyService</text>
+<text x="990.0" y="1208.5" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Web delivery and API proxy</text>
+<rect x="810" y="1315" width="360" height="110" rx="0" fill="#e1efd9" stroke="#253b50" stroke-width="2"/>
+<text x="990.0" y="1338.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">Node</text>
+<text x="990.0" y="1377.36" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">Local browser Node Python and</text>
+<text x="990.0" y="1404.6399999999999" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">SQLite</text>
+<rect x="60" y="1135" width="260" height="110" rx="0" fill="#e1efd9" stroke="#253b50" stroke-width="2"/>
+<text x="190.0" y="1158.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">Artifact</text>
+<text x="190.0" y="1211.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">licensing.sqlite</text>
+<rect x="1640" y="1135" width="260" height="110" rx="0" fill="#e1efd9" stroke="#253b50" stroke-width="2"/>
+<text x="1770.0" y="1158.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="middle">Artifact</text>
+<text x="1770.0" y="1211.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="middle">incidents.sqlite</text>
+<text x="40" y="1490.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Legend: hollow triangle = realization; circle and arrow = assignment; solid open arrow = serving; dotted double arrow = read and write access.</text>
+</svg>

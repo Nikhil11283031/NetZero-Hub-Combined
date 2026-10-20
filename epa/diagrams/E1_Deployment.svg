@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1580" height="1110" viewBox="0 0 1580 1110">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#253b50"/></marker><marker id="open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto-start-reverse"><path d="M0,0 L10,4 L0,8" fill="none" stroke="#253b50"/></marker><marker id="triangle" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 Z" fill="white" stroke="#253b50"/></marker><marker id="circle" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><circle cx="4" cy="4" r="3" fill="#253b50"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="35" y="38.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="29" fill="#132f44" text-anchor="start">E1 React frontend and independent backend services</text>
+<rect x="470" y="75" width="640" height="105" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="790.0" y="112.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="25" fill="#132f44" text-anchor="middle">BROWSER</text>
+<text x="790.0" y="143.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="25" fill="#132f44" text-anchor="middle">React EPA workspace at /epa</text>
+<polyline points="790,180 790,255" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="825" y="222.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="start">Same-origin HTTP requests</text>
+<rect x="385" y="255" width="810" height="145" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="790.0" y="297.74" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">WEB DELIVERY AND API PROXY</text>
+<text x="790.0" y="327.5" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">Local Vite on 5173: verified</text>
+<text x="790.0" y="357.26" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">Optional Nginx web container on 8080: not executed</text>
+<rect x="55" y="510" width="550" height="220" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="330.0" y="575.36" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">LICENSING PROCESS</text>
+<text x="330.0" y="605.12" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">FastAPI and Uvicorn on port 8001</text>
+<text x="330.0" y="634.88" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">P1 applications and P2 variations</text>
+<text x="330.0" y="664.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">Own transactions and event table</text>
+<rect x="975" y="510" width="550" height="220" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="1250.0" y="575.36" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">INCIDENT PROCESS</text>
+<text x="1250.0" y="605.12" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">FastAPI and Uvicorn on port 8002</text>
+<text x="1250.0" y="634.88" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">P3 reporting and investigation</text>
+<text x="1250.0" y="664.64" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">Own transactions and event table</text>
+<polyline points="590,400 590,450 330,450 330,510" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<polyline points="990,400 990,450 1250,450 1250,510" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="65" y="473.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">/api/v1/epa/licensing</text>
+<text x="1000" y="430.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">/api/v1/epa/incidents</text>
+<polyline points="975,580 605,580" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="790" y="559.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">GET licence context</text>
+<text x="790" y="620.2" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">2 second timeout</text>
+<text x="790" y="645.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">Backend service token</text>
+<text x="790" y="669.8000000000001" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">Retry after 503</text>
+<rect x="155" y="825" width="350" height="130" rx="0" fill="#e3efdf" stroke="#253b50" stroke-width="2"/>
+<text x="330.0" y="861.48" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" fill="#132f44" text-anchor="middle">licensing.sqlite</text>
+<text x="330.0" y="890.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" fill="#132f44" text-anchor="middle">Cases and licences</text>
+<text x="330.0" y="918.52" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" fill="#132f44" text-anchor="middle">Version and audit events</text>
+<rect x="1075" y="825" width="350" height="130" rx="0" fill="#e3efdf" stroke="#253b50" stroke-width="2"/>
+<text x="1250.0" y="861.48" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" fill="#132f44" text-anchor="middle">incidents.sqlite</text>
+<text x="1250.0" y="890.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" fill="#132f44" text-anchor="middle">Reports and evidence</text>
+<text x="1250.0" y="918.52" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" fill="#132f44" text-anchor="middle">Version and audit events</text>
+<polyline points="330,730 330,825" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="335.0" y="748.5" width="52" height="25" fill="white"/>
+<text x="338.0" y="767.5" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">owns</text>
+<polyline points="1250,730 1250,825" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="1255.0" y="748.5" width="52" height="25" fill="white"/>
+<text x="1258.0" y="767.5" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" fill="#132f44" text-anchor="start">owns</text>
+<text x="45" y="1010.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">The proxy strips each public API prefix. Browser requests never use Docker-only service names.</text>
+<text x="45" y="1060.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">Local Python and Node execution is verified. Compose defines web, licensing and incidents with separate database volumes.</text>
+</svg>

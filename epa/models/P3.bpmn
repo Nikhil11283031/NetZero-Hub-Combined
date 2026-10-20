@@ -1,0 +1,565 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="P3_definitions" targetNamespace="https://netzero.example/epa" exporter="NetZero coursework model generator" exporterVersion="1.0">
+  <bpmn:message id="P3_startMessage" name="startMessage" />
+  <bpmn:message id="P3_dataMessage" name="dataMessage" />
+  <bpmn:collaboration id="P3_collaboration">
+    <bpmn:participant id="P3_consumer" name="Applicant or reporter through NetZero Hub" />
+    <bpmn:participant id="P3_epa" name="NSW EPA reference workflow" processRef="P3" />
+    <bpmn:messageFlow id="P3_message_0" sourceRef="P3_consumer" targetRef="P3_s" name="request or outcome" />
+    <bpmn:messageFlow id="P3_message_1" sourceRef="P3_I12" targetRef="P3_consumer" name="request or outcome" />
+  </bpmn:collaboration>
+  <bpmn:process id="P3" name="Pollution reporting and investigation" isExecutable="false">
+    <bpmn:documentation>Reference-based business model. API implementation covers the selected core. Timeouts and digital integration are project assumptions.</bpmn:documentation>
+    <bpmn:laneSet id="P3_lanes">
+      <bpmn:lane id="P3_intake" name="Intake and assessment">
+        <bpmn:flowNodeRef>P3_s</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_gEmergency</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_gJurisdiction</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I4</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I5</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_split</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_join</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I8</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_gSubstantiated</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I9</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I10</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_merge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_I11</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="P3_registry" name="Registry and outcome">
+        <bpmn:flowNodeRef>P3_I12</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P3_end</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="P3_s" name="">
+      <bpmn:outgoing>P3_flow_0</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="P3_start_definition" messageRef="P3_startMessage" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="P3_I1" name="I1 Register pollution report">
+      <bpmn:incoming>P3_flow_0</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_1</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="P3_I2" name="I2 Triage risk and jurisdiction">
+      <bpmn:incoming>P3_flow_1</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="P3_gEmergency" name="Emergency?">
+      <bpmn:incoming>P3_flow_2</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_3</bpmn:outgoing>
+      <bpmn:outgoing>P3_flow_4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="P3_I3" name="I3 Provide emergency guidance">
+      <bpmn:incoming>P3_flow_3</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_20</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="P3_gJurisdiction" name="EPA?">
+      <bpmn:incoming>P3_flow_4</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_5</bpmn:outgoing>
+      <bpmn:outgoing>P3_flow_6</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="P3_I4" name="I4 Record referral guidance">
+      <bpmn:incoming>P3_flow_5</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_21</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="P3_I5" name="I5 Assign investigator">
+      <bpmn:incoming>P3_flow_6</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="P3_split" name="">
+      <bpmn:incoming>P3_flow_7</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_8</bpmn:outgoing>
+      <bpmn:outgoing>P3_flow_9</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="P3_I6" name="I6 Collect evidence">
+      <bpmn:incoming>P3_flow_8</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_10</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="P3_I7" name="I7 Review licence context">
+      <bpmn:incoming>P3_flow_9</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_11</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="P3_join" name="">
+      <bpmn:incoming>P3_flow_10</bpmn:incoming>
+      <bpmn:incoming>P3_flow_11</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_12</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="P3_I8" name="I8 Assess evidence">
+      <bpmn:incoming>P3_flow_12</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_13</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="P3_gSubstantiated" name="Substantiated?">
+      <bpmn:incoming>P3_flow_13</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_14</bpmn:outgoing>
+      <bpmn:outgoing>P3_flow_15</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="P3_I9" name="I9 Record regulatory action">
+      <bpmn:incoming>P3_flow_14</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_16</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="P3_I10" name="I10 Record no further action">
+      <bpmn:incoming>P3_flow_15</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_17</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="P3_merge" name="">
+      <bpmn:incoming>P3_flow_16</bpmn:incoming>
+      <bpmn:incoming>P3_flow_17</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_18</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="P3_I11" name="I11 Close investigation">
+      <bpmn:incoming>P3_flow_18</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_19</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="P3_I12" name="I12 Publish incident outcome">
+      <bpmn:incoming>P3_flow_19</bpmn:incoming>
+      <bpmn:incoming>P3_flow_20</bpmn:incoming>
+      <bpmn:incoming>P3_flow_21</bpmn:incoming>
+      <bpmn:outgoing>P3_flow_22</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="P3_end" name="">
+      <bpmn:incoming>P3_flow_22</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="P3_flow_0" sourceRef="P3_s" targetRef="P3_I1" name="" />
+    <bpmn:sequenceFlow id="P3_flow_1" sourceRef="P3_I1" targetRef="P3_I2" name="" />
+    <bpmn:sequenceFlow id="P3_flow_2" sourceRef="P3_I2" targetRef="P3_gEmergency" name="" />
+    <bpmn:sequenceFlow id="P3_flow_3" sourceRef="P3_gEmergency" targetRef="P3_I3" name="yes">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">yes</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P3_flow_4" sourceRef="P3_gEmergency" targetRef="P3_gJurisdiction" name="no">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">no</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P3_flow_5" sourceRef="P3_gJurisdiction" targetRef="P3_I4" name="no">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">no</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P3_flow_6" sourceRef="P3_gJurisdiction" targetRef="P3_I5" name="yes">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">yes</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P3_flow_7" sourceRef="P3_I5" targetRef="P3_split" name="" />
+    <bpmn:sequenceFlow id="P3_flow_8" sourceRef="P3_split" targetRef="P3_I6" name="" />
+    <bpmn:sequenceFlow id="P3_flow_9" sourceRef="P3_split" targetRef="P3_I7" name="" />
+    <bpmn:sequenceFlow id="P3_flow_10" sourceRef="P3_I6" targetRef="P3_join" name="" />
+    <bpmn:sequenceFlow id="P3_flow_11" sourceRef="P3_I7" targetRef="P3_join" name="" />
+    <bpmn:sequenceFlow id="P3_flow_12" sourceRef="P3_join" targetRef="P3_I8" name="" />
+    <bpmn:sequenceFlow id="P3_flow_13" sourceRef="P3_I8" targetRef="P3_gSubstantiated" name="" />
+    <bpmn:sequenceFlow id="P3_flow_14" sourceRef="P3_gSubstantiated" targetRef="P3_I9" name="yes">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">yes</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P3_flow_15" sourceRef="P3_gSubstantiated" targetRef="P3_I10" name="no">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">no</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P3_flow_16" sourceRef="P3_I9" targetRef="P3_merge" name="" />
+    <bpmn:sequenceFlow id="P3_flow_17" sourceRef="P3_I10" targetRef="P3_merge" name="" />
+    <bpmn:sequenceFlow id="P3_flow_18" sourceRef="P3_merge" targetRef="P3_I11" name="" />
+    <bpmn:sequenceFlow id="P3_flow_19" sourceRef="P3_I11" targetRef="P3_I12" name="" />
+    <bpmn:sequenceFlow id="P3_flow_20" sourceRef="P3_I3" targetRef="P3_I12" name="guidance" />
+    <bpmn:sequenceFlow id="P3_flow_21" sourceRef="P3_I4" targetRef="P3_I12" name="referral" />
+    <bpmn:sequenceFlow id="P3_flow_22" sourceRef="P3_I12" targetRef="P3_end" name="" />
+    <bpmn:dataObject id="P3_data" />
+    <bpmn:dataObjectReference id="P3_data_ref" dataObjectRef="P3_data" name="Case documents" />
+    <bpmn:textAnnotation id="P3_effect_I1">
+      <bpmn:text>I1 immediate
+A pollution report is recorded.
+received(i)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I1_assoc" sourceRef="P3_I1" targetRef="P3_effect_I1" />
+    <bpmn:textAnnotation id="P3_effect_I2">
+      <bpmn:text>I2 immediate
+Risk r and responsible-authority result j are recorded.
+triaged(i) ∧ risk(i,r) ∧ jurisdiction(i,j)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I2_assoc" sourceRef="P3_I2" targetRef="P3_effect_I2" />
+    <bpmn:textAnnotation id="P3_effect_I3">
+      <bpmn:text>I3 immediate
+Emergency guidance is available; no emergency call is made.
+guidance(i,emergency) ∧ state(i,emergencyGuidance)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I3_assoc" sourceRef="P3_I3" targetRef="P3_effect_I3" />
+    <bpmn:textAnnotation id="P3_effect_I4">
+      <bpmn:text>I4 immediate
+Responsible-authority guidance is recorded, without transmitting data.
+guidance(i,referral) ∧ state(i,referred)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I4_assoc" sourceRef="P3_I4" targetRef="P3_effect_I4" />
+    <bpmn:textAnnotation id="P3_effect_I5">
+      <bpmn:text>I5 immediate
+An investigator is assigned and investigation opens.
+assigned(i)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I5_assoc" sourceRef="P3_I5" targetRef="P3_effect_I5" />
+    <bpmn:textAnnotation id="P3_effect_I6">
+      <bpmn:text>I6 immediate
+Evidence or its documented unavailability is recorded.
+evidenceRecorded(i)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I6_assoc" sourceRef="P3_I6" targetRef="P3_effect_I6" />
+    <bpmn:textAnnotation id="P3_effect_I7">
+      <bpmn:text>I7 immediate
+Licence context, no match or no supplied reference is recorded.
+contextRecorded(i)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I7_assoc" sourceRef="P3_I7" targetRef="P3_effect_I7" />
+    <bpmn:textAnnotation id="P3_effect_I8">
+      <bpmn:text>I8 immediate
+Evidence is evaluated and substantiation result s is recorded.
+evaluated(i) ∧ substantiatedResult(i,s)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I8_assoc" sourceRef="P3_I8" targetRef="P3_effect_I8" />
+    <bpmn:textAnnotation id="P3_effect_I9">
+      <bpmn:text>I9 immediate
+The selected regulatory action is recorded for the case.
+actionRecorded(i) ∧ state(i,actionRecorded)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I9_assoc" sourceRef="P3_I9" targetRef="P3_effect_I9" />
+    <bpmn:textAnnotation id="P3_effect_I10">
+      <bpmn:text>I10 immediate
+A reasoned no-further-action decision is recorded.
+noActionRecorded(i) ∧ state(i,noFurtherAction)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I10_assoc" sourceRef="P3_I10" targetRef="P3_effect_I10" />
+    <bpmn:textAnnotation id="P3_effect_I11">
+      <bpmn:text>I11 immediate
+The investigation is closed.
+investigationClosed(i)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I11_assoc" sourceRef="P3_I11" targetRef="P3_effect_I11" />
+    <bpmn:textAnnotation id="P3_effect_I12">
+      <bpmn:text>I12 immediate
+The permitted incident outcome is available to its owner.
+outcomeAvailable(i)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_effect_I12_assoc" sourceRef="P3_I12" targetRef="P3_effect_I12" />
+    <bpmn:textAnnotation id="P3_cum_0">
+      <bpmn:text>C7 Evidence and context both available
+BaseI(i) ∧ evidenceRecorded(i) ∧ contextRecorded(i)
+L = N · (I6 || I7)
+X = {E, R}</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_cum_0_assoc" sourceRef="P3_join" targetRef="P3_cum_0" />
+    <bpmn:textAnnotation id="P3_cum_1">
+      <bpmn:text>C8 Substantiated investigation closed
+C7(i) ∧ evaluated(i) ∧ substantiatedResult(i,true) ∧ actionRecorded(i) ∧ state(i,actionRecorded) ∧ investigationClosed(i)
+L = N · (I6 || I7) · I8[true] · I9 · I11
+X = {E, R, N · (I6 || I7) · I8[false]}</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_cum_1_assoc" sourceRef="P3_I11" targetRef="P3_cum_1" />
+    <bpmn:textAnnotation id="P3_cum_2">
+      <bpmn:text>C9 Referred outside EPA
+received(i) ∧ triaged(i) ∧ risk(i,nonEmergency) ∧ jurisdiction(i,other) ∧ guidance(i,referral) ∧ state(i,referred)
+L = R · I4
+X = {E, I1 · I2[nonEmergency,epa]}</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P3_cum_2_assoc" sourceRef="P3_I4" targetRef="P3_cum_2" />
+    <bpmn:association id="P3_data_assoc" sourceRef="P3_data_ref" targetRef="P3_I6" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="P3_diagram">
+    <bpmndi:BPMNPlane id="P3_plane" bpmnElement="P3_collaboration">
+      <bpmndi:BPMNShape id="P3_consumer_di" bpmnElement="P3_consumer" isHorizontal="true">
+        <dc:Bounds x="40" y="70" width="2860" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_epa_di" bpmnElement="P3_epa" isHorizontal="true">
+        <dc:Bounds x="40" y="170" width="2860" height="1320" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_intake_di" bpmnElement="P3_intake" isHorizontal="true">
+        <dc:Bounds x="70" y="170" width="2830" height="910" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_registry_di" bpmnElement="P3_registry" isHorizontal="true">
+        <dc:Bounds x="70" y="1080" width="2830" height="410" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_s_di" bpmnElement="P3_s">
+        <dc:Bounds x="85" y="258" width="42" height="42" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I1_di" bpmnElement="P3_I1">
+        <dc:Bounds x="160" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I2_di" bpmnElement="P3_I2">
+        <dc:Bounds x="405" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_gEmergency_di" bpmnElement="P3_gEmergency">
+        <dc:Bounds x="650" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I3_di" bpmnElement="P3_I3">
+        <dc:Bounds x="550" y="530" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_gJurisdiction_di" bpmnElement="P3_gJurisdiction">
+        <dc:Bounds x="785" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I4_di" bpmnElement="P3_I4">
+        <dc:Bounds x="800" y="790" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I5_di" bpmnElement="P3_I5">
+        <dc:Bounds x="925" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_split_di" bpmnElement="P3_split">
+        <dc:Bounds x="1180" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I6_di" bpmnElement="P3_I6">
+        <dc:Bounds x="1300" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I7_di" bpmnElement="P3_I7">
+        <dc:Bounds x="1300" y="530" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_join_di" bpmnElement="P3_join">
+        <dc:Bounds x="1570" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I8_di" bpmnElement="P3_I8">
+        <dc:Bounds x="1690" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_gSubstantiated_di" bpmnElement="P3_gSubstantiated">
+        <dc:Bounds x="1940" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I9_di" bpmnElement="P3_I9">
+        <dc:Bounds x="2080" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I10_di" bpmnElement="P3_I10">
+        <dc:Bounds x="2080" y="530" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_merge_di" bpmnElement="P3_merge">
+        <dc:Bounds x="2330" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I11_di" bpmnElement="P3_I11">
+        <dc:Bounds x="2450" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_I12_di" bpmnElement="P3_I12">
+        <dc:Bounds x="2450" y="1160" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P3_end_di" bpmnElement="P3_end">
+        <dc:Bounds x="2790" y="1189" width="42" height="42" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_flow_0_di" bpmnElement="P3_flow_0">
+        <di:waypoint x="127" y="279.0" />
+        <di:waypoint x="160" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_1_di" bpmnElement="P3_flow_1">
+        <di:waypoint x="350" y="280.0" />
+        <di:waypoint x="405" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_2_di" bpmnElement="P3_flow_2">
+        <di:waypoint x="595" y="280.0" />
+        <di:waypoint x="650" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_3_di" bpmnElement="P3_flow_3">
+        <di:waypoint x="674.0" y="304" />
+        <di:waypoint x="645.0" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_4_di" bpmnElement="P3_flow_4">
+        <di:waypoint x="698" y="280.0" />
+        <di:waypoint x="785" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_5_di" bpmnElement="P3_flow_5">
+        <di:waypoint x="809.0" y="304" />
+        <di:waypoint x="895.0" y="790" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_6_di" bpmnElement="P3_flow_6">
+        <di:waypoint x="833" y="280.0" />
+        <di:waypoint x="925" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_7_di" bpmnElement="P3_flow_7">
+        <di:waypoint x="1115" y="280.0" />
+        <di:waypoint x="1180" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_8_di" bpmnElement="P3_flow_8">
+        <di:waypoint x="1228" y="280.0" />
+        <di:waypoint x="1300" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_9_di" bpmnElement="P3_flow_9">
+        <di:waypoint x="1228" y="280.0" />
+        <di:waypoint x="1264.0" y="280.0" />
+        <di:waypoint x="1264.0" y="580.0" />
+        <di:waypoint x="1300" y="580.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_10_di" bpmnElement="P3_flow_10">
+        <di:waypoint x="1490" y="280.0" />
+        <di:waypoint x="1570" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_11_di" bpmnElement="P3_flow_11">
+        <di:waypoint x="1490" y="580.0" />
+        <di:waypoint x="1530.0" y="580.0" />
+        <di:waypoint x="1530.0" y="280.0" />
+        <di:waypoint x="1570" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_12_di" bpmnElement="P3_flow_12">
+        <di:waypoint x="1618" y="280.0" />
+        <di:waypoint x="1690" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_13_di" bpmnElement="P3_flow_13">
+        <di:waypoint x="1880" y="280.0" />
+        <di:waypoint x="1940" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_14_di" bpmnElement="P3_flow_14">
+        <di:waypoint x="1988" y="280.0" />
+        <di:waypoint x="2080" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_15_di" bpmnElement="P3_flow_15">
+        <di:waypoint x="1988" y="280.0" />
+        <di:waypoint x="2034.0" y="280.0" />
+        <di:waypoint x="2034.0" y="580.0" />
+        <di:waypoint x="2080" y="580.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_16_di" bpmnElement="P3_flow_16">
+        <di:waypoint x="2270" y="280.0" />
+        <di:waypoint x="2330" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_17_di" bpmnElement="P3_flow_17">
+        <di:waypoint x="2270" y="580.0" />
+        <di:waypoint x="2300.0" y="580.0" />
+        <di:waypoint x="2300.0" y="280.0" />
+        <di:waypoint x="2330" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_18_di" bpmnElement="P3_flow_18">
+        <di:waypoint x="2378" y="280.0" />
+        <di:waypoint x="2450" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_19_di" bpmnElement="P3_flow_19">
+        <di:waypoint x="2640" y="280" />
+        <di:waypoint x="2700" y="280" />
+        <di:waypoint x="2700" y="1185" />
+        <di:waypoint x="2640" y="1185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_20_di" bpmnElement="P3_flow_20">
+        <di:waypoint x="550" y="580.0" />
+        <di:waypoint x="505" y="580.0" />
+        <di:waypoint x="505" y="1385" />
+        <di:waypoint x="2685" y="1385" />
+        <di:waypoint x="2685" y="1235" />
+        <di:waypoint x="2640" y="1235" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_21_di" bpmnElement="P3_flow_21">
+        <di:waypoint x="800" y="840.0" />
+        <di:waypoint x="755" y="840.0" />
+        <di:waypoint x="755" y="1450" />
+        <di:waypoint x="2685" y="1450" />
+        <di:waypoint x="2685" y="1235" />
+        <di:waypoint x="2640" y="1235" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_flow_22_di" bpmnElement="P3_flow_22">
+        <di:waypoint x="2640" y="1210.0" />
+        <di:waypoint x="2790" y="1210.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I1_di" bpmnElement="P3_effect_I1">
+        <dc:Bounds x="160" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I1_assoc_di" bpmnElement="P3_effect_I1_assoc">
+        <di:waypoint x="255.0" y="330" />
+        <di:waypoint x="260" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I2_di" bpmnElement="P3_effect_I2">
+        <dc:Bounds x="405" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I2_assoc_di" bpmnElement="P3_effect_I2_assoc">
+        <di:waypoint x="500.0" y="330" />
+        <di:waypoint x="505" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I3_di" bpmnElement="P3_effect_I3">
+        <dc:Bounds x="550" y="645" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I3_assoc_di" bpmnElement="P3_effect_I3_assoc">
+        <di:waypoint x="645.0" y="630" />
+        <di:waypoint x="650" y="645" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I4_di" bpmnElement="P3_effect_I4">
+        <dc:Bounds x="800" y="905" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I4_assoc_di" bpmnElement="P3_effect_I4_assoc">
+        <di:waypoint x="895.0" y="890" />
+        <di:waypoint x="900" y="905" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I5_di" bpmnElement="P3_effect_I5">
+        <dc:Bounds x="925" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I5_assoc_di" bpmnElement="P3_effect_I5_assoc">
+        <di:waypoint x="1020.0" y="330" />
+        <di:waypoint x="1025" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I6_di" bpmnElement="P3_effect_I6">
+        <dc:Bounds x="1300" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I6_assoc_di" bpmnElement="P3_effect_I6_assoc">
+        <di:waypoint x="1395.0" y="330" />
+        <di:waypoint x="1400" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I7_di" bpmnElement="P3_effect_I7">
+        <dc:Bounds x="1300" y="645" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I7_assoc_di" bpmnElement="P3_effect_I7_assoc">
+        <di:waypoint x="1395.0" y="630" />
+        <di:waypoint x="1400" y="645" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I8_di" bpmnElement="P3_effect_I8">
+        <dc:Bounds x="1690" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I8_assoc_di" bpmnElement="P3_effect_I8_assoc">
+        <di:waypoint x="1785.0" y="330" />
+        <di:waypoint x="1790" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I9_di" bpmnElement="P3_effect_I9">
+        <dc:Bounds x="2080" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I9_assoc_di" bpmnElement="P3_effect_I9_assoc">
+        <di:waypoint x="2175.0" y="330" />
+        <di:waypoint x="2180" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I10_di" bpmnElement="P3_effect_I10">
+        <dc:Bounds x="2080" y="645" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I10_assoc_di" bpmnElement="P3_effect_I10_assoc">
+        <di:waypoint x="2175.0" y="630" />
+        <di:waypoint x="2180" y="645" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I11_di" bpmnElement="P3_effect_I11">
+        <dc:Bounds x="2450" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I11_assoc_di" bpmnElement="P3_effect_I11_assoc">
+        <di:waypoint x="2545.0" y="330" />
+        <di:waypoint x="2550" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_effect_I12_di" bpmnElement="P3_effect_I12">
+        <dc:Bounds x="2450" y="1275" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_effect_I12_assoc_di" bpmnElement="P3_effect_I12_assoc">
+        <di:waypoint x="2545.0" y="1260" />
+        <di:waypoint x="2550" y="1275" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_cum_0_di" bpmnElement="P3_cum_0">
+        <dc:Bounds x="50.0" y="1540" width="920.0" height="190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_cum_0_assoc_di" bpmnElement="P3_cum_0_assoc">
+        <di:waypoint x="1594.0" y="304" />
+        <di:waypoint x="520.0" y="1540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_cum_1_di" bpmnElement="P3_cum_1">
+        <dc:Bounds x="990.0" y="1540" width="920.0" height="190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_cum_1_assoc_di" bpmnElement="P3_cum_1_assoc">
+        <di:waypoint x="2545.0" y="330" />
+        <di:waypoint x="1460.0" y="1540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_cum_2_di" bpmnElement="P3_cum_2">
+        <dc:Bounds x="1930.0" y="1540" width="920.0" height="190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_cum_2_assoc_di" bpmnElement="P3_cum_2_assoc">
+        <di:waypoint x="895.0" y="890" />
+        <di:waypoint x="2400.0" y="1540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_message_0_di" bpmnElement="P3_message_0">
+        <di:waypoint x="106.0" y="140" />
+        <di:waypoint x="106.0" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P3_message_1_di" bpmnElement="P3_message_1">
+        <di:waypoint x="2640" y="1172" />
+        <di:waypoint x="2880" y="1172" />
+        <di:waypoint x="2880" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P3_data_ref_di" bpmnElement="P3_data_ref">
+        <dc:Bounds x="2710" y="175" width="90" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P3_data_assoc_di" bpmnElement="P3_data_assoc">
+        <di:waypoint x="2710" y="207" />
+        <di:waypoint x="1395.0" y="230" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

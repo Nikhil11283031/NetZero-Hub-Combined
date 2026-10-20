@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="P1_reference" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>P1_reference</text>
+    </name>
+    <page id="n0">
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="checked">
+        <name>
+          <text>checked</text>
+        </name>
+      </place>
+      <place id="received">
+        <name>
+          <text>received</text>
+        </name>
+      </place>
+      <place id="result">
+        <name>
+          <text>result</text>
+        </name>
+      </place>
+      <place id="env_in">
+        <name>
+          <text>env_in</text>
+        </name>
+      </place>
+      <place id="fit_in">
+        <name>
+          <text>fit_in</text>
+        </name>
+      </place>
+      <place id="waiting">
+        <name>
+          <text>waiting</text>
+        </name>
+      </place>
+      <place id="env_done">
+        <name>
+          <text>env_done</text>
+        </name>
+      </place>
+      <place id="fit_done">
+        <name>
+          <text>fit_done</text>
+        </name>
+      </place>
+      <place id="decision">
+        <name>
+          <text>decision</text>
+        </name>
+      </place>
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <transition id="A1">
+        <name>
+          <text>A1</text>
+        </name>
+      </transition>
+      <transition id="A2">
+        <name>
+          <text>A2</text>
+        </name>
+      </transition>
+      <transition id="A4">
+        <name>
+          <text>A4</text>
+        </name>
+      </transition>
+      <transition id="tau_complete">
+        <name>
+          <text>tau_complete</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="e985361b-1fca-454a-85b5-71e34d1af8d2"/>
+      </transition>
+      <transition id="A6">
+        <name>
+          <text>A6</text>
+        </name>
+      </transition>
+      <transition id="A7">
+        <name>
+          <text>A7</text>
+        </name>
+      </transition>
+      <transition id="A9">
+        <name>
+          <text>A9</text>
+        </name>
+      </transition>
+      <transition id="A11">
+        <name>
+          <text>A11</text>
+        </name>
+      </transition>
+      <transition id="A5">
+        <name>
+          <text>A5</text>
+        </name>
+      </transition>
+      <transition id="A3">
+        <name>
+          <text>A3</text>
+        </name>
+      </transition>
+      <transition id="A8">
+        <name>
+          <text>A8</text>
+        </name>
+      </transition>
+      <transition id="A10">
+        <name>
+          <text>A10</text>
+        </name>
+      </transition>
+      <arc id="140340116385152" source="A3" target="waiting"/>
+      <arc id="140340116926736" source="A2" target="checked"/>
+      <arc id="140340118738832" source="tau_complete" target="fit_in"/>
+      <arc id="140340118736144" source="A7" target="fit_done"/>
+      <arc id="140340118343312" source="decision" target="A9"/>
+      <arc id="140340118574752" source="A5" target="result"/>
+      <arc id="140340118744352" source="fit_done" target="A8"/>
+      <arc id="140340117050032" source="A1" target="received"/>
+      <arc id="140340118576048" source="waiting" target="A5"/>
+      <arc id="140340118734128" source="tau_complete" target="env_in"/>
+      <arc id="140340118738352" source="A6" target="env_done"/>
+      <arc id="140340121445552" source="A8" target="decision"/>
+      <arc id="140340118735280" source="A9" target="result"/>
+      <arc id="140340118239664" source="result" target="A11"/>
+      <arc id="140340116378432" source="waiting" target="A4"/>
+      <arc id="140340118739792" source="fit_in" target="A7"/>
+      <arc id="140340118576720" source="A4" target="received"/>
+      <arc id="140340118735184" source="env_in" target="A6"/>
+      <arc id="140340118734800" source="A10" target="result"/>
+      <arc id="140340118737632" source="env_done" target="A8"/>
+      <arc id="140340117047920" source="start" target="A1"/>
+      <arc id="140340117050224" source="received" target="A2"/>
+      <arc id="140340116921072" source="checked" target="A3"/>
+      <arc id="140340118575472" source="checked" target="tau_complete"/>
+      <arc id="140340118237936" source="decision" target="A10"/>
+      <arc id="140340120024944" source="A11" target="end"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="end">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

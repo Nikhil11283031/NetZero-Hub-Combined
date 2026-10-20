@@ -1,0 +1,157 @@
+{
+  "A1": {
+    "task": "Receive application",
+    "english": "Application is recorded and submitted.",
+    "fol": "received(a)"
+  },
+  "A2": {
+    "task": "Check completeness",
+    "english": "Completeness is checked; c records the current result.",
+    "fol": "checked(a) ∧ completeResult(a,c)"
+  },
+  "A3": {
+    "task": "Request information",
+    "english": "Further information is requested; the case awaits it.",
+    "fol": "infoRequested(a) ∧ awaitingInfo(a)"
+  },
+  "A4": {
+    "task": "Receive information",
+    "english": "Information is recorded; the case returns for checking.",
+    "fol": "infoReceived(a) ∧ ¬awaitingInfo(a)"
+  },
+  "A5": {
+    "task": "Close incomplete case",
+    "english": "The incomplete case closes and stops awaiting information.",
+    "fol": "state(a,incompleteClosed) ∧ ¬awaitingInfo(a)"
+  },
+  "A6": {
+    "task": "Assess environmental impacts",
+    "english": "The environmental assessment and its result e are recorded.",
+    "fol": "envChecked(a) ∧ envResult(a,e)"
+  },
+  "A7": {
+    "task": "Check suitability and consent",
+    "english": "The suitability and consent assessment result f is recorded.",
+    "fol": "fitChecked(a) ∧ fitResult(a,f)"
+  },
+  "A8": {
+    "task": "Decide application",
+    "english": "An authorised officer records a reasoned decision d.",
+    "fol": "decided(a,d) ∧ reasonRecorded(a)"
+  },
+  "A9": {
+    "task": "Issue prototype licence",
+    "english": "A prototype licence is issued for the approved case.",
+    "fol": "state(a,approved) ∧ ∃l issued(l,a)"
+  },
+  "A10": {
+    "task": "Record application refusal",
+    "english": "Refusal is recorded without issuing a licence.",
+    "fol": "state(a,refused) ∧ ¬∃l issued(l,a)"
+  },
+  "A11": {
+    "task": "Publish application outcome",
+    "english": "The application outcome is available to its owner.",
+    "fol": "outcomeAvailable(a)"
+  },
+  "V1": {
+    "task": "Receive variation request",
+    "english": "A variation request referencing an existing licence is recorded.",
+    "fol": "received(v) ∧ refersTo(v,l)"
+  },
+  "V2": {
+    "task": "Verify licence eligibility",
+    "english": "Eligibility and licence version are checked; q is the result.",
+    "fol": "eligibilityChecked(v) ∧ eligibleResult(v,q)"
+  },
+  "V3": {
+    "task": "Record invalid variation",
+    "english": "The request is marked invalid; licence conditions stay unchanged.",
+    "fol": "state(v,invalid) ∧ unchanged(l,v)"
+  },
+  "V4": {
+    "task": "Assess proposed change",
+    "english": "The proposed change is assessed with result e.",
+    "fol": "changeAssessed(v) ∧ changeResult(v,e)"
+  },
+  "V5": {
+    "task": "Decide variation",
+    "english": "An authorised officer records a reasoned variation decision d.",
+    "fol": "decided(v,d) ∧ reasonRecorded(v)"
+  },
+  "V6": {
+    "task": "Update licence conditions",
+    "english": "The approved conditions replace the previous version.",
+    "fol": "state(v,approved) ∧ varied(l,v) ∧ version(l,k+1)"
+  },
+  "V7": {
+    "task": "Record variation refusal",
+    "english": "The variation is refused and the licence is unchanged.",
+    "fol": "state(v,refused) ∧ unchanged(l,v)"
+  },
+  "V8": {
+    "task": "Publish variation outcome",
+    "english": "The variation outcome is available to its owner.",
+    "fol": "outcomeAvailable(v)"
+  },
+  "I1": {
+    "task": "Register pollution report",
+    "english": "A pollution report is recorded.",
+    "fol": "received(i)"
+  },
+  "I2": {
+    "task": "Triage risk and jurisdiction",
+    "english": "Risk r and responsible-authority result j are recorded.",
+    "fol": "triaged(i) ∧ risk(i,r) ∧ jurisdiction(i,j)"
+  },
+  "I3": {
+    "task": "Provide emergency guidance",
+    "english": "Emergency guidance is available; no emergency call is made.",
+    "fol": "guidance(i,emergency) ∧ state(i,emergencyGuidance)"
+  },
+  "I4": {
+    "task": "Record referral guidance",
+    "english": "Responsible-authority guidance is recorded, without transmitting data.",
+    "fol": "guidance(i,referral) ∧ state(i,referred)"
+  },
+  "I5": {
+    "task": "Assign investigator",
+    "english": "An investigator is assigned and investigation opens.",
+    "fol": "assigned(i)"
+  },
+  "I6": {
+    "task": "Collect evidence",
+    "english": "Evidence or its documented unavailability is recorded.",
+    "fol": "evidenceRecorded(i)"
+  },
+  "I7": {
+    "task": "Review licence context",
+    "english": "Licence context, no match or no supplied reference is recorded.",
+    "fol": "contextRecorded(i)"
+  },
+  "I8": {
+    "task": "Assess evidence",
+    "english": "Evidence is evaluated and substantiation result s is recorded.",
+    "fol": "evaluated(i) ∧ substantiatedResult(i,s)"
+  },
+  "I9": {
+    "task": "Record regulatory action",
+    "english": "The selected regulatory action is recorded for the case.",
+    "fol": "actionRecorded(i) ∧ state(i,actionRecorded)"
+  },
+  "I10": {
+    "task": "Record no further action",
+    "english": "A reasoned no-further-action decision is recorded.",
+    "fol": "noActionRecorded(i) ∧ state(i,noFurtherAction)"
+  },
+  "I11": {
+    "task": "Close investigation",
+    "english": "The investigation is closed.",
+    "fol": "investigationClosed(i)"
+  },
+  "I12": {
+    "task": "Publish incident outcome",
+    "english": "The permitted incident outcome is available to its owner.",
+    "fol": "outcomeAvailable(i)"
+  }
+}

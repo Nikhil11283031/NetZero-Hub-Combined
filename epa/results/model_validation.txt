@@ -1,0 +1,4 @@
+models/P1.bpmn: BPMN XSD valid
+models/P2.bpmn: BPMN XSD valid
+models/P3.bpmn: BPMN XSD valid
+ArchiMate exchange: XSD valid

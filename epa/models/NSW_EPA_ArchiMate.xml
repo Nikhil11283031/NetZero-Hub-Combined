@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='utf-8'?>
+<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" identifier="netzero-epa" version="2.0" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ https://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd">
+  <name>NetZero Hub NSW EPA enterprise architecture</name>
+  <elements>
+    <element identifier="epa" xsi:type="BusinessActor">
+      <name>NSW EPA</name>
+    </element>
+    <element identifier="roleL" xsi:type="BusinessRole">
+      <name>Licensing officer</name>
+    </element>
+    <element identifier="roleI" xsi:type="BusinessRole">
+      <name>Investigator</name>
+    </element>
+    <element identifier="bpL" xsi:type="BusinessProcess">
+      <name>Licence lifecycle P1 and P2</name>
+    </element>
+    <element identifier="bpI" xsi:type="BusinessProcess">
+      <name>Pollution investigation P3</name>
+    </element>
+    <element identifier="bsL" xsi:type="BusinessService">
+      <name>EPA-001 Licence management</name>
+    </element>
+    <element identifier="bsI" xsi:type="BusinessService">
+      <name>EPA-002 Pollution management</name>
+    </element>
+    <element identifier="asL" xsi:type="ApplicationService">
+      <name>Licence workflow API</name>
+    </element>
+    <element identifier="asI" xsi:type="ApplicationService">
+      <name>Incident workflow API</name>
+    </element>
+    <element identifier="afL" xsi:type="ApplicationFunction">
+      <name>Validate assess decide and version</name>
+    </element>
+    <element identifier="afI" xsi:type="ApplicationFunction">
+      <name>Triage collect review and conclude</name>
+    </element>
+    <element identifier="acL" xsi:type="ApplicationComponent">
+      <name>LicenceService</name>
+    </element>
+    <element identifier="acI" xsi:type="ApplicationComponent">
+      <name>IncidentService</name>
+    </element>
+    <element identifier="acUI" xsi:type="ApplicationComponent">
+      <name>React EPA feature module</name>
+    </element>
+    <element identifier="doL" xsi:type="DataObject">
+      <name>Licence case and conditions</name>
+    </element>
+    <element identifier="doI" xsi:type="DataObject">
+      <name>Incident case and evidence</name>
+    </element>
+    <element identifier="tsL" xsi:type="TechnologyService">
+      <name>HTTP execution and persistence</name>
+    </element>
+    <element identifier="tsI" xsi:type="TechnologyService">
+      <name>HTTP execution and persistence</name>
+    </element>
+    <element identifier="tsUI" xsi:type="TechnologyService">
+      <name>Web delivery and API proxy</name>
+    </element>
+    <element identifier="host" xsi:type="Node">
+      <name>Local browser Node Python and SQLite</name>
+    </element>
+    <element identifier="artL" xsi:type="Artifact">
+      <name>licensing.sqlite</name>
+    </element>
+    <element identifier="artI" xsi:type="Artifact">
+      <name>incidents.sqlite</name>
+    </element>
+  </elements>
+  <relationships>
+    <relationship identifier="rel0" source="epa" target="roleL" xsi:type="Assignment" />
+    <relationship identifier="rel1" source="epa" target="roleI" xsi:type="Assignment" />
+    <relationship identifier="rel2" source="roleL" target="bpL" xsi:type="Assignment" />
+    <relationship identifier="rel3" source="roleI" target="bpI" xsi:type="Assignment" />
+    <relationship identifier="rel4" source="bpL" target="bsL" xsi:type="Realization" />
+    <relationship identifier="rel5" source="bpI" target="bsI" xsi:type="Realization" />
+    <relationship identifier="rel6" source="asL" target="bpL" xsi:type="Serving" />
+    <relationship identifier="rel7" source="asI" target="bpI" xsi:type="Serving" />
+    <relationship identifier="rel8" source="afL" target="asL" xsi:type="Realization" />
+    <relationship identifier="rel9" source="afI" target="asI" xsi:type="Realization" />
+    <relationship identifier="rel10" source="acL" target="afL" xsi:type="Assignment" />
+    <relationship identifier="rel11" source="acI" target="afI" xsi:type="Assignment" />
+    <relationship identifier="rel12" source="afL" target="doL" xsi:type="Access" accessType="ReadWrite" />
+    <relationship identifier="rel13" source="afI" target="doI" xsi:type="Access" accessType="ReadWrite" />
+    <relationship identifier="rel14" source="tsL" target="acL" xsi:type="Serving" />
+    <relationship identifier="rel15" source="tsI" target="acI" xsi:type="Serving" />
+    <relationship identifier="rel16" source="host" target="tsL" xsi:type="Realization" />
+    <relationship identifier="rel17" source="host" target="tsI" xsi:type="Realization" />
+    <relationship identifier="rel18" source="artL" target="doL" xsi:type="Realization" />
+    <relationship identifier="rel19" source="artI" target="doI" xsi:type="Realization" />
+    <relationship identifier="rel20" source="asL" target="acUI" xsi:type="Serving" />
+    <relationship identifier="rel21" source="asI" target="acUI" xsi:type="Serving" />
+    <relationship identifier="rel22" source="tsUI" target="acUI" xsi:type="Serving" />
+    <relationship identifier="rel23" source="host" target="tsUI" xsi:type="Realization" />
+  </relationships>
+  <views>
+    <diagrams>
+      <view identifier="layered-view" xsi:type="Diagram">
+        <name>Business application and technology layers</name>
+        <node identifier="node-epa" elementRef="epa" x="70" y="110" w="250" h="90" xsi:type="Element" />
+        <node identifier="node-roleL" elementRef="roleL" x="410" y="110" w="280" h="90" xsi:type="Element" />
+        <node identifier="node-roleI" elementRef="roleI" x="1230" y="110" w="280" h="90" xsi:type="Element" />
+        <node identifier="node-bpL" elementRef="bpL" x="410" y="285" w="280" h="115" xsi:type="Element" />
+        <node identifier="node-bpI" elementRef="bpI" x="1230" y="285" w="280" h="115" xsi:type="Element" />
+        <node identifier="node-bsL" elementRef="bsL" x="790" y="200" w="300" h="115" xsi:type="Element" />
+        <node identifier="node-bsI" elementRef="bsI" x="1620" y="200" w="300" h="115" xsi:type="Element" />
+        <node identifier="node-asL" elementRef="asL" x="410" y="535" w="280" h="100" xsi:type="Element" />
+        <node identifier="node-asI" elementRef="asI" x="1230" y="535" w="280" h="100" xsi:type="Element" />
+        <node identifier="node-afL" elementRef="afL" x="410" y="730" w="280" h="120" xsi:type="Element" />
+        <node identifier="node-afI" elementRef="afI" x="1230" y="730" w="280" h="120" xsi:type="Element" />
+        <node identifier="node-acL" elementRef="acL" x="410" y="930" w="280" h="100" xsi:type="Element" />
+        <node identifier="node-acI" elementRef="acI" x="1230" y="930" w="280" h="100" xsi:type="Element" />
+        <node identifier="node-acUI" elementRef="acUI" x="810" y="930" w="360" h="100" xsi:type="Element" />
+        <node identifier="node-doL" elementRef="doL" x="60" y="725" w="260" h="120" xsi:type="Element" />
+        <node identifier="node-doI" elementRef="doI" x="1640" y="725" w="260" h="120" xsi:type="Element" />
+        <node identifier="node-tsL" elementRef="tsL" x="410" y="1130" w="280" h="115" xsi:type="Element" />
+        <node identifier="node-tsI" elementRef="tsI" x="1230" y="1130" w="280" h="115" xsi:type="Element" />
+        <node identifier="node-tsUI" elementRef="tsUI" x="810" y="1130" w="360" h="115" xsi:type="Element" />
+        <node identifier="node-host" elementRef="host" x="810" y="1315" w="360" h="110" xsi:type="Element" />
+        <node identifier="node-artL" elementRef="artL" x="60" y="1135" w="260" h="110" xsi:type="Element" />
+        <node identifier="node-artI" elementRef="artI" x="1640" y="1135" w="260" h="110" xsi:type="Element" />
+        <connection identifier="connection-0" relationshipRef="rel0" source="node-epa" target="node-roleL" xsi:type="Relationship" />
+        <connection identifier="connection-1" relationshipRef="rel1" source="node-epa" target="node-roleI" xsi:type="Relationship" />
+        <connection identifier="connection-2" relationshipRef="rel2" source="node-roleL" target="node-bpL" xsi:type="Relationship" />
+        <connection identifier="connection-3" relationshipRef="rel3" source="node-roleI" target="node-bpI" xsi:type="Relationship" />
+        <connection identifier="connection-4" relationshipRef="rel4" source="node-bpL" target="node-bsL" xsi:type="Relationship" />
+        <connection identifier="connection-5" relationshipRef="rel5" source="node-bpI" target="node-bsI" xsi:type="Relationship" />
+        <connection identifier="connection-6" relationshipRef="rel6" source="node-asL" target="node-bpL" xsi:type="Relationship" />
+        <connection identifier="connection-7" relationshipRef="rel7" source="node-asI" target="node-bpI" xsi:type="Relationship" />
+        <connection identifier="connection-8" relationshipRef="rel8" source="node-afL" target="node-asL" xsi:type="Relationship" />
+        <connection identifier="connection-9" relationshipRef="rel9" source="node-afI" target="node-asI" xsi:type="Relationship" />
+        <connection identifier="connection-10" relationshipRef="rel10" source="node-acL" target="node-afL" xsi:type="Relationship" />
+        <connection identifier="connection-11" relationshipRef="rel11" source="node-acI" target="node-afI" xsi:type="Relationship" />
+        <connection identifier="connection-12" relationshipRef="rel12" source="node-afL" target="node-doL" xsi:type="Relationship" />
+        <connection identifier="connection-13" relationshipRef="rel13" source="node-afI" target="node-doI" xsi:type="Relationship" />
+        <connection identifier="connection-14" relationshipRef="rel14" source="node-tsL" target="node-acL" xsi:type="Relationship" />
+        <connection identifier="connection-15" relationshipRef="rel15" source="node-tsI" target="node-acI" xsi:type="Relationship" />
+        <connection identifier="connection-16" relationshipRef="rel16" source="node-host" target="node-tsL" xsi:type="Relationship" />
+        <connection identifier="connection-17" relationshipRef="rel17" source="node-host" target="node-tsI" xsi:type="Relationship" />
+        <connection identifier="connection-18" relationshipRef="rel18" source="node-artL" target="node-doL" xsi:type="Relationship" />
+        <connection identifier="connection-19" relationshipRef="rel19" source="node-artI" target="node-doI" xsi:type="Relationship" />
+        <connection identifier="connection-20" relationshipRef="rel20" source="node-asL" target="node-acUI" xsi:type="Relationship" />
+        <connection identifier="connection-21" relationshipRef="rel21" source="node-asI" target="node-acUI" xsi:type="Relationship" />
+        <connection identifier="connection-22" relationshipRef="rel22" source="node-tsUI" target="node-acUI" xsi:type="Relationship" />
+        <connection identifier="connection-23" relationshipRef="rel23" source="node-host" target="node-tsUI" xsi:type="Relationship" />
+      </view>
+    </diagrams>
+  </views>
+</model>

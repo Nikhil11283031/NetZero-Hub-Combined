@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1580" height="1040" viewBox="0 0 1580 1040">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#253b50"/></marker><marker id="open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto-start-reverse"><path d="M0,0 L10,4 L0,8" fill="none" stroke="#253b50"/></marker><marker id="triangle" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 Z" fill="white" stroke="#253b50"/></marker><marker id="circle" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><circle cx="4" cy="4" r="3" fill="#253b50"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="35" y="38.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="29" fill="#132f44" text-anchor="start">C2 Service interfaces and message types</text>
+<rect x="45" y="100" width="710" height="405" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<text x="400.0" y="138.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">«ServiceInterface» LicenceManagement</text>
+<polyline points="45,162 755,162" fill="none" stroke="#253b50" stroke-width="2.5"/>
+<text x="63" y="199.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ submitApplication(Application) : CaseReceipt</text>
+<text x="63" y="239.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ getCase(caseId) : CaseStatus</text>
+<text x="63" y="279.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ provideInformation(InformationCommand) : CaseStatus</text>
+<text x="63" y="319.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ submitVariation(VariationRequest) : CaseReceipt</text>
+<text x="63" y="359.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ getLicence(licenceId) : LicenceRecord</text>
+<text x="63" y="399.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Provided interface: ILicensingRequests</text>
+<text x="63" y="439.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Required interface: none for request and reply</text>
+<rect x="825" y="100" width="710" height="405" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<text x="1180.0" y="138.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">«ServiceInterface» PollutionManagement</text>
+<polyline points="825,162 1535,162" fill="none" stroke="#253b50" stroke-width="2.5"/>
+<text x="843" y="199.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ submitReport(IncidentReport) : CaseReceipt</text>
+<text x="843" y="239.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ getCase(caseId) : CaseStatus</text>
+<text x="843" y="279.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ triage(caseId, version, RiskDecision) : CaseStatus</text>
+<text x="843" y="319.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ recordEvidence(caseId, version, Evidence) : CaseStatus</text>
+<text x="843" y="359.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ conclude(caseId, version, Finding) : CaseStatus</text>
+<text x="843" y="399.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Provided interface: IIncidentRequests</text>
+<text x="843" y="439.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Required interface: ILicenceContext</text>
+<rect x="45" y="590" width="710" height="350" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<text x="400.0" y="628.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">«ServiceInterface» LicenceContext</text>
+<polyline points="45,652 755,652" fill="none" stroke="#253b50" stroke-width="2.5"/>
+<text x="63" y="689.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">+ getContext(licenceId) : LicenceContextRecord</text>
+<text x="63" y="729.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Provider: LicenceService participant</text>
+<text x="63" y="769.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Consumer: IncidentService participant</text>
+<text x="63" y="809.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Record: id, active, version, conditions</text>
+<text x="63" y="849.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">No applicant or reporter personal details</text>
+<rect x="825" y="590" width="710" height="350" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<text x="1180.0" y="628.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">«MessageType» Shared data contracts</text>
+<polyline points="825,652 1535,652" fill="none" stroke="#253b50" stroke-width="2.5"/>
+<text x="843" y="689.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">CaseReceipt: caseId, processId, state, version</text>
+<text x="843" y="729.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Command: expectedVersion, action, values</text>
+<text x="843" y="769.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">Decision: approved or substantiated, rationale</text>
+<text x="843" y="809.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">CaseStatus: owner-authorised case fields</text>
+<text x="843" y="849.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="start">All IDs opaque strings; timestamps ISO 8601 with zone</text>
+<text x="40" y="1008.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">Read-only polling returns outcomes. A callback interface is not assumed or implemented.</text>
+</svg>

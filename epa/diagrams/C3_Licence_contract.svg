@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#253b50"/></marker><marker id="open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto-start-reverse"><path d="M0,0 L10,4 L0,8" fill="none" stroke="#253b50"/></marker><marker id="triangle" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 Z" fill="white" stroke="#253b50"/></marker><marker id="circle" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><circle cx="4" cy="4" r="3" fill="#253b50"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="35" y="38.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="29" fill="#132f44" text-anchor="start">C3 Licence application contract behaviour</text>
+<rect x="55" y="80" width="270" height="85" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="190.0" y="122.5" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">applicant : Consumer</text>
+<polyline points="190,165 190,1010" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6"/>
+<rect x="455" y="80" width="270" height="85" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="590.0" y="122.5" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">hub : NetZeroHub</text>
+<polyline points="590,165 590,1010" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6"/>
+<rect x="855" y="80" width="270" height="85" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="990.0" y="122.5" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">licensing : Provider</text>
+<polyline points="990,165 990,1010" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6"/>
+<rect x="1255" y="80" width="270" height="85" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="1390.0" y="122.5" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">officer : DecisionRole</text>
+<polyline points="1390,165 1390,1010" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6"/>
+<polyline points="190,225 590,225" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="390.0" y="213.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">Application request</text>
+<polyline points="590,285 990,285" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="790.0" y="273.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">submitApplication(Application)</text>
+<polyline points="990,340 590,340" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+<text x="790.0" y="328.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">CaseReceipt and version</text>
+<polyline points="1390,380 990,380" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="1190.0" y="368.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">Check completeness</text>
+<polyline points="590,455 990,455" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="790.0" y="443.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">getCase → information request</text>
+<polyline points="590,510 990,510" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="790.0" y="498.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">provideInformation and expectedVersion</text>
+<polyline points="1390,565 990,565" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="1190.0" y="553.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">Recheck completeness</text>
+<polyline points="1390,680 990,680" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="1190.0" y="668.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">Record both required assessments</text>
+<polyline points="1390,750 990,750" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="1190.0" y="738.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">approve or refuse with rationale</text>
+<polyline points="590,870 990,870" fill="none" stroke="#253b50" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="790.0" y="858.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">getCase(caseId)</text>
+<polyline points="990,930 590,930" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+<text x="790.0" y="918.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">Authorised outcome and licence if approved</text>
+<polyline points="590,985 190,985" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+<text x="390.0" y="973.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="21" fill="#132f44" text-anchor="middle">Show outcome</text>
+<rect x="445" y="405" width="1090" height="205" fill="none" stroke="#708392" stroke-width="2"/>
+<text x="455" y="428.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="start">loop [information needed and timer not expired]</text>
+<rect x="445" y="635" width="1090" height="155" fill="none" stroke="#708392" stroke-width="2"/>
+<text x="455" y="658.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="start">opt [complete application]</text>
+</svg>

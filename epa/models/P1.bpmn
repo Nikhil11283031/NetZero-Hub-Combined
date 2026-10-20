@@ -1,0 +1,543 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="P1_definitions" targetNamespace="https://netzero.example/epa" exporter="NetZero coursework model generator" exporterVersion="1.0">
+  <bpmn:message id="P1_startMessage" name="startMessage" />
+  <bpmn:message id="P1_dataMessage" name="dataMessage" />
+  <bpmn:collaboration id="P1_collaboration">
+    <bpmn:participant id="P1_consumer" name="Applicant or reporter through NetZero Hub" />
+    <bpmn:participant id="P1_epa" name="NSW EPA reference workflow" processRef="P1" />
+    <bpmn:messageFlow id="P1_message_0" sourceRef="P1_consumer" targetRef="P1_s" name="request or outcome" />
+    <bpmn:messageFlow id="P1_message_1" sourceRef="P1_consumer" targetRef="P1_A4" name="request or outcome" />
+    <bpmn:messageFlow id="P1_message_2" sourceRef="P1_A3" targetRef="P1_consumer" name="request or outcome" />
+    <bpmn:messageFlow id="P1_message_3" sourceRef="P1_A11" targetRef="P1_consumer" name="request or outcome" />
+  </bpmn:collaboration>
+  <bpmn:process id="P1" name="Licence application" isExecutable="false">
+    <bpmn:documentation>Reference-based business model. API implementation covers the selected core. Timeouts and digital integration are project assumptions.</bpmn:documentation>
+    <bpmn:laneSet id="P1_lanes">
+      <bpmn:lane id="P1_intake" name="Intake and assessment">
+        <bpmn:flowNodeRef>P1_s</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_gComplete</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A4</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_timer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_split</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_join</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A8</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_gDecision</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A10</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="P1_registry" name="Registry and outcome">
+        <bpmn:flowNodeRef>P1_A5</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A9</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_merge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_A11</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>P1_end</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="P1_s" name="">
+      <bpmn:outgoing>P1_flow_0</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="P1_start_definition" messageRef="P1_startMessage" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="P1_A1" name="A1 Receive application">
+      <bpmn:incoming>P1_flow_0</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_1</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="P1_A2" name="A2 Check completeness">
+      <bpmn:incoming>P1_flow_1</bpmn:incoming>
+      <bpmn:incoming>P1_flow_5</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="P1_gComplete" name="Complete?">
+      <bpmn:incoming>P1_flow_2</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_3</bpmn:outgoing>
+      <bpmn:outgoing>P1_flow_7</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="P1_A3" name="A3 Request information">
+      <bpmn:incoming>P1_flow_3</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_4</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="P1_A4" name="A4 Receive information">
+      <bpmn:incoming>P1_flow_4</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_5</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:boundaryEvent id="P1_timer" name="" attachedToRef="P1_A4" cancelActivity="true">
+      <bpmn:outgoing>P1_flow_6</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="P1_timer_definition">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P30D</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:serviceTask id="P1_A5" name="A5 Close incomplete case">
+      <bpmn:incoming>P1_flow_6</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_19</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:parallelGateway id="P1_split" name="">
+      <bpmn:incoming>P1_flow_7</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_8</bpmn:outgoing>
+      <bpmn:outgoing>P1_flow_9</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="P1_A6" name="A6 Assess environmental impacts">
+      <bpmn:incoming>P1_flow_8</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_10</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="P1_A7" name="A7 Check suitability and consent">
+      <bpmn:incoming>P1_flow_9</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_11</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="P1_join" name="">
+      <bpmn:incoming>P1_flow_10</bpmn:incoming>
+      <bpmn:incoming>P1_flow_11</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_12</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="P1_A8" name="A8 Decide application">
+      <bpmn:incoming>P1_flow_12</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_13</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="P1_gDecision" name="Approved?">
+      <bpmn:incoming>P1_flow_13</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_14</bpmn:outgoing>
+      <bpmn:outgoing>P1_flow_15</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="P1_A9" name="A9 Issue prototype licence">
+      <bpmn:incoming>P1_flow_14</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_16</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="P1_A10" name="A10 Record application refusal">
+      <bpmn:incoming>P1_flow_15</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_17</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="P1_merge" name="">
+      <bpmn:incoming>P1_flow_16</bpmn:incoming>
+      <bpmn:incoming>P1_flow_17</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_18</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="P1_A11" name="A11 Publish application outcome">
+      <bpmn:incoming>P1_flow_18</bpmn:incoming>
+      <bpmn:incoming>P1_flow_19</bpmn:incoming>
+      <bpmn:outgoing>P1_flow_20</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="P1_end" name="">
+      <bpmn:incoming>P1_flow_20</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="P1_flow_0" sourceRef="P1_s" targetRef="P1_A1" name="" />
+    <bpmn:sequenceFlow id="P1_flow_1" sourceRef="P1_A1" targetRef="P1_A2" name="" />
+    <bpmn:sequenceFlow id="P1_flow_2" sourceRef="P1_A2" targetRef="P1_gComplete" name="" />
+    <bpmn:sequenceFlow id="P1_flow_3" sourceRef="P1_gComplete" targetRef="P1_A3" name="no">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">no</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P1_flow_4" sourceRef="P1_A3" targetRef="P1_A4" name="" />
+    <bpmn:sequenceFlow id="P1_flow_5" sourceRef="P1_A4" targetRef="P1_A2" name="recheck" />
+    <bpmn:sequenceFlow id="P1_flow_6" sourceRef="P1_timer" targetRef="P1_A5" name="30 days" />
+    <bpmn:sequenceFlow id="P1_flow_7" sourceRef="P1_gComplete" targetRef="P1_split" name="yes">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">yes</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P1_flow_8" sourceRef="P1_split" targetRef="P1_A6" name="" />
+    <bpmn:sequenceFlow id="P1_flow_9" sourceRef="P1_split" targetRef="P1_A7" name="" />
+    <bpmn:sequenceFlow id="P1_flow_10" sourceRef="P1_A6" targetRef="P1_join" name="" />
+    <bpmn:sequenceFlow id="P1_flow_11" sourceRef="P1_A7" targetRef="P1_join" name="" />
+    <bpmn:sequenceFlow id="P1_flow_12" sourceRef="P1_join" targetRef="P1_A8" name="" />
+    <bpmn:sequenceFlow id="P1_flow_13" sourceRef="P1_A8" targetRef="P1_gDecision" name="" />
+    <bpmn:sequenceFlow id="P1_flow_14" sourceRef="P1_gDecision" targetRef="P1_A9" name="yes">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">yes</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P1_flow_15" sourceRef="P1_gDecision" targetRef="P1_A10" name="no">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">no</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="P1_flow_16" sourceRef="P1_A9" targetRef="P1_merge" name="" />
+    <bpmn:sequenceFlow id="P1_flow_17" sourceRef="P1_A10" targetRef="P1_merge" name="" />
+    <bpmn:sequenceFlow id="P1_flow_18" sourceRef="P1_merge" targetRef="P1_A11" name="" />
+    <bpmn:sequenceFlow id="P1_flow_19" sourceRef="P1_A5" targetRef="P1_A11" name="incomplete" />
+    <bpmn:sequenceFlow id="P1_flow_20" sourceRef="P1_A11" targetRef="P1_end" name="" />
+    <bpmn:dataObject id="P1_data" />
+    <bpmn:dataObjectReference id="P1_data_ref" dataObjectRef="P1_data" name="Case documents" />
+    <bpmn:textAnnotation id="P1_effect_A1">
+      <bpmn:text>A1 immediate
+Application is recorded and submitted.
+received(a)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A1_assoc" sourceRef="P1_A1" targetRef="P1_effect_A1" />
+    <bpmn:textAnnotation id="P1_effect_A2">
+      <bpmn:text>A2 immediate
+Completeness is checked; c records the current result.
+checked(a) ∧ completeResult(a,c)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A2_assoc" sourceRef="P1_A2" targetRef="P1_effect_A2" />
+    <bpmn:textAnnotation id="P1_effect_A3">
+      <bpmn:text>A3 immediate
+Further information is requested; the case awaits it.
+infoRequested(a) ∧ awaitingInfo(a)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A3_assoc" sourceRef="P1_A3" targetRef="P1_effect_A3" />
+    <bpmn:textAnnotation id="P1_effect_A4">
+      <bpmn:text>A4 immediate
+Information is recorded; the case returns for checking.
+infoReceived(a) ∧ ¬awaitingInfo(a)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A4_assoc" sourceRef="P1_A4" targetRef="P1_effect_A4" />
+    <bpmn:textAnnotation id="P1_effect_A5">
+      <bpmn:text>A5 immediate
+The incomplete case closes and stops awaiting information.
+state(a,incompleteClosed) ∧ ¬awaitingInfo(a)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A5_assoc" sourceRef="P1_A5" targetRef="P1_effect_A5" />
+    <bpmn:textAnnotation id="P1_effect_A6">
+      <bpmn:text>A6 immediate
+The environmental assessment and its result e are recorded.
+envChecked(a) ∧ envResult(a,e)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A6_assoc" sourceRef="P1_A6" targetRef="P1_effect_A6" />
+    <bpmn:textAnnotation id="P1_effect_A7">
+      <bpmn:text>A7 immediate
+The suitability and consent assessment result f is recorded.
+fitChecked(a) ∧ fitResult(a,f)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A7_assoc" sourceRef="P1_A7" targetRef="P1_effect_A7" />
+    <bpmn:textAnnotation id="P1_effect_A8">
+      <bpmn:text>A8 immediate
+An authorised officer records a reasoned decision d.
+decided(a,d) ∧ reasonRecorded(a)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A8_assoc" sourceRef="P1_A8" targetRef="P1_effect_A8" />
+    <bpmn:textAnnotation id="P1_effect_A9">
+      <bpmn:text>A9 immediate
+A prototype licence is issued for the approved case.
+state(a,approved) ∧ ∃l issued(l,a)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A9_assoc" sourceRef="P1_A9" targetRef="P1_effect_A9" />
+    <bpmn:textAnnotation id="P1_effect_A10">
+      <bpmn:text>A10 immediate
+Refusal is recorded without issuing a licence.
+state(a,refused) ∧ ¬∃l issued(l,a)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A10_assoc" sourceRef="P1_A10" targetRef="P1_effect_A10" />
+    <bpmn:textAnnotation id="P1_effect_A11">
+      <bpmn:text>A11 immediate
+The application outcome is available to its owner.
+outcomeAvailable(a)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_effect_A11_assoc" sourceRef="P1_A11" targetRef="P1_effect_A11" />
+    <bpmn:textAnnotation id="P1_cum_0">
+      <bpmn:text>C1 Both assessments are available
+BaseA(a) ∧ envChecked(a) ∧ envResult(a,e) ∧ fitChecked(a) ∧ fitResult(a,f)
+L = T0 · (A6 || A7)
+X = {A1 · A2[false]}</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_cum_0_assoc" sourceRef="P1_join" targetRef="P1_cum_0" />
+    <bpmn:textAnnotation id="P1_cum_1">
+      <bpmn:text>C2 Approval and licence recorded
+C1(a) ∧ decided(a,approve) ∧ reasonRecorded(a) ∧ state(a,approved) ∧ ∃l issued(l,a)
+L = T0 · (A6 || A7) · A8[approve] · A9
+X = {A1 · A2[false], T0 · (A6 || A7) · A8[refuse]}</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_cum_1_assoc" sourceRef="P1_A9" targetRef="P1_cum_1" />
+    <bpmn:textAnnotation id="P1_cum_2">
+      <bpmn:text>C3 Refusal recorded
+C1(a) ∧ decided(a,refuse) ∧ reasonRecorded(a) ∧ state(a,refused) ∧ ¬∃l issued(l,a)
+L = T0 · (A6 || A7) · A8[refuse] · A10
+X = {A1 · A2[false], T0 · (A6 || A7) · A8[approve]}</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="P1_cum_2_assoc" sourceRef="P1_A10" targetRef="P1_cum_2" />
+    <bpmn:association id="P1_data_assoc" sourceRef="P1_data_ref" targetRef="P1_A2" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="P1_diagram">
+    <bpmndi:BPMNPlane id="P1_plane" bpmnElement="P1_collaboration">
+      <bpmndi:BPMNShape id="P1_consumer_di" bpmnElement="P1_consumer" isHorizontal="true">
+        <dc:Bounds x="40" y="70" width="2440" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_epa_di" bpmnElement="P1_epa" isHorizontal="true">
+        <dc:Bounds x="40" y="170" width="2440" height="1070" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_intake_di" bpmnElement="P1_intake" isHorizontal="true">
+        <dc:Bounds x="70" y="170" width="2410" height="610" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_registry_di" bpmnElement="P1_registry" isHorizontal="true">
+        <dc:Bounds x="70" y="780" width="2410" height="460" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_s_di" bpmnElement="P1_s">
+        <dc:Bounds x="100" y="258" width="42" height="42" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A1_di" bpmnElement="P1_A1">
+        <dc:Bounds x="180" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A2_di" bpmnElement="P1_A2">
+        <dc:Bounds x="440" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_gComplete_di" bpmnElement="P1_gComplete">
+        <dc:Bounds x="720" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A3_di" bpmnElement="P1_A3">
+        <dc:Bounds x="440" y="500" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A4_di" bpmnElement="P1_A4">
+        <dc:Bounds x="180" y="500" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_timer_di" bpmnElement="P1_timer">
+        <dc:Bounds x="315" y="580" width="42" height="42" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A5_di" bpmnElement="P1_A5">
+        <dc:Bounds x="180" y="860" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_split_di" bpmnElement="P1_split">
+        <dc:Bounds x="825" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A6_di" bpmnElement="P1_A6">
+        <dc:Bounds x="940" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A7_di" bpmnElement="P1_A7">
+        <dc:Bounds x="940" y="510" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_join_di" bpmnElement="P1_join">
+        <dc:Bounds x="1195" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A8_di" bpmnElement="P1_A8">
+        <dc:Bounds x="1310" y="230" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_gDecision_di" bpmnElement="P1_gDecision">
+        <dc:Bounds x="1585" y="256" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A9_di" bpmnElement="P1_A9">
+        <dc:Bounds x="1730" y="860" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A10_di" bpmnElement="P1_A10">
+        <dc:Bounds x="1730" y="510" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_merge_di" bpmnElement="P1_merge">
+        <dc:Bounds x="1995" y="886" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_A11_di" bpmnElement="P1_A11">
+        <dc:Bounds x="2130" y="860" width="190" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="P1_end_di" bpmnElement="P1_end">
+        <dc:Bounds x="2400" y="889" width="42" height="42" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_flow_0_di" bpmnElement="P1_flow_0">
+        <di:waypoint x="142" y="279.0" />
+        <di:waypoint x="180" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_1_di" bpmnElement="P1_flow_1">
+        <di:waypoint x="370" y="280.0" />
+        <di:waypoint x="440" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_2_di" bpmnElement="P1_flow_2">
+        <di:waypoint x="630" y="280.0" />
+        <di:waypoint x="720" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_3_di" bpmnElement="P1_flow_3">
+        <di:waypoint x="744.0" y="304" />
+        <di:waypoint x="744.0" y="550.0" />
+        <di:waypoint x="630" y="550.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_4_di" bpmnElement="P1_flow_4">
+        <di:waypoint x="440" y="550.0" />
+        <di:waypoint x="370" y="550.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_5_di" bpmnElement="P1_flow_5">
+        <di:waypoint x="180" y="530" />
+        <di:waypoint x="155" y="530" />
+        <di:waypoint x="155" y="215" />
+        <di:waypoint x="535.0" y="215" />
+        <di:waypoint x="535.0" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_6_di" bpmnElement="P1_flow_6">
+        <di:waypoint x="357" y="601" />
+        <di:waypoint x="410" y="601" />
+        <di:waypoint x="410" y="910" />
+        <di:waypoint x="370" y="910" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_7_di" bpmnElement="P1_flow_7">
+        <di:waypoint x="768" y="280.0" />
+        <di:waypoint x="825" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_8_di" bpmnElement="P1_flow_8">
+        <di:waypoint x="873" y="280.0" />
+        <di:waypoint x="940" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_9_di" bpmnElement="P1_flow_9">
+        <di:waypoint x="873" y="280.0" />
+        <di:waypoint x="906.5" y="280.0" />
+        <di:waypoint x="906.5" y="560.0" />
+        <di:waypoint x="940" y="560.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_10_di" bpmnElement="P1_flow_10">
+        <di:waypoint x="1130" y="280.0" />
+        <di:waypoint x="1195" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_11_di" bpmnElement="P1_flow_11">
+        <di:waypoint x="1130" y="560.0" />
+        <di:waypoint x="1162.5" y="560.0" />
+        <di:waypoint x="1162.5" y="280.0" />
+        <di:waypoint x="1195" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_12_di" bpmnElement="P1_flow_12">
+        <di:waypoint x="1243" y="280.0" />
+        <di:waypoint x="1310" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_13_di" bpmnElement="P1_flow_13">
+        <di:waypoint x="1500" y="280.0" />
+        <di:waypoint x="1585" y="280.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_14_di" bpmnElement="P1_flow_14">
+        <di:waypoint x="1609.0" y="304" />
+        <di:waypoint x="1609.0" y="910.0" />
+        <di:waypoint x="1730" y="910.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_15_di" bpmnElement="P1_flow_15">
+        <di:waypoint x="1633" y="280.0" />
+        <di:waypoint x="1681.5" y="280.0" />
+        <di:waypoint x="1681.5" y="560.0" />
+        <di:waypoint x="1730" y="560.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_16_di" bpmnElement="P1_flow_16">
+        <di:waypoint x="1920" y="910.0" />
+        <di:waypoint x="1995" y="910.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_17_di" bpmnElement="P1_flow_17">
+        <di:waypoint x="1920" y="560.0" />
+        <di:waypoint x="1957.5" y="560.0" />
+        <di:waypoint x="1957.5" y="910.0" />
+        <di:waypoint x="1995" y="910.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_18_di" bpmnElement="P1_flow_18">
+        <di:waypoint x="2043" y="910.0" />
+        <di:waypoint x="2130" y="910.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_19_di" bpmnElement="P1_flow_19">
+        <di:waypoint x="180" y="910.0" />
+        <di:waypoint x="135" y="910.0" />
+        <di:waypoint x="135" y="1200" />
+        <di:waypoint x="2365" y="1200" />
+        <di:waypoint x="2365" y="935" />
+        <di:waypoint x="2320" y="935" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_flow_20_di" bpmnElement="P1_flow_20">
+        <di:waypoint x="2320" y="910.0" />
+        <di:waypoint x="2400" y="910.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A1_di" bpmnElement="P1_effect_A1">
+        <dc:Bounds x="180" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A1_assoc_di" bpmnElement="P1_effect_A1_assoc">
+        <di:waypoint x="275.0" y="330" />
+        <di:waypoint x="280" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A2_di" bpmnElement="P1_effect_A2">
+        <dc:Bounds x="440" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A2_assoc_di" bpmnElement="P1_effect_A2_assoc">
+        <di:waypoint x="535.0" y="330" />
+        <di:waypoint x="540" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A3_di" bpmnElement="P1_effect_A3">
+        <dc:Bounds x="440" y="615" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A3_assoc_di" bpmnElement="P1_effect_A3_assoc">
+        <di:waypoint x="535.0" y="600" />
+        <di:waypoint x="540" y="615" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A4_di" bpmnElement="P1_effect_A4">
+        <dc:Bounds x="180" y="615" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A4_assoc_di" bpmnElement="P1_effect_A4_assoc">
+        <di:waypoint x="275.0" y="600" />
+        <di:waypoint x="280" y="615" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A5_di" bpmnElement="P1_effect_A5">
+        <dc:Bounds x="180" y="975" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A5_assoc_di" bpmnElement="P1_effect_A5_assoc">
+        <di:waypoint x="275.0" y="960" />
+        <di:waypoint x="280" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A6_di" bpmnElement="P1_effect_A6">
+        <dc:Bounds x="940" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A6_assoc_di" bpmnElement="P1_effect_A6_assoc">
+        <di:waypoint x="1035.0" y="330" />
+        <di:waypoint x="1040" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A7_di" bpmnElement="P1_effect_A7">
+        <dc:Bounds x="940" y="625" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A7_assoc_di" bpmnElement="P1_effect_A7_assoc">
+        <di:waypoint x="1035.0" y="610" />
+        <di:waypoint x="1040" y="625" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A8_di" bpmnElement="P1_effect_A8">
+        <dc:Bounds x="1310" y="345" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A8_assoc_di" bpmnElement="P1_effect_A8_assoc">
+        <di:waypoint x="1405.0" y="330" />
+        <di:waypoint x="1410" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A9_di" bpmnElement="P1_effect_A9">
+        <dc:Bounds x="1730" y="975" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A9_assoc_di" bpmnElement="P1_effect_A9_assoc">
+        <di:waypoint x="1825.0" y="960" />
+        <di:waypoint x="1830" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A10_di" bpmnElement="P1_effect_A10">
+        <dc:Bounds x="1730" y="625" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A10_assoc_di" bpmnElement="P1_effect_A10_assoc">
+        <di:waypoint x="1825.0" y="610" />
+        <di:waypoint x="1830" y="625" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_effect_A11_di" bpmnElement="P1_effect_A11">
+        <dc:Bounds x="2130" y="975" width="230" height="115" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_effect_A11_assoc_di" bpmnElement="P1_effect_A11_assoc">
+        <di:waypoint x="2225.0" y="960" />
+        <di:waypoint x="2230" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_cum_0_di" bpmnElement="P1_cum_0">
+        <dc:Bounds x="50.0" y="1290" width="780.0" height="190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_cum_0_assoc_di" bpmnElement="P1_cum_0_assoc">
+        <di:waypoint x="1219.0" y="304" />
+        <di:waypoint x="450.0" y="1290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_cum_1_di" bpmnElement="P1_cum_1">
+        <dc:Bounds x="850.0" y="1290" width="780.0" height="190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_cum_1_assoc_di" bpmnElement="P1_cum_1_assoc">
+        <di:waypoint x="1825.0" y="960" />
+        <di:waypoint x="1250.0" y="1290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_cum_2_di" bpmnElement="P1_cum_2">
+        <dc:Bounds x="1650.0" y="1290" width="780.0" height="190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_cum_2_assoc_di" bpmnElement="P1_cum_2_assoc">
+        <di:waypoint x="1825.0" y="610" />
+        <di:waypoint x="2050.0" y="1290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_message_0_di" bpmnElement="P1_message_0">
+        <di:waypoint x="121.0" y="140" />
+        <di:waypoint x="121.0" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_message_1_di" bpmnElement="P1_message_1">
+        <di:waypoint x="275.0" y="140" />
+        <di:waypoint x="275.0" y="500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_message_2_di" bpmnElement="P1_message_2">
+        <di:waypoint x="630" y="512" />
+        <di:waypoint x="2460" y="512" />
+        <di:waypoint x="2460" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="P1_message_3_di" bpmnElement="P1_message_3">
+        <di:waypoint x="2320" y="872" />
+        <di:waypoint x="2460" y="872" />
+        <di:waypoint x="2460" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="P1_data_ref_di" bpmnElement="P1_data_ref">
+        <dc:Bounds x="2290" y="175" width="90" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="P1_data_assoc_di" bpmnElement="P1_data_assoc">
+        <di:waypoint x="2290" y="207" />
+        <di:waypoint x="535.0" y="230" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

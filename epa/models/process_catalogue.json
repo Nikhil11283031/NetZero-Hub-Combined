@@ -1,0 +1,861 @@
+[
+  {
+    "id": "P1",
+    "title": "Licence application",
+    "service": "EPA-001",
+    "size": [
+      2520,
+      1500
+    ],
+    "lane_split": 780,
+    "nodes": [
+      {
+        "id": "s",
+        "kind": "startEvent",
+        "x": 100,
+        "y": 258,
+        "w": 42,
+        "h": 42,
+        "label": ""
+      },
+      {
+        "id": "A1",
+        "kind": "serviceTask",
+        "x": 180,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "A1 Receive application"
+      },
+      {
+        "id": "A2",
+        "kind": "userTask",
+        "x": 440,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "A2 Check completeness"
+      },
+      {
+        "id": "gComplete",
+        "kind": "exclusiveGateway",
+        "x": 720,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": "Complete?"
+      },
+      {
+        "id": "A3",
+        "kind": "sendTask",
+        "x": 440,
+        "y": 500,
+        "w": 190,
+        "h": 100,
+        "label": "A3 Request information"
+      },
+      {
+        "id": "A4",
+        "kind": "receiveTask",
+        "x": 180,
+        "y": 500,
+        "w": 190,
+        "h": 100,
+        "label": "A4 Receive information"
+      },
+      {
+        "id": "timer",
+        "kind": "boundaryEvent",
+        "x": 315,
+        "y": 580,
+        "w": 42,
+        "h": 42,
+        "label": ""
+      },
+      {
+        "id": "A5",
+        "kind": "serviceTask",
+        "x": 180,
+        "y": 860,
+        "w": 190,
+        "h": 100,
+        "label": "A5 Close incomplete case"
+      },
+      {
+        "id": "split",
+        "kind": "parallelGateway",
+        "x": 825,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": ""
+      },
+      {
+        "id": "A6",
+        "kind": "userTask",
+        "x": 940,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "A6 Assess environmental impacts"
+      },
+      {
+        "id": "A7",
+        "kind": "userTask",
+        "x": 940,
+        "y": 510,
+        "w": 190,
+        "h": 100,
+        "label": "A7 Check suitability and consent"
+      },
+      {
+        "id": "join",
+        "kind": "parallelGateway",
+        "x": 1195,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": ""
+      },
+      {
+        "id": "A8",
+        "kind": "userTask",
+        "x": 1310,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "A8 Decide application"
+      },
+      {
+        "id": "gDecision",
+        "kind": "exclusiveGateway",
+        "x": 1585,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": "Approved?"
+      },
+      {
+        "id": "A9",
+        "kind": "serviceTask",
+        "x": 1730,
+        "y": 860,
+        "w": 190,
+        "h": 100,
+        "label": "A9 Issue prototype licence"
+      },
+      {
+        "id": "A10",
+        "kind": "userTask",
+        "x": 1730,
+        "y": 510,
+        "w": 190,
+        "h": 100,
+        "label": "A10 Record application refusal"
+      },
+      {
+        "id": "merge",
+        "kind": "exclusiveGateway",
+        "x": 1995,
+        "y": 886,
+        "w": 48,
+        "h": 48,
+        "label": ""
+      },
+      {
+        "id": "A11",
+        "kind": "serviceTask",
+        "x": 2130,
+        "y": 860,
+        "w": 190,
+        "h": 100,
+        "label": "A11 Publish application outcome"
+      },
+      {
+        "id": "end",
+        "kind": "endEvent",
+        "x": 2400,
+        "y": 889,
+        "w": 42,
+        "h": 42,
+        "label": ""
+      }
+    ],
+    "edges": [
+      [
+        "s",
+        "A1",
+        ""
+      ],
+      [
+        "A1",
+        "A2",
+        ""
+      ],
+      [
+        "A2",
+        "gComplete",
+        ""
+      ],
+      [
+        "gComplete",
+        "A3",
+        "no"
+      ],
+      [
+        "A3",
+        "A4",
+        ""
+      ],
+      [
+        "A4",
+        "A2",
+        "recheck"
+      ],
+      [
+        "timer",
+        "A5",
+        "30 days"
+      ],
+      [
+        "gComplete",
+        "split",
+        "yes"
+      ],
+      [
+        "split",
+        "A6",
+        ""
+      ],
+      [
+        "split",
+        "A7",
+        ""
+      ],
+      [
+        "A6",
+        "join",
+        ""
+      ],
+      [
+        "A7",
+        "join",
+        ""
+      ],
+      [
+        "join",
+        "A8",
+        ""
+      ],
+      [
+        "A8",
+        "gDecision",
+        ""
+      ],
+      [
+        "gDecision",
+        "A9",
+        "yes"
+      ],
+      [
+        "gDecision",
+        "A10",
+        "no"
+      ],
+      [
+        "A9",
+        "merge",
+        ""
+      ],
+      [
+        "A10",
+        "merge",
+        ""
+      ],
+      [
+        "merge",
+        "A11",
+        ""
+      ],
+      [
+        "A5",
+        "A11",
+        "incomplete"
+      ],
+      [
+        "A11",
+        "end",
+        ""
+      ]
+    ],
+    "cumulative": [
+      [
+        "join",
+        "C1 Both assessments are available\nBaseA(a) ∧ envChecked(a) ∧ envResult(a,e) ∧ fitChecked(a) ∧ fitResult(a,f)\nL = T0 · (A6 || A7)\nX = {A1 · A2[false]}"
+      ],
+      [
+        "A9",
+        "C2 Approval and licence recorded\nC1(a) ∧ decided(a,approve) ∧ reasonRecorded(a) ∧ state(a,approved) ∧ ∃l issued(l,a)\nL = T0 · (A6 || A7) · A8[approve] · A9\nX = {A1 · A2[false], T0 · (A6 || A7) · A8[refuse]}"
+      ],
+      [
+        "A10",
+        "C3 Refusal recorded\nC1(a) ∧ decided(a,refuse) ∧ reasonRecorded(a) ∧ state(a,refused) ∧ ¬∃l issued(l,a)\nL = T0 · (A6 || A7) · A8[refuse] · A10\nX = {A1 · A2[false], T0 · (A6 || A7) · A8[approve]}"
+      ]
+    ],
+    "message_targets": [
+      "A1",
+      "A4",
+      "A3",
+      "A11"
+    ],
+    "data_target": "A2"
+  },
+  {
+    "id": "P2",
+    "title": "Licence variation",
+    "service": "EPA-001",
+    "size": [
+      2250,
+      1410
+    ],
+    "lane_split": 780,
+    "nodes": [
+      {
+        "id": "s",
+        "kind": "startEvent",
+        "x": 100,
+        "y": 258,
+        "w": 42,
+        "h": 42,
+        "label": ""
+      },
+      {
+        "id": "V1",
+        "kind": "serviceTask",
+        "x": 180,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "V1 Receive variation request"
+      },
+      {
+        "id": "V2",
+        "kind": "userTask",
+        "x": 450,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "V2 Verify licence eligibility"
+      },
+      {
+        "id": "gEligible",
+        "kind": "exclusiveGateway",
+        "x": 730,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": "Eligible?"
+      },
+      {
+        "id": "V3",
+        "kind": "userTask",
+        "x": 450,
+        "y": 520,
+        "w": 190,
+        "h": 100,
+        "label": "V3 Record invalid variation"
+      },
+      {
+        "id": "V4",
+        "kind": "userTask",
+        "x": 850,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "V4 Assess proposed change"
+      },
+      {
+        "id": "V5",
+        "kind": "userTask",
+        "x": 1120,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "V5 Decide variation"
+      },
+      {
+        "id": "gDecision",
+        "kind": "exclusiveGateway",
+        "x": 1400,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": "Approved?"
+      },
+      {
+        "id": "V6",
+        "kind": "serviceTask",
+        "x": 1530,
+        "y": 850,
+        "w": 190,
+        "h": 100,
+        "label": "V6 Update licence conditions"
+      },
+      {
+        "id": "V7",
+        "kind": "userTask",
+        "x": 1530,
+        "y": 520,
+        "w": 190,
+        "h": 100,
+        "label": "V7 Record variation refusal"
+      },
+      {
+        "id": "merge",
+        "kind": "exclusiveGateway",
+        "x": 1810,
+        "y": 876,
+        "w": 48,
+        "h": 48,
+        "label": ""
+      },
+      {
+        "id": "V8",
+        "kind": "serviceTask",
+        "x": 1900,
+        "y": 850,
+        "w": 190,
+        "h": 100,
+        "label": "V8 Publish variation outcome"
+      },
+      {
+        "id": "end",
+        "kind": "endEvent",
+        "x": 2160,
+        "y": 879,
+        "w": 42,
+        "h": 42,
+        "label": ""
+      }
+    ],
+    "edges": [
+      [
+        "s",
+        "V1",
+        ""
+      ],
+      [
+        "V1",
+        "V2",
+        ""
+      ],
+      [
+        "V2",
+        "gEligible",
+        ""
+      ],
+      [
+        "gEligible",
+        "V3",
+        "no"
+      ],
+      [
+        "gEligible",
+        "V4",
+        "yes"
+      ],
+      [
+        "V4",
+        "V5",
+        ""
+      ],
+      [
+        "V5",
+        "gDecision",
+        ""
+      ],
+      [
+        "gDecision",
+        "V6",
+        "yes"
+      ],
+      [
+        "gDecision",
+        "V7",
+        "no"
+      ],
+      [
+        "V6",
+        "merge",
+        ""
+      ],
+      [
+        "V7",
+        "merge",
+        ""
+      ],
+      [
+        "V3",
+        "V8",
+        "invalid"
+      ],
+      [
+        "merge",
+        "V8",
+        ""
+      ],
+      [
+        "V8",
+        "end",
+        ""
+      ]
+    ],
+    "cumulative": [
+      [
+        "V4",
+        "C4 Change assessed\nBaseV(v,l) ∧ changeAssessed(v) ∧ changeResult(v,e)\nL = U\nX = {V1 · V2[false]}"
+      ],
+      [
+        "V6",
+        "C5 New licence version recorded\nC4(v,l) ∧ decided(v,approve) ∧ reasonRecorded(v) ∧ state(v,approved) ∧ varied(l,v) ∧ version(l,k+1)\nL = U · V5[approve] · V6\nX = {V1 · V2[false], U · V5[refuse]}"
+      ],
+      [
+        "V7",
+        "C6 Refusal preserves the licence\nC4(v,l) ∧ decided(v,refuse) ∧ reasonRecorded(v) ∧ state(v,refused) ∧ unchanged(l,v)\nL = U · V5[refuse] · V7\nX = {V1 · V2[false], U · V5[approve]}"
+      ]
+    ],
+    "message_targets": [
+      "V1",
+      "V8"
+    ],
+    "data_target": "V2"
+  },
+  {
+    "id": "P3",
+    "title": "Pollution reporting and investigation",
+    "service": "EPA-002",
+    "size": [
+      2940,
+      1750
+    ],
+    "lane_split": 1080,
+    "nodes": [
+      {
+        "id": "s",
+        "kind": "startEvent",
+        "x": 85,
+        "y": 258,
+        "w": 42,
+        "h": 42,
+        "label": ""
+      },
+      {
+        "id": "I1",
+        "kind": "serviceTask",
+        "x": 160,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "I1 Register pollution report"
+      },
+      {
+        "id": "I2",
+        "kind": "userTask",
+        "x": 405,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "I2 Triage risk and jurisdiction"
+      },
+      {
+        "id": "gEmergency",
+        "kind": "exclusiveGateway",
+        "x": 650,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": "Emergency?"
+      },
+      {
+        "id": "I3",
+        "kind": "serviceTask",
+        "x": 550,
+        "y": 530,
+        "w": 190,
+        "h": 100,
+        "label": "I3 Provide emergency guidance"
+      },
+      {
+        "id": "gJurisdiction",
+        "kind": "exclusiveGateway",
+        "x": 785,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": "EPA?"
+      },
+      {
+        "id": "I4",
+        "kind": "serviceTask",
+        "x": 800,
+        "y": 790,
+        "w": 190,
+        "h": 100,
+        "label": "I4 Record referral guidance"
+      },
+      {
+        "id": "I5",
+        "kind": "userTask",
+        "x": 925,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "I5 Assign investigator"
+      },
+      {
+        "id": "split",
+        "kind": "parallelGateway",
+        "x": 1180,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": ""
+      },
+      {
+        "id": "I6",
+        "kind": "userTask",
+        "x": 1300,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "I6 Collect evidence"
+      },
+      {
+        "id": "I7",
+        "kind": "userTask",
+        "x": 1300,
+        "y": 530,
+        "w": 190,
+        "h": 100,
+        "label": "I7 Review licence context"
+      },
+      {
+        "id": "join",
+        "kind": "parallelGateway",
+        "x": 1570,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": ""
+      },
+      {
+        "id": "I8",
+        "kind": "userTask",
+        "x": 1690,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "I8 Assess evidence"
+      },
+      {
+        "id": "gSubstantiated",
+        "kind": "exclusiveGateway",
+        "x": 1940,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": "Substantiated?"
+      },
+      {
+        "id": "I9",
+        "kind": "userTask",
+        "x": 2080,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "I9 Record regulatory action"
+      },
+      {
+        "id": "I10",
+        "kind": "userTask",
+        "x": 2080,
+        "y": 530,
+        "w": 190,
+        "h": 100,
+        "label": "I10 Record no further action"
+      },
+      {
+        "id": "merge",
+        "kind": "exclusiveGateway",
+        "x": 2330,
+        "y": 256,
+        "w": 48,
+        "h": 48,
+        "label": ""
+      },
+      {
+        "id": "I11",
+        "kind": "userTask",
+        "x": 2450,
+        "y": 230,
+        "w": 190,
+        "h": 100,
+        "label": "I11 Close investigation"
+      },
+      {
+        "id": "I12",
+        "kind": "serviceTask",
+        "x": 2450,
+        "y": 1160,
+        "w": 190,
+        "h": 100,
+        "label": "I12 Publish incident outcome"
+      },
+      {
+        "id": "end",
+        "kind": "endEvent",
+        "x": 2790,
+        "y": 1189,
+        "w": 42,
+        "h": 42,
+        "label": ""
+      }
+    ],
+    "edges": [
+      [
+        "s",
+        "I1",
+        ""
+      ],
+      [
+        "I1",
+        "I2",
+        ""
+      ],
+      [
+        "I2",
+        "gEmergency",
+        ""
+      ],
+      [
+        "gEmergency",
+        "I3",
+        "yes"
+      ],
+      [
+        "gEmergency",
+        "gJurisdiction",
+        "no"
+      ],
+      [
+        "gJurisdiction",
+        "I4",
+        "no"
+      ],
+      [
+        "gJurisdiction",
+        "I5",
+        "yes"
+      ],
+      [
+        "I5",
+        "split",
+        ""
+      ],
+      [
+        "split",
+        "I6",
+        ""
+      ],
+      [
+        "split",
+        "I7",
+        ""
+      ],
+      [
+        "I6",
+        "join",
+        ""
+      ],
+      [
+        "I7",
+        "join",
+        ""
+      ],
+      [
+        "join",
+        "I8",
+        ""
+      ],
+      [
+        "I8",
+        "gSubstantiated",
+        ""
+      ],
+      [
+        "gSubstantiated",
+        "I9",
+        "yes"
+      ],
+      [
+        "gSubstantiated",
+        "I10",
+        "no"
+      ],
+      [
+        "I9",
+        "merge",
+        ""
+      ],
+      [
+        "I10",
+        "merge",
+        ""
+      ],
+      [
+        "merge",
+        "I11",
+        ""
+      ],
+      [
+        "I11",
+        "I12",
+        ""
+      ],
+      [
+        "I3",
+        "I12",
+        "guidance"
+      ],
+      [
+        "I4",
+        "I12",
+        "referral"
+      ],
+      [
+        "I12",
+        "end",
+        ""
+      ]
+    ],
+    "cumulative": [
+      [
+        "join",
+        "C7 Evidence and context both available\nBaseI(i) ∧ evidenceRecorded(i) ∧ contextRecorded(i)\nL = N · (I6 || I7)\nX = {E, R}"
+      ],
+      [
+        "I11",
+        "C8 Substantiated investigation closed\nC7(i) ∧ evaluated(i) ∧ substantiatedResult(i,true) ∧ actionRecorded(i) ∧ state(i,actionRecorded) ∧ investigationClosed(i)\nL = N · (I6 || I7) · I8[true] · I9 · I11\nX = {E, R, N · (I6 || I7) · I8[false]}"
+      ],
+      [
+        "I4",
+        "C9 Referred outside EPA\nreceived(i) ∧ triaged(i) ∧ risk(i,nonEmergency) ∧ jurisdiction(i,other) ∧ guidance(i,referral) ∧ state(i,referred)\nL = R · I4\nX = {E, I1 · I2[nonEmergency,epa]}"
+      ]
+    ],
+    "message_targets": [
+      "I1",
+      "I12"
+    ],
+    "data_target": "I6"
+  }
+]

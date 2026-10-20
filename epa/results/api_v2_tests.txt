@@ -1,0 +1,26 @@
+/workspace/scratch/b353c0738607/tmp/epa_deps/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_both_parallel_checks_required (tests.test_api.ServiceTests.test_both_parallel_checks_required) ... ok
+test_emergency_and_referral_do_not_start_investigation (tests.test_api.ServiceTests.test_emergency_and_referral_do_not_start_investigation) ... ok
+test_failed_check_prevents_approval (tests.test_api.ServiceTests.test_failed_check_prevents_approval) ... ok
+test_idempotent_creation_and_conflict (tests.test_api.ServiceTests.test_idempotent_creation_and_conflict) ... ok
+test_incident_composition_and_join (tests.test_api.ServiceTests.test_incident_composition_and_join) ... ok
+test_information_loop_and_timer (tests.test_api.ServiceTests.test_information_loop_and_timer) ... ok
+test_lookup_failure_preserves_case_and_version (tests.test_api.ServiceTests.test_lookup_failure_preserves_case_and_version) ... ok
+test_ownership_and_officer_boundaries (tests.test_api.ServiceTests.test_ownership_and_officer_boundaries) ... ok
+test_persistence_and_input_validation (tests.test_api.ServiceTests.test_persistence_and_input_validation) ... ok
+test_stale_update_and_no_duplicate_event (tests.test_api.ServiceTests.test_stale_update_and_no_duplicate_event) ... ok
+test_unauthorised_requests (tests.test_api.ServiceTests.test_unauthorised_requests) ... ok
+test_variation_updates_owned_licence (tests.test_api.ServiceTests.test_variation_updates_owned_licence) ... ok
+test_case_lists_and_histories_enforce_ownership (tests.test_frontend_api.FrontendApiTests.test_case_lists_and_histories_enforce_ownership) ... ok
+test_empty_references_and_names_are_rejected (tests.test_frontend_api.FrontendApiTests.test_empty_references_and_names_are_rejected) ... ok
+test_export_formats_and_permissions (tests.test_frontend_api.FrontendApiTests.test_export_formats_and_permissions) ... ok
+test_group_identity_dependency_sets_stable_record_owner (tests.test_frontend_api.FrontendApiTests.test_group_identity_dependency_sets_stable_record_owner) ... ok
+test_incident_read_api_and_boolean_validation (tests.test_frontend_api.FrontendApiTests.test_incident_read_api_and_boolean_validation) ... ok
+test_invalid_commands_do_not_modify_data (tests.test_frontend_api.FrontendApiTests.test_invalid_commands_do_not_modify_data) ... ok
+test_me_and_licence_listing_are_authorised (tests.test_frontend_api.FrontendApiTests.test_me_and_licence_listing_are_authorised) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.579s
+
+OK

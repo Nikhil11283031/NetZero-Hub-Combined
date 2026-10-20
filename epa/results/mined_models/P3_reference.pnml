@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="P3_reference" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>P3_reference</text>
+    </name>
+    <page id="n0">
+      <place id="result">
+        <name>
+          <text>result</text>
+        </name>
+      </place>
+      <place id="context_in">
+        <name>
+          <text>context_in</text>
+        </name>
+      </place>
+      <place id="conclusion">
+        <name>
+          <text>conclusion</text>
+        </name>
+      </place>
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="evidence_in">
+        <name>
+          <text>evidence_in</text>
+        </name>
+      </place>
+      <place id="received">
+        <name>
+          <text>received</text>
+        </name>
+      </place>
+      <place id="triaged">
+        <name>
+          <text>triaged</text>
+        </name>
+      </place>
+      <place id="evidence_done">
+        <name>
+          <text>evidence_done</text>
+        </name>
+      </place>
+      <place id="context_done">
+        <name>
+          <text>context_done</text>
+        </name>
+      </place>
+      <place id="assessed">
+        <name>
+          <text>assessed</text>
+        </name>
+      </place>
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <transition id="I2">
+        <name>
+          <text>I2</text>
+        </name>
+      </transition>
+      <transition id="I9">
+        <name>
+          <text>I9</text>
+        </name>
+      </transition>
+      <transition id="I11">
+        <name>
+          <text>I11</text>
+        </name>
+      </transition>
+      <transition id="I12">
+        <name>
+          <text>I12</text>
+        </name>
+      </transition>
+      <transition id="I1">
+        <name>
+          <text>I1</text>
+        </name>
+      </transition>
+      <transition id="I4">
+        <name>
+          <text>I4</text>
+        </name>
+      </transition>
+      <transition id="I5">
+        <name>
+          <text>I5</text>
+        </name>
+      </transition>
+      <transition id="I3">
+        <name>
+          <text>I3</text>
+        </name>
+      </transition>
+      <transition id="I6">
+        <name>
+          <text>I6</text>
+        </name>
+      </transition>
+      <transition id="I7">
+        <name>
+          <text>I7</text>
+        </name>
+      </transition>
+      <transition id="I8">
+        <name>
+          <text>I8</text>
+        </name>
+      </transition>
+      <transition id="I10">
+        <name>
+          <text>I10</text>
+        </name>
+      </transition>
+      <arc id="140340119487744" source="I3" target="result"/>
+      <arc id="140340119860480" source="I4" target="result"/>
+      <arc id="140340121963648" source="I6" target="evidence_done"/>
+      <arc id="140340119413120" source="I10" target="conclusion"/>
+      <arc id="140340119914112" source="conclusion" target="I11"/>
+      <arc id="140340119926400" source="result" target="I12"/>
+      <arc id="140340121971856" source="evidence_in" target="I6"/>
+      <arc id="140340119862304" source="start" target="I1"/>
+      <arc id="140340121976608" source="I7" target="context_done"/>
+      <arc id="140340121965472" source="evidence_done" target="I8"/>
+      <arc id="140340081403296" source="I9" target="conclusion"/>
+      <arc id="140340119925536" source="I12" target="end"/>
+      <arc id="140340117168944" source="received" target="I2"/>
+      <arc id="140340118571584" source="triaged" target="I4"/>
+      <arc id="140340121625920" source="I5" target="evidence_in"/>
+      <arc id="140340121963840" source="I8" target="assessed"/>
+      <arc id="140340081409728" source="assessed" target="I9"/>
+      <arc id="140340119412544" source="assessed" target="I10"/>
+      <arc id="140340119491920" source="triaged" target="I3"/>
+      <arc id="140340119862880" source="I1" target="received"/>
+      <arc id="140340118578016" source="triaged" target="I5"/>
+      <arc id="140340121975264" source="context_done" target="I8"/>
+      <arc id="140340118575712" source="I11" target="result"/>
+      <arc id="140340117164528" source="I2" target="triaged"/>
+      <arc id="140340121627120" source="I5" target="context_in"/>
+      <arc id="140340121965040" source="context_in" target="I7"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="end">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

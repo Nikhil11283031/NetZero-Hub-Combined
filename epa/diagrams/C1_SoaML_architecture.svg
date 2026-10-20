@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1540" height="890" viewBox="0 0 1540 890">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#253b50"/></marker><marker id="open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto-start-reverse"><path d="M0,0 L10,4 L0,8" fill="none" stroke="#253b50"/></marker><marker id="triangle" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 Z" fill="white" stroke="#253b50"/></marker><marker id="circle" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><circle cx="4" cy="4" r="3" fill="#253b50"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="35" y="38.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="29" fill="#132f44" text-anchor="start">C1 Services architecture and participant ports</text>
+<ellipse cx="770.0" cy="420.0" rx="735.0" ry="340.0" fill="#f5f9fc" stroke="#253b50" stroke-width="2" stroke-dasharray="9 6"/>
+<text x="770" y="120.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" fill="#132f44" text-anchor="middle">«ServicesArchitecture» NetZero environmental services</text>
+<rect x="100" y="345" width="300" height="155" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="250.0" y="407.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="25" fill="#132f44" text-anchor="middle">«Participant»</text>
+<text x="250.0" y="438.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="25" fill="#132f44" text-anchor="middle">consumer : NetZeroHub</text>
+<rect x="1120" y="345" width="310" height="155" rx="0" fill="#f1f6fa" stroke="#253b50" stroke-width="2"/>
+<text x="1275.0" y="407.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="25" fill="#132f44" text-anchor="middle">«Participant»</text>
+<text x="1275.0" y="438.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="25" fill="#132f44" text-anchor="middle">provider : NSW EPA</text>
+<ellipse cx="770.0" cy="260.0" rx="225.0" ry="80.0" fill="#f5f9fc" stroke="#253b50" stroke-width="2" stroke-dasharray="9 6"/>
+<text x="770.0" y="235.2" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">«ServiceContract»</text>
+<text x="770.0" y="260.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">LicenceManagementContract</text>
+<text x="770.0" y="284.8" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">EPA-001</text>
+<ellipse cx="770.0" cy="620.0" rx="225.0" ry="80.0" fill="#f5f9fc" stroke="#253b50" stroke-width="2" stroke-dasharray="9 6"/>
+<text x="770.0" y="595.2" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">«ServiceContract»</text>
+<text x="770.0" y="620.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">PollutionManagementContract</text>
+<text x="770.0" y="644.8000000000001" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" fill="#132f44" text-anchor="middle">EPA-002</text>
+<rect x="390" y="365" width="20" height="20" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<rect x="1110" y="365" width="20" height="20" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<rect x="390" y="455" width="20" height="20" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<rect x="1110" y="455" width="20" height="20" rx="0" fill="white" stroke="#253b50" stroke-width="2"/>
+<polyline points="410,375 490,375 545,260" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6"/>
+<polyline points="995,260 1040,375 1110,375" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6"/>
+<polyline points="410,465 490,465 545,620" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6"/>
+<polyline points="995,620 1040,465 1110,465" fill="none" stroke="#253b50" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="170" y="315.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">«Request» ports</text>
+<text x="1150" y="315.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">«Service» ports</text>
+<text x="460" y="395.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="start">licence</text>
+<text x="460" y="418.56" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="start">consumer</text>
+<text x="1020" y="300.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="start">licence</text>
+<text x="1020" y="323.56" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="start">provider</text>
+<text x="470" y="520.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="start">reporter</text>
+<text x="1010" y="575.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="19" fill="#132f44" text-anchor="start">investigator</text>
+<text x="40" y="808.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">Dashed ellipse = UML collaboration. Dashed connectors bind participant roles to service contract roles.</text>
+<text x="40" y="845.0" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" fill="#132f44" text-anchor="start">The platform aggregates the services; licensing and regulatory decisions remain with the provider role.</text>
+</svg>

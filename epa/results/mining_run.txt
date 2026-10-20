@@ -1,0 +1,37 @@
+
+[93m============================================================[0m
+
+  Welcome to [96mPM4Py[0m — Community Version
+  Open-Source License (AGPL v3)
+
+  📚 Docs & Examples:
+     https://processintelligence.solutions/pm4py
+
+  ⚖️  [93mLicense: AGPL v3 — Commercial use requires open-sourcing your application.[0m
+     Business use without open-sourcing? A commercial license is available:
+     https://processintelligence.solutions/pm4py#licensing
+
+[93m============================================================[0m
+
+/workspace/scratch/b353c0738607/tmp/deps/pm4py/utils.py:1027: UserWarning: Install the optional requirement `r4pm` to import/export files faster. `rustxes` remains supported as a fallback.
+  warnings.warn(
+{
+  "P1": {
+    "cases": 100,
+    "events": 809,
+    "mean_hours": 132.77,
+    "reference_fitness": 1.0
+  },
+  "P2": {
+    "cases": 100,
+    "events": 572,
+    "mean_hours": 38.07,
+    "reference_fitness": 1.0
+  },
+  "P3": {
+    "cases": 100,
+    "events": 735,
+    "mean_hours": 37.13,
+    "reference_fitness": 1.0
+  }
+}

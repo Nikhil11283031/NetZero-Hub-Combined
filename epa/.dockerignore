@@ -1,0 +1,15 @@
+.git
+.venv
+.env
+.env.*
+data
+frontend
+results
+diagrams
+models
+docs
+*.pdf
+*.docx
+__pycache__
+**/__pycache__
+*.sqlite*

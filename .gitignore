@@ -1,0 +1,22 @@
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+backend/db.sqlite3
+backend/staticfiles/
+
+# Node / build output
+node_modules/
+frontend/dist/
+epa/data/
+*.sqlite*
+frontend/test-results/
+frontend/playwright-report/
+
+# macOS
+.DS_Store

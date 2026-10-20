@@ -1,0 +1,17 @@
+{
+  "mode": "live local HTTP demonstration",
+  "licence": {
+    "id": "P1-09b4965d24fe",
+    "state": "APPROVED"
+  },
+  "variation": {
+    "id": "P2-30e69586e4aa",
+    "state": "APPROVED"
+  },
+  "incident": {
+    "id": "P3-537a63baa806",
+    "state": "ACTION_RECORDED"
+  },
+  "licence_context_version": 2,
+  "cross_service_http": true
+}
